@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Agrupamento 1126" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+	<div id="header" class="row">
+		<%= render 'layouts/header' %>
+	</div>
+	<div id="page" class="row collapse">
+		<div class="columns medium-3 large-3">
+			<%= render 'layouts/sidebar' %>
+		</div>
+		<div class="columns medium-9 large-9">
+			<div class="row">
+				<%= yield %>
+			</div>
+		</div>
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<div class="row">
+		<%= render 'layouts/footer' %>
+	</div>
+
+  </body>
+</html>
