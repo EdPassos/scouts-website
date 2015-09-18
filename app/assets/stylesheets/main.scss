@@ -4,5 +4,11 @@
 	background-color: $white;
 }
 .content {
-	padding: rem-calc(50) rem-calc(75) !important;
+	@media #{$medium-up} {
+		padding: rem-calc(50) rem-calc(75) !important;
+	}
+	@media #{$small-only} {
+		padding: rem-calc(20) rem-calc(25) !important;
+	}
+
 }
