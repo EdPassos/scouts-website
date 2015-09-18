@@ -85,7 +85,8 @@ $include-html-global-classes: $include-html-classes;
 
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-
+@import 'colors';
+@import 'fonts';
 // We use these to define default font stacks
 // $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 $font-family-sans-serif: "Cabin", sans-serif;
@@ -125,7 +126,7 @@ $font-family-sans-serif: "Cabin", sans-serif;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: #2c3e50;
+$body-bg: $asbestos;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
