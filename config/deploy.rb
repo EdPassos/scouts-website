@@ -55,6 +55,7 @@ namespace :deploy do
   after :publishing, :restart do
     on roles(:web), in: :sequence, wait: 5 do
       within release_path do
+        execute :rake, 'assets:clean'
         execute :rake, 'assets:precompile'
         execute :touch, 'tmp/restart.txt'
       end
