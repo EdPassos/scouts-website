@@ -1,10 +1,9 @@
 @import 'foundation_and_overrides';
 .sidebar {
-	background-color: $carrot;
-}
-#menu {
-	background-color: $carrot;
-	a {
-		color: white;
+	background-color: $clouds;
+	#menu {
+		a {
+			color: $carrot;
+		}
 	}
 }

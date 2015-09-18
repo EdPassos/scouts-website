@@ -14,23 +14,19 @@
 
   <body>
 
-	<div id="header">
+	<%= render 'layouts/topbar' %>
+	<header>
 		<%= render 'layouts/header' %>
-	</div>
-	<div id="page" class="row collapse" data-equalizer>
-		<div class="columns medium-3 large-3 sidebar" data-equalizer-watch>
-			<%= render 'layouts/sidebar' %>
-		</div>
-		<div class="columns medium-9 large-9 content" data-equalizer-watch>
-			<div class="row">
+	</header>
+	<div id="page">
+			<div class="row content">
 				<%= yield %>
 			</div>
-		</div>
+	</div>
+	<footer>
 		<div style="clear: both;">&nbsp;</div>
-	</div>
-	<div class="row">
 		<%= render 'layouts/footer' %>
-	</div>
+	</footer>
 
   </body>
 </html>
