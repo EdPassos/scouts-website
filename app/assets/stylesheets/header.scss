@@ -15,9 +15,31 @@
 }
 
 header {
-	background-color: $amethyst;
-	padding: rem-calc(70) 0;
+	background-color: $clouds;
+	@media #{$small-only} {
+		@media #{$portrait} {
+			padding: em-calc(30) 0;
+			height: 30%;
+		}
+		@media #{$landscape} {
+			padding: 0 0;
+			height: 60%;
+		}
+	}
+	@media #{$medium-only} {
+		padding: em-calc(50) 0;
+		height: 40%;
+	}
+	@media #{$large-up} {
+		padding: em-calc(70) 0;
+		height: 50%;
+	}
 
 	#header-img {
+		height: 100%;
+		background-image: image-url("banner.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
 	}
 }
