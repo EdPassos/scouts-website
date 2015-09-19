@@ -27,6 +27,9 @@
 		<div style="clear: both;">&nbsp;</div>
 		<%= render 'layouts/footer' %>
 	</footer>
+	<% if Rails.env.production? %>
+		<%= render 'layouts/ganalytics' %>
+	<% end %>
 
   </body>
 </html>
