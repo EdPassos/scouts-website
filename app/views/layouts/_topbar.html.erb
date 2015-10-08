@@ -10,7 +10,15 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-		<li><%= link_to "Contactos", "#" %></li>
+		<% if user_signed_in? %>
+			<li class="has-dropdown"><%= link_to current_user.email, "#" %>
+				<ul class="dropdown">
+					<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+				</ul>
+			</li>
+		<% else %>
+			<li><%= link_to "Entrar", new_user_session_path %></li>
+		<% end %>
     </ul>
 
     <!-- Left Nav Section -->
@@ -27,6 +35,7 @@
 		<li><%= link_to "Fotografias", "#" %></li>
 		<li><%= link_to "Formações", "#" %></li>
 		<li><%= link_to "Docs", "#" %></li>
+		<li><%= link_to "Contactos", "#" %></li>
     </ul>
   </section>
 </nav>

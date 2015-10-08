@@ -47,3 +47,6 @@ end
 
 # Design Framework
 gem 'foundation-rails'
+
+# Authentication
+gem 'devise'

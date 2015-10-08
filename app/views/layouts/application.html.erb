@@ -19,9 +19,13 @@
 		<%= render 'layouts/header' %>
 	</header>
 	<div id="page">
-			<div class="row content">
-				<%= yield %>
-			</div>
+		<div class="row content">
+			<% if notice or alert %>
+				<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+			<% end %>
+			<%= yield %>
+		</div>
 	</div>
 	<footer>
 		<div style="clear: both;">&nbsp;</div>
