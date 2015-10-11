@@ -15,17 +15,14 @@
   <body>
 
 	<%= render 'layouts/topbar' %>
-	<header>
-		<%= render 'layouts/header' %>
-	</header>
 	<div id="page">
-		<div class="row content">
-			<% if notice or alert %>
+		<% if notice or alert %>
+			<div class="row">
 				<p class="notice"><%= notice %></p>
 				<p class="alert"><%= alert %></p>
-			<% end %>
-			<%= yield %>
-		</div>
+			</div>
+		<% end %>
+		<%= yield %>
 	</div>
 	<footer>
 		<div style="clear: both;">&nbsp;</div>

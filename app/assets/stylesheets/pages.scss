@@ -1,3 +1,34 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'foundation_and_overrides';
+
+header {
+	background-color: $clouds;
+	@media #{$small-only} {
+		@media #{$portrait} {
+			padding: em-calc(30) 0;
+			height: em-calc(300);
+		}
+		@media #{$landscape} {
+			padding: 0 0;
+			height: em-calc(200);
+		}
+	}
+	@media #{$medium-only} {
+		padding: em-calc(50) 0;
+		height: em-calc(500);
+	}
+	@media #{$large-up} {
+		padding: em-calc(70) 0;
+		height: em-calc(600);
+	}
+
+	#header-img {
+		height: 100%;
+		background-image: image-url("banner.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+	}
+}
