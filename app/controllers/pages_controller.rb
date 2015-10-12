@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def history
   end
+
+  def contacts
+  end
 end
