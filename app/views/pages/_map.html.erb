@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+	var map;
+	function initMap() {
+		hqLatLng = {lat: 38.72155, lng: -9.30687}
+		map = new google.maps.Map(document.getElementById('map'), {
+				center: hqLatLng,
+				zoom: 17
+			});
+
+		var marker_hq = new google.maps.Marker({
+				position: hqLatLng,
+				map: map,
+				title: 'Escuteiros de Porto Salvo'
+			});
+	}
+
+</script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa-ivqXBzxGk88KpQ95sjGq-wmW8DkAkQ&callback=initMap">
+</script>

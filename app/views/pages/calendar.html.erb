@@ -1,0 +1,32 @@
+<div class="content">
+	<div class="row">
+		<div class="columns">
+			<h1><%= @year %></h1>
+			<h2><%= @month %></h2>
+			<table>
+				<thead>
+					<th width="200">Segunda</th>
+					<th width="200">Terça</th>
+					<th width="200">Quarta</th>
+					<th width="200">Quinta</th>
+					<th width="200">Sexta</th>
+					<th width="200">Sábado</th>
+					<th width="200">Domingo</th>
+				</thead>
+				<tbody>
+					<% while @start < @finish %>
+						<tr>
+							<% (@start.beginning_of_week..@start.end_of_week).each do |day| %>
+								<td>
+									<%= day.day %><br>
+									<%= link_to 'Evento', '#' %>
+								</td>
+							<% end %>
+						</tr>
+					<% @start = @start.next_week %>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

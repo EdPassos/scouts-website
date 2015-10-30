@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'contactos' => 'pages#contacts'
   get 'history' => 'pages#history'
+  get 'maps' => 'pages#maps'
+  get 'calendar/' => 'pages#calendar'
+  get 'calendar/:year/:month' => 'pages#calendar'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
