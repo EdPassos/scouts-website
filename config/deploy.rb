@@ -55,8 +55,8 @@ namespace :deploy do
   after :publishing, :restart do
     on roles(:web), in: :sequence, wait: 5 do
       within release_path do
-        execute :rake, 'assets:clean'
-        execute :rake, 'assets:precompile'
+        #execute :rake, 'assets:clean'
+        #execute :rake, 'assets:precompile'
         execute :touch, 'tmp/restart.txt'
       end
     end
@@ -66,8 +66,8 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       within release_path do
-      #execute :rake, 'cache:clear'
-      #execute :rake, 'assets:precompile'
+      execute :rake, 'cache:clear'
+      execute :rake, 'assets:precompile'
       end
     end
   end
