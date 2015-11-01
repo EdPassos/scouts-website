@@ -50,3 +50,6 @@ gem 'foundation-rails'
 
 # Authentication
 gem 'devise'
+
+#Meta-Tags
+gem 'meta-tags', github: 'kpumuk/meta-tags'
