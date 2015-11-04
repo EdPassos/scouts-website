@@ -18,8 +18,13 @@
 						<tr>
 							<% (@start.beginning_of_week..@start.end_of_week).each do |day| %>
 								<td>
+									<% if day.month == @month %>
+										<span>
+									<% else %>
+										<span style="color: grey">
+									<% end %>
 									<%= day.day %><br>
-									<%= link_to 'Evento', '#' %>
+									<%= link_to 'Evento', '#' %></span>
 								</td>
 							<% end %>
 						</tr>
