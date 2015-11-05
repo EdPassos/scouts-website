@@ -24,8 +24,9 @@
 										<span style="color: grey">
 									<% end %>
 									<%= day.day %><br>
-
-									<%= link_to 'Evento', '#' %></span>
+									<% @events.where(date: day.beginning_of_day..day.end_of_day).each do |event| %>
+										<%= link_to event.title, event %></span>
+									<% end %>
 								</td>
 							<% end %>
 						</tr>
