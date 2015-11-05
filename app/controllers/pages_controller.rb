@@ -24,5 +24,6 @@ class PagesController < ApplicationController
 	  date = DateTime.new @year, @month
 	  @start = date.beginning_of_month.beginning_of_week
 	  @finish = date.end_of_month.end_of_week
+	  @events = Event.where(date: @start..@finish)
   end
 end

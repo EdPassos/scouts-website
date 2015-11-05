@@ -1,0 +1,8 @@
+<div class='content'>
+	<%= form_for @event do |f| %>
+		<%= f.text_field :title %>
+		<%= f.text_area :description %>
+		<%= f.datetime_field :date %>
+		<%= f.submit %>
+	<% end %>
+</div>

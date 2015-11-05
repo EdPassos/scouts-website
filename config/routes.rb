@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
   devise_for :users
   get 'pages/index'
   get 'contactos' => 'pages#contacts'
   get 'history' => 'pages#history'
   get 'maps' => 'pages#maps'
+
+  # Calendar
   get 'calendar/' => 'pages#calendar'
   get 'calendar/:year/:month' => 'pages#calendar'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  resources :events
 
   # You can have the root of your site routed with "root"
   root 'pages#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
