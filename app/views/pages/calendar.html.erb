@@ -4,7 +4,7 @@
 			<h1><%= @year %></h1>
 			<h2><%= @month %></h2>
 			<table>
-				<thead>
+				<thead class="hidden-for-small-only">
 					<th width="200">Segunda</th>
 					<th width="200">Terça</th>
 					<th width="200">Quarta</th>
@@ -12,6 +12,15 @@
 					<th width="200">Sexta</th>
 					<th width="200">Sábado</th>
 					<th width="200">Domingo</th>
+				</thead>
+				<thead class="hidden-for-medium-up">
+					<th width="200">Seg</th>
+					<th width="200">Ter</th>
+					<th width="200">Qua</th>
+					<th width="200">Qui</th>
+					<th width="200">Sex</th>
+					<th width="200">Sáb</th>
+					<th width="200">Dom</th>
 				</thead>
 				<tbody>
 					<% while @start < @finish %>

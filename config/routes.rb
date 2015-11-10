@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   get 'history' => 'pages#history'
   get 'maps' => 'pages#maps'
 
+  # Age groups
+  get 'alcateia' => 'pages#alcateia'
+  get 'expedicao' => 'pages#expedicao'
+  get 'comunidade' => 'pages#comunidade'
+  get 'cla' => 'pages#cla'
+
   # Calendar
   get 'calendar/' => 'pages#calendar'
   get 'calendar/:year/:month' => 'pages#calendar'

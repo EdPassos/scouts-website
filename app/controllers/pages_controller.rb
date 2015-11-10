@@ -2,6 +2,18 @@ class PagesController < ApplicationController
   def index
   end
 
+  def alcateia
+  end
+
+  def expedicao
+  end
+
+  def comunidade
+  end
+
+  def cla
+  end
+
   def history
   end
 
