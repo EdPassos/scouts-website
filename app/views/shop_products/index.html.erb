@@ -1,0 +1,26 @@
+<div class='content'>
+	<div class="row">
+		<div class="columns">
+			<h1><%= title "Loja" %></h1>
+		</div>
+	</div>
+	<div class="contain-to-grid">
+		<section class="top-bar-section">
+			<nav class="top-bar" data-topbar role="navigation">
+				<ul class="left">
+					<li><%= link_to "Novo", new_shop_product_path %></li>
+				</ul>
+			</nav>
+		</section>
+	</div>
+	<div class="row">
+		<% @shop_products.each do |product| %>
+			<div class="columns small-4 end">
+				<h2><%= product.name %></h2>
+				<p><%= product.description %></p>
+				<p><strong><%= product.price %> &#8364;</strong></p>
+				<%= link_to 'Eliminar', product, method: :delete %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'comunidade' => 'pages#comunidade'
   get 'cla' => 'pages#cla'
 
+  # Shop
+  get 'shop' => 'shop_products#index'
+  resources :shop_products, :except => [:index]
+
   # Calendar
   get 'calendar/' => 'pages#calendar'
   get 'calendar/:year/:month' => 'pages#calendar'
