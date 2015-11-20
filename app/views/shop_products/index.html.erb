@@ -1,7 +1,15 @@
 <div class='content'>
 	<div class="row">
-		<div class="columns">
+		<div class="columns medium-3 small-6">
 			<h1><%= title "Loja" %></h1>
+		</div>
+		<div class="columns medium-2 small-6">
+			<%= link_to '+Novo', new_shop_product_path, class: "expand button tiny" %>
+		</div>
+	</div>
+	<!--
+	<div class="row">
+		<div class="columns">
 			<div class="contain-to-grid">
 				<section class="top-bar-section">
 					<nav class="top-bar" data-topbar role="navigation">
@@ -13,14 +21,20 @@
 			</div>
 		</div>
 	</div>
+	-->
 	<div class="row">
 		<% @shop_products.each do |product| %>
-			<div class="columns small-4 end">
+			<div class="columns medium-4 end">
 				<div class="panel">
+					<%= image_tag product.photo.url(:medium) %>
 					<h2><%= product.name %></h2>
 					<p><%= product.description %></p>
-					<p><strong><%= product.price %> &#8364;</strong></p>
-					<%= link_to 'Eliminar', product, method: :delete %>
+					<p><strong><%= sprintf '%.2f', product.price %> &#8364;</strong></p>
+					<ul class="stack button-group">
+						<li><%= link_to 'Adicionar', '#', class: "button expand" %></li>
+						<li><%= link_to 'Editar', edit_shop_product_path(product), class: "button info" %></li>
+						<li><%= link_to 'Eliminar', product, method: :delete, class: "button alert" %></li>
+					</ul>
 				</div>
 			</div>
 		<% end %>

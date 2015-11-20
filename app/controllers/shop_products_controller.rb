@@ -1,4 +1,6 @@
 class ShopProductsController < ApplicationController
+	before_action :set_shop_product, only: [:edit, :update, :destroy]
+
 	def index
 		@shop_products = ShopProduct.all
 	end
@@ -16,14 +18,28 @@ class ShopProductsController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+
+	def update
+		if @shop_product.update shop_product_params
+			redirect_to shop_path
+		else
+			render :edit
+		end
+	end
+
 	def destroy
-		@shop_product = ShopProduct.find params[:id]
 		@shop_product.destroy
 		redirect_to shop_path
 	end
 
 	private
 	def shop_product_params
-		params.require(:shop_product).permit(:name, :description, :price)
+		params.require(:shop_product).permit(:name, :description, :price, :photo)
+	end
+
+	def set_shop_product
+		@shop_product = ShopProduct.find params[:id]
 	end
 end
