@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120193557) do
+ActiveRecord::Schema.define(version: 20151120204517) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20151120193557) do
     t.datetime "photo_updated_at"
   end
 
-  create_table "shopping_carts", force: :cascade do |t|
+  create_table "shopping_cart_products", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
     t.integer  "shop_product_id", limit: 4
     t.integer  "quantity",        limit: 4
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20151120193557) do
     t.datetime "updated_at",                null: false
   end
 
-  add_index "shopping_carts", ["shop_product_id"], name: "index_shopping_carts_on_shop_product_id", using: :btree
-  add_index "shopping_carts", ["user_id"], name: "index_shopping_carts_on_user_id", using: :btree
+  add_index "shopping_cart_products", ["shop_product_id"], name: "index_shopping_cart_products_on_shop_product_id", using: :btree
+  add_index "shopping_cart_products", ["user_id"], name: "index_shopping_cart_products_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -76,6 +76,6 @@ ActiveRecord::Schema.define(version: 20151120193557) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "people", "users"
-  add_foreign_key "shopping_carts", "shop_products"
-  add_foreign_key "shopping_carts", "users"
+  add_foreign_key "shopping_cart_products", "shop_products"
+  add_foreign_key "shopping_cart_products", "users"
 end
