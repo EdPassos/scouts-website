@@ -1,5 +1,6 @@
 class ShopProductsController < ApplicationController
 	before_action :set_shop_product, only: [:edit, :update, :destroy]
+	before_action :authenticate_user!, only: [:add_to_cart]
 
 	def index
 		@shop_products = ShopProduct.all
@@ -32,6 +33,10 @@ class ShopProductsController < ApplicationController
 	def destroy
 		@shop_product.destroy
 		redirect_to shop_path
+	end
+
+	def add_to_cart
+		redirect_to :back
 	end
 
 	private

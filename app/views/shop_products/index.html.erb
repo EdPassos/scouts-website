@@ -4,7 +4,7 @@
 			<h1><%= title "Loja" %></h1>
 		</div>
 		<div class="columns medium-2 small-6">
-			<%= link_to '+Novo', new_shop_product_path, class: "expand button tiny" %>
+			<%= link_to '+ Novo', new_shop_product_path, class: "expand button tiny" %>
 		</div>
 	</div>
 	<!--
@@ -31,7 +31,7 @@
 					<p><%= product.description %></p>
 					<p><strong><%= sprintf '%.2f', product.price %> &#8364;</strong></p>
 					<ul class="stack button-group">
-						<li><%= link_to 'Adicionar', '#', class: "button expand" %></li>
+						<li><%= link_to 'Adicionar', add_product_to_cart_path(product), class: "button expand" %></li>
 						<li><%= link_to 'Editar', edit_shop_product_path(product), class: "button info" %></li>
 						<li><%= link_to 'Eliminar', product, method: :delete, class: "button alert" %></li>
 					</ul>

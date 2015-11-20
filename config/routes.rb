@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # Shop
   get 'shop' => 'shop_products#index'
+  get 'shop/:id/add_to_cart' => 'shop_products#add_to_cart', as: 'add_product_to_cart'
   resources :shop_products, :except => [:index]
 
   # Calendar
