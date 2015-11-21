@@ -1,5 +1,5 @@
 class ShopProductsController < ApplicationController
-	before_action :set_shop_product, only: [:edit, :update, :destroy]
+	before_action :set_shop_product, only: [:edit, :update, :destroy, :add_to_cart]
 	before_action :authenticate_user!, only: [:add_to_cart]
 
 	def index
@@ -36,7 +36,17 @@ class ShopProductsController < ApplicationController
 	end
 
 	def add_to_cart
-		redirect_to :back
+		cart_product = current_user.shopping_cart_products.find_by(shop_product: @shop_product)
+		if cart_product == nil
+			# Product wasn't added to the cart
+			cart_product = current_user.shopping_cart_products.new
+			cart_product.shop_product = @shop_product
+			cart_product.quantity = 1
+		else
+			cart_product.quantity = cart_product.quantity + 1
+		end
+		cart_product.save
+		redirect_to :back, notice: @shop_product.name + ' adicionado ao carrinho'
 	end
 
 	private
