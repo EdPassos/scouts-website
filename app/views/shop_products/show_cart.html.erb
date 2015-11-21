@@ -1,0 +1,23 @@
+<div class='content'>
+	<div class="row">
+		<div class="columns">
+			<h1><%= title "Carrinho de Compras" %></h1>
+			<table>
+				<thead class="hidden-for-small-only">
+					<th width=200>Produto</th>
+					<th></th>
+					<th></th>
+				</thead>
+				<tbody>
+					<% current_user.shopping_cart_products.each do |cart_product| %>
+						<tr>
+							<td><%= cart_product.shop_product.name %></td>
+							<td><%= cart_product.quantity %></td>
+							<td><%= link_to "X", "#", class: "alert label" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
