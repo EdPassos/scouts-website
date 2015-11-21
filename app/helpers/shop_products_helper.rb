@@ -18,4 +18,22 @@ module ShopProductsHelper
 		end
 		menu_string
 	end
+
+	def decimal_to_euro(decimal)
+		s = sprintf '%.2f €', decimal
+		s.html_safe
+	end
+
+	def cart_product_total(cart_product)
+		price = cart_product.shop_product.price
+		total = price * cart_product.quantity
+	end
+
+	def cart_total(cart)
+		total = 0
+		cart.each do |cart_product|
+			total += cart_product_total cart_product
+		end
+		total
+	end
 end
