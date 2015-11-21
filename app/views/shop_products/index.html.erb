@@ -22,9 +22,10 @@
 		</div>
 	</div>
 	-->
-	<div class="row">
+	<div class="row" data-equalizer>
+		<% count = 0 %>
 		<% @shop_products.each do |product| %>
-			<div class="columns medium-4 end">
+			<div class="columns medium-4 large-4 end" data-equalizer-watch>
 				<div class="panel">
 					<%= image_tag product.photo.url(:medium) %>
 					<h2><%= product.name %></h2>
@@ -37,6 +38,11 @@
 					</ul>
 				</div>
 			</div>
+			<% count += 1 %>
+			<% if count == 3 %>
+				<div class="row" data-equalizer>
+				</div>
+			<% end %>
 		<% end %>
 	</div>
 </div>

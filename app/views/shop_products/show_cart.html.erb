@@ -13,7 +13,7 @@
 						<tr>
 							<td><%= cart_product.shop_product.name %></td>
 							<td><%= cart_product.quantity %></td>
-							<td><%= link_to "X", "#", class: "alert label" %></td>
+							<td><%= link_to "X", remove_product_from_cart_path(cart_product.shop_product), class: "alert label" %></td>
 						</tr>
 					<% end %>
 				</tbody>
