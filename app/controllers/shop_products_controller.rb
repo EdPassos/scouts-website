@@ -50,6 +50,7 @@ class ShopProductsController < ApplicationController
 	end
 
 	def show_cart
+		@cart_products = current_user.shopping_cart_products.where( shop_order: nil)
 	end
 
 	def remove_from_cart

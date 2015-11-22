@@ -11,7 +11,7 @@
 					<th></th>
 				</thead>
 				<tbody>
-					<% current_user.shopping_cart_products.each do |cart_product| %>
+					<% @cart_products.each do |cart_product| %>
 						<tr>
 							<td><%= cart_product.shop_product.name %></td>
 							<td class="text-right"><%= cart_product.shop_product.price_str %></td>
@@ -26,8 +26,8 @@
 					<% end %>
 				</tbody>
 			</table>
-			<h3>Total: <%= decimal_to_euro(cart_total current_user.shopping_cart_products) %></h3>
-			<%= link_to "Finalizar compra", "#", class: "button" %>
+			<h3>Total: <%= decimal_to_euro(cart_total @cart_products) %></h3>
+			<%= link_to "Finalizar compra", shop_orders_path, class: "button", method: "post" %>
 		</div>
 	</div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120204517) do
+ActiveRecord::Schema.define(version: 20151122023259) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20151120204517) do
 
   add_index "people", ["user_id"], name: "index_people_on_user_id", using: :btree
 
+  create_table "shop_order_statuses", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "shop_orders", force: :cascade do |t|
+    t.integer  "shop_order_status_id", limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "shop_orders", ["shop_order_status_id"], name: "index_shop_orders_on_shop_order_status_id", using: :btree
+
   create_table "shop_products", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.text     "description",        limit: 65535
@@ -52,8 +67,10 @@ ActiveRecord::Schema.define(version: 20151120204517) do
     t.integer  "quantity",        limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "shop_order_id",   limit: 4
   end
 
+  add_index "shopping_cart_products", ["shop_order_id"], name: "index_shopping_cart_products_on_shop_order_id", using: :btree
   add_index "shopping_cart_products", ["shop_product_id"], name: "index_shopping_cart_products_on_shop_product_id", using: :btree
   add_index "shopping_cart_products", ["user_id"], name: "index_shopping_cart_products_on_user_id", using: :btree
 
@@ -76,6 +93,8 @@ ActiveRecord::Schema.define(version: 20151120204517) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "people", "users"
+  add_foreign_key "shop_orders", "shop_order_statuses"
+  add_foreign_key "shopping_cart_products", "shop_orders"
   add_foreign_key "shopping_cart_products", "shop_products"
   add_foreign_key "shopping_cart_products", "users"
 end

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'shop/:id/remove_from_cart' => 'shop_products#remove_from_cart', as: 'remove_product_from_cart'
   get 'shop/:id/delete_from_cart' => 'shop_products#delete_from_cart', as: 'delete_product_from_cart'
   resources :shop_products, :except => [:index]
+  resources :shop_orders
 
   # Calendar
   get 'calendar/' => 'pages#calendar'

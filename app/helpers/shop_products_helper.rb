@@ -1,7 +1,7 @@
 module ShopProductsHelper
 	def products_in_cart
 		nr_of_products = 0
-		cart = current_user.shopping_cart_products
+		cart = current_user.shopping_cart_products.where(shop_order: nil)
 		
 		cart.each do |cart_product|
 			nr_of_products += cart_product.quantity
