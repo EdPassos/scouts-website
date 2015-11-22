@@ -1,5 +1,5 @@
 class ShopProductsController < ApplicationController
-	before_action :set_shop_product, only: [:edit, :update, :destroy, :add_to_cart, :remove_from_cart]
+	before_action :set_shop_product, only: [:edit, :update, :destroy, :add_to_cart, :remove_from_cart, :delete_from_cart]
 	before_action :authenticate_user!, only: [:add_to_cart, :show_cart]
 
 	def index
@@ -61,6 +61,12 @@ class ShopProductsController < ApplicationController
 			cart_product.save
 		end
 		redirect_to :back, notice: '1 ' + @shop_product.name + ' removido ao carrinho'
+	end
+
+	def delete_from_cart
+		cart_product = current_user.shopping_cart_products.find_by(shop_product: @shop_product)
+		cart_product.destroy
+		redirect_to :back, notice: @shop_product.name + ' removido ao carrinho'
 	end
 
 	private
