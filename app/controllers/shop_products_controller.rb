@@ -36,7 +36,7 @@ class ShopProductsController < ApplicationController
 	end
 
 	def add_to_cart
-		cart_product = current_user.shopping_cart_products.find_by(shop_product: @shop_product)
+		cart_product = current_user.shopping_cart_products.find_by(shop_product: @shop_product, shop_order: nil)
 		if cart_product == nil
 			# Product wasn't added to the cart
 			cart_product = current_user.shopping_cart_products.new

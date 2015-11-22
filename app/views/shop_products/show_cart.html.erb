@@ -2,32 +2,34 @@
 	<div class="row">
 		<div class="columns">
 			<h1><%= title "Carrinho de Compras" %></h1>
-			<table>
-				<thead class="hidden-for-small-only">
-					<th width=200>Produto</th>
-					<th width=100>Preço</th>
-					<th>Quantidade</th>
-					<th>Total</th>
-					<th></th>
-				</thead>
-				<tbody>
-					<% @cart_products.each do |cart_product| %>
-						<tr>
-							<td><%= cart_product.shop_product.name %></td>
-							<td class="text-right"><%= cart_product.shop_product.price_str %></td>
-							<td class="text-center">
-								<%= link_to "-", remove_product_from_cart_path(cart_product.shop_product), class: "label" %>
-								<span class="label info"><%= cart_product.quantity %></span>
-								<%= link_to "+", add_product_to_cart_path(cart_product.shop_product), class: "label" %>
-							</td>
-							<td class="text-right"><%= decimal_to_euro(cart_product_total cart_product) %></td>
-							<td><%= link_to "X", delete_product_from_cart_path(cart_product.shop_product), class: "alert label", data: { confirm: "Pretende remover este(s) item(s) do carrinho?" } %></td>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
-			<h3>Total: <%= decimal_to_euro(cart_total @cart_products) %></h3>
-			<%= link_to "Finalizar compra", shop_orders_path, class: "button", method: "post" %>
+			<% if @cart_products.length > 0 %>
+				<table>
+					<thead class="hidden-for-small-only">
+						<th width=200>Produto</th>
+						<th width=100>Preço</th>
+						<th>Quantidade</th>
+						<th>Total</th>
+						<th></th>
+					</thead>
+					<tbody>
+						<% @cart_products.each do |cart_product| %>
+							<tr>
+								<td><%= cart_product.shop_product.name %></td>
+								<td class="text-right"><%= cart_product.shop_product.price_str %></td>
+								<td class="text-center">
+									<%= link_to "-", remove_product_from_cart_path(cart_product.shop_product), class: "label" %>
+									<span class="label info"><%= cart_product.quantity %></span>
+									<%= link_to "+", add_product_to_cart_path(cart_product.shop_product), class: "label" %>
+								</td>
+								<td class="text-right"><%= decimal_to_euro(cart_product_total cart_product) %></td>
+								<td><%= link_to "X", delete_product_from_cart_path(cart_product.shop_product), class: "alert label", data: { confirm: "Pretende remover este(s) item(s) do carrinho?" } %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<h3>Total: <%= decimal_to_euro(cart_total @cart_products) %></h3>
+				<%= link_to "Finalizar compra", shop_orders_path, class: "button", method: "post" %>
+			<% end %>
 		</div>
 	</div>
 </div>
