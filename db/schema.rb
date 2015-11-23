@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122023259) do
+ActiveRecord::Schema.define(version: 20151123132811) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -43,11 +43,17 @@ ActiveRecord::Schema.define(version: 20151122023259) do
 
   create_table "shop_orders", force: :cascade do |t|
     t.integer  "shop_order_status_id", limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "user_id",              limit: 4
+    t.string   "proof_file_name",      limit: 255
+    t.string   "proof_content_type",   limit: 255
+    t.integer  "proof_file_size",      limit: 4
+    t.datetime "proof_updated_at"
   end
 
   add_index "shop_orders", ["shop_order_status_id"], name: "index_shop_orders_on_shop_order_status_id", using: :btree
+  add_index "shop_orders", ["user_id"], name: "index_shop_orders_on_user_id", using: :btree
 
   create_table "shop_products", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -94,6 +100,7 @@ ActiveRecord::Schema.define(version: 20151122023259) do
 
   add_foreign_key "people", "users"
   add_foreign_key "shop_orders", "shop_order_statuses"
+  add_foreign_key "shop_orders", "users"
   add_foreign_key "shopping_cart_products", "shop_orders"
   add_foreign_key "shopping_cart_products", "shop_products"
   add_foreign_key "shopping_cart_products", "users"

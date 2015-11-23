@@ -3,8 +3,11 @@
 		<div class="columns medium-3 small-6">
 			<h1><%= title "Loja" %></h1>
 		</div>
-		<div class="columns medium-2 small-6">
-			<%= link_to '+ Novo', new_shop_product_path, class: "expand button tiny" %>
+		<div class="columns medium-9 small-6 text-right">
+			<ul class="button-group radius">
+				<li><%= link_to '+ Novo', new_shop_product_path, class: "button small" %></li>
+				<li><%= link_to 'Encomendas', user_shop_orders_path, class: "button small" %></li>
+			</ul>
 		</div>
 	</div>
 	<!--

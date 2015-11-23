@@ -14,6 +14,7 @@
 			<li><%= link_to cart_menu_string, shopping_cart_path %></li>
 			<li class="has-dropdown"><%= link_to current_user.email, "#" %>
 				<ul class="dropdown">
+					<li><%= link_to "Encomendas", shop_orders_path %></li>
 					<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
 				</ul>
 			</li>

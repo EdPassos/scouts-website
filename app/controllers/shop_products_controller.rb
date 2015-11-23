@@ -1,6 +1,8 @@
 class ShopProductsController < ApplicationController
 	before_action :set_shop_product, only: [:edit, :update, :destroy, :add_to_cart, :remove_from_cart, :delete_from_cart]
 	before_action :authenticate_user!, only: [:add_to_cart, :show_cart]
+	before_action :set_cart_product, only: [:add_to_cart, :remove_from_cart, :delete_from_cart]
+	before_action :set_cart_products, only: [:show_cart]
 
 	def index
 		@shop_products = ShopProduct.all
@@ -36,37 +38,33 @@ class ShopProductsController < ApplicationController
 	end
 
 	def add_to_cart
-		cart_product = current_user.shopping_cart_products.find_by(shop_product: @shop_product, shop_order: nil)
-		if cart_product == nil
+		if @cart_product == nil
 			# Product wasn't added to the cart
-			cart_product = current_user.shopping_cart_products.new
-			cart_product.shop_product = @shop_product
-			cart_product.quantity = 1
+			@cart_product = current_user.shopping_cart_products.new
+			@cart_product.shop_product = @shop_product
+			@cart_product.quantity = 1
 		else
-			cart_product.quantity = cart_product.quantity + 1
+			@cart_product.quantity = @cart_product.quantity + 1
 		end
-		cart_product.save
+		@cart_product.save
 		redirect_to :back, notice: @shop_product.name + ' adicionado ao carrinho'
 	end
 
 	def show_cart
-		@cart_products = current_user.shopping_cart_products.where( shop_order: nil)
 	end
 
 	def remove_from_cart
-		cart_product = current_user.shopping_cart_products.find_by(shop_product: @shop_product)
-		cart_product.quantity = cart_product.quantity - 1
-		if cart_product.quantity < 1
-			cart_product.destroy
+		@cart_product.quantity = @cart_product.quantity - 1
+		if @cart_product.quantity < 1
+			@cart_product.destroy
 		else
-			cart_product.save
+			@cart_product.save
 		end
 		redirect_to :back, notice: '1 ' + @shop_product.name + ' removido ao carrinho'
 	end
 
 	def delete_from_cart
-		cart_product = current_user.shopping_cart_products.find_by(shop_product: @shop_product)
-		cart_product.destroy
+		@cart_product.destroy
 		redirect_to :back, notice: @shop_product.name + ' removido ao carrinho'
 	end
 
@@ -77,5 +75,13 @@ class ShopProductsController < ApplicationController
 
 	def set_shop_product
 		@shop_product = ShopProduct.find params[:id]
+	end
+
+	def set_cart_products
+		@cart_products = current_user.shopping_cart_products.where(shop_order: nil)
+	end
+
+	def set_cart_product
+		@cart_product = current_user.shopping_cart_products.find_by(shop_order: nil, shop_product: @shop_product)
 	end
 end
