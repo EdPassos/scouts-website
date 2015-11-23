@@ -14,14 +14,18 @@ Rails.application.routes.draw do
   get 'cla' => 'pages#cla'
 
   # Shop
+  resources :shop_products, :except => [:index]
   get 'shop' => 'shop_products#index'
   get 'shop/cart' => 'shop_products#show_cart', as: 'shopping_cart'
   get 'shop/:id/add_to_cart' => 'shop_products#add_to_cart', as: 'add_product_to_cart'
   get 'shop/:id/remove_from_cart' => 'shop_products#remove_from_cart', as: 'remove_product_from_cart'
   get 'shop/:id/delete_from_cart' => 'shop_products#delete_from_cart', as: 'delete_product_from_cart'
-  resources :shop_products, :except => [:index]
-  get 'shop/orders' => 'shop_orders#user_index', as: 'user_shop_orders'
+
   resources :shop_orders
+  get 'shop/orders' => 'shop_orders#user_index', as: 'user_shop_orders'
+  get 'shop/:id/verify_payment' => 'shop_orders#verify_payment', as: 'verify_shop_order_payment'
+  get 'shop/:id/ready' => 'shop_orders#ready', as: 'ready_shop_order'
+  get 'shop/:id/finalize' => 'shop_orders#finalize', as: 'finalize_order'
 
   # Calendar
   get 'calendar/' => 'pages#calendar'
