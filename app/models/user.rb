@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	rolify
+
 	# Shop
 	has_many :shopping_cart_products
 	has_many :shop_orders

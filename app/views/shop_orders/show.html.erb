@@ -3,6 +3,7 @@
 		<div class="columns">
 			<h1><%= title "Detalhes da encomenda" %></h1>
 			<p><strong>Nr:</strong> <%= @shop_order.id %></p>
+			<p><strong>Estado:</strong> <%= @shop_order.shop_order_status.name %></p>
 			<p><strong>Criada:</strong> <%= @shop_order.created_at %></p>
 			<p><big><strong>Valor:</strong> <%= decimal_to_euro( cart_total @shop_order.products) %></big></p>
 			<p><strong>Comprovativo:</strong><br><%= image_tag @shop_order.proof.url(:medium) %></p>

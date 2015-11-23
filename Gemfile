@@ -51,6 +51,12 @@ gem 'foundation-rails'
 # Authentication
 gem 'devise'
 
+# Roles
+gem 'rolify'
+
+# Abilities
+gem 'cancancan'
+
 # Attachments
 gem 'paperclip'
 
