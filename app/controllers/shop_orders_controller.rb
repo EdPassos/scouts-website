@@ -1,4 +1,5 @@
 class ShopOrdersController < ApplicationController
+	before_action :set_shop_order, only: [:show, :update]
 	def user_index
 		@shop_orders = current_user.shop_orders
 		render :index
@@ -9,7 +10,6 @@ class ShopOrdersController < ApplicationController
 	end
 
 	def show
-		@shop_order = ShopOrder.find params[:id]
 	end
 
 	def create
@@ -22,5 +22,19 @@ class ShopOrdersController < ApplicationController
 			order_product.save
 		end
 		redirect_to shop_order
+	end
+
+	def update
+		@shop_order.update(shop_order_params)
+		redirect_to @shop_order
+	end
+
+	private
+	def set_shop_order
+		@shop_order = ShopOrder.find params[:id]
+	end
+
+	def shop_order_params
+		params.require(:shop_order).permit(:proof)
 	end
 end
