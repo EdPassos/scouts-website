@@ -1,4 +1,7 @@
 class ShopProductsController < ApplicationController
+	load_and_authorize_resource
+	skip_authorize_resource :only => [:show_cart, :add_to_cart, :remove_from_cart, :delete_from_cart]
+
 	before_action :set_shop_product, only: [:edit, :update, :destroy, :add_to_cart, :remove_from_cart, :delete_from_cart]
 	before_action :authenticate_user!, only: [:add_to_cart, :show_cart]
 	before_action :set_cart_product, only: [:add_to_cart, :remove_from_cart, :delete_from_cart]
