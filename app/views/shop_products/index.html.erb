@@ -11,7 +11,7 @@
 		<% count = 0 %>
 		<% @shop_products.each do |product| %>
 			<div class="columns medium-4 large-4 end" data-equalizer-watch>
-				<div class="panel">
+				<div class="panel radius">
 					<%= image_tag product.photo.url(:medium) %>
 					<h2><%= product.name %></h2>
 					<p><%= product.description %></p>
