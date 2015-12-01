@@ -1,0 +1,29 @@
+<div class='content'>
+	<div class="row">
+		<div class="columns">
+			<h1><%= title "Detalhes da encomenda" %></h1>
+			<p><strong>Nr:</strong> <%= @shop_order.id %></p>
+			<p><strong>Estado:</strong> <%= @shop_order.shop_order_status.name %></p>
+			<p><strong>Criada:</strong> <%= @shop_order.created_at %></p>
+			<p><big><strong>Valor:</strong> <%= decimal_to_euro( cart_total @shop_order.products) %></big></p>
+			<% if @shop_order.proof? %>
+				<p><strong>Comprovativo:</strong><br><%= image_tag @shop_order.proof.url(:medium) %></p>
+			<% end %>
+			<% if @shop_order.shop_order_status_id < 3 %>
+				<%= form_for @shop_order do |f| %>
+					<fieldset>
+						<%= f.label :proof, "Enviar comprovativo" %>
+						<%= f.file_field :proof, as: :file %>
+						<%= f.submit(@shop_order.proof? ? "Actualizar" : "Enviar", class: "button") %>
+					</fieldset>
+				<% end %>
+				<%= link_to("Verificar Pagamento", verify_shop_order_payment_path(@shop_order), class: "button") if current_user.has_role? :admin %>
+			<% elsif @shop_order.shop_order_status_id == 3  and current_user.has_role? :admin %>
+				<%= link_to "Pronto a levantar", ready_shop_order_path(@shop_order), class: "button" %>
+			<% elsif @shop_order.shop_order_status_id == 4  and current_user.has_role? :admin %>
+				<%= link_to "Finalizar", finalize_order_path(@shop_order), class: "button" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+

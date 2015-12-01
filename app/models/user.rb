@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+	rolify
+
+	# Shop
+	has_many :shopping_cart_products
+	has_many :shop_orders
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,5 +16,7 @@ class User < ActiveRecord::Base
 	  user.email = "admin@admin.com"
 	  user.password = "adminpassword"
 	  user.save
+
+	  user.add_role :admin
   end
 end

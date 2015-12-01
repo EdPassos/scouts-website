@@ -1,0 +1,11 @@
+<%= form_for @shop_product do |f| %>
+	<%= f.label :name, "Nome" %>
+	<%= f.text_field :name %>
+	<%= f.label :description, "Descrição" %>
+	<%= f.text_area :description %>
+	<%= f.label :price, "Preço" %>
+	<%= f.number_field :price, class: "text_field", step: '0.01' %>
+	<%= f.label :photo %>
+	<%= f.file_field :photo, as: :file %>
+	<%= f.submit class: "button" %>
+<% end %>

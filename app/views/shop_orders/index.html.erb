@@ -1,0 +1,32 @@
+<div class='content'>
+	<div class="row">
+		<div class="columns medium-3 small-6">
+			<h1><%= title "Encomendas" %></h1>
+		</div>
+		<div class="columns medium-9 small-6 text-right">
+			<%= render "shop_products/top_menu" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<table>
+				<thead class="hidden-for-small-only">
+					<th width=10>Id</th>
+					<th width=150>Criada em</th>
+					<th width=200>Estado</th>
+					<th>Valor</th>
+				</thead>
+				<tbody>
+					<% @shop_orders.each do |order| %>
+						<tr>
+							<td><%= link_to '#' + order.id.to_s, order %></td>
+							<td><%= order.created_at.strftime('%H:%M %d/%m/%Y') %></td>
+							<td><%= order.shop_order_status.name %></td>
+							<td class="text-right"><%= decimal_to_euro cart_total(order.products) %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

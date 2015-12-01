@@ -1,0 +1,13 @@
+// Place all the styles related to the ShopProducts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
+
+.content {
+	.top-bar-section, .top-bar {
+		background-color: $silver;
+		a {
+			background-color: $silver !important;
+		}
+	}
+}
