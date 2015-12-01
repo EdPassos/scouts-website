@@ -1,7 +1,14 @@
 <div class='content'>
 	<div class="row">
-		<div class="columns">
+		<div class="columns medium-6 small-6">
 			<h1><%= title "Carrinho de Compras" %></h1>
+		</div>
+		<div class="columns medium-6 small-6 text-right">
+			<%= render "top_menu" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
 			<% if @cart_products.length > 0 %>
 				<table>
 					<thead class="hidden-for-small-only">

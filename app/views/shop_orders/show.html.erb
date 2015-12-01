@@ -14,13 +14,13 @@
 					<fieldset>
 						<%= f.label :proof, "Enviar comprovativo" %>
 						<%= f.file_field :proof, as: :file %>
-						<%= f.submit "Enviar", class: "button" %>
+						<%= f.submit(@shop_order.proof? ? "Actualizar" : "Enviar", class: "button") %>
 					</fieldset>
 				<% end %>
-				<%= link_to "Verificar Pagamento", verify_shop_order_payment_path(@shop_order), class: "button" %>
-			<% elsif @shop_order.shop_order_status_id == 3 %>
+				<%= link_to("Verificar Pagamento", verify_shop_order_payment_path(@shop_order), class: "button") if current_user.has_role? :admin %>
+			<% elsif @shop_order.shop_order_status_id == 3  and current_user.has_role? :admin %>
 				<%= link_to "Pronto a levantar", ready_shop_order_path(@shop_order), class: "button" %>
-			<% elsif @shop_order.shop_order_status_id == 4 %>
+			<% elsif @shop_order.shop_order_status_id == 4  and current_user.has_role? :admin %>
 				<%= link_to "Finalizar", finalize_order_path(@shop_order), class: "button" %>
 			<% end %>
 		</div>

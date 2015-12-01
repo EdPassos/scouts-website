@@ -16,5 +16,7 @@ class User < ActiveRecord::Base
 	  user.email = "admin@admin.com"
 	  user.password = "adminpassword"
 	  user.save
+
+	  user.add_role :admin
   end
 end
