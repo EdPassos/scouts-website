@@ -16,7 +16,7 @@
 					<h2><%= product.name %></h2>
 					<%= simple_format product.description %>
 					<p><strong><%= product.price_str %></strong></p>
-					<ul class="stack button-group">
+					<ul class="stack button-group radius">
 						<li><%= link_to 'Adicionar', add_product_to_cart_path(product), class: "button expand" %></li>
 						<% if can? :update, ShopProduct %>
 							<li><%= link_to 'Editar', edit_shop_product_path(product), class: "button info" %></li>

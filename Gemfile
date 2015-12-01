@@ -62,3 +62,6 @@ gem 'paperclip'
 
 #Meta-Tags
 gem 'meta-tags', github: 'kpumuk/meta-tags'
+
+# Markdown
+gem 'redcarpet'
