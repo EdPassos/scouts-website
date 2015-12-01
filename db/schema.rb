@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123172300) do
+ActiveRecord::Schema.define(version: 20151201202641) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20151123172300) do
   end
 
   add_index "people", ["user_id"], name: "index_people_on_user_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "body",       limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -117,6 +127,7 @@ ActiveRecord::Schema.define(version: 20151123172300) do
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   add_foreign_key "people", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "shop_orders", "shop_order_statuses"
   add_foreign_key "shop_orders", "users"
   add_foreign_key "shopping_cart_products", "shop_orders"

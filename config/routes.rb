@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get 'comunidade' => 'pages#comunidade'
   get 'cla' => 'pages#cla'
 
+  # Posts
+  resources :posts
+
   # Shop
   resources :shop_products, :except => [:index]
   get 'shop' => 'shop_products#index'
