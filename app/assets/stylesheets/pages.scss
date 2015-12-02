@@ -17,7 +17,7 @@ header {
 	}
 	@media #{$medium-only} {
 		padding: em-calc(50) 0;
-		height: em-calc(500);
+		height: em-calc(400);
 	}
 	@media #{$large-up} {
 		padding: em-calc(70) 0;
