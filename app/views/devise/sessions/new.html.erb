@@ -1,7 +1,11 @@
 <div id="content" class="content">
 	<div class="row">
+		<div class="columns">
+			<h1><%= title "Log in" %></h1>
+		</div>
+	</div>
+	<div class="row">
 		<div class="columns medium-7 large-6">
-			<h2>Log in</h2>
 
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 				<div class="row collapse">
