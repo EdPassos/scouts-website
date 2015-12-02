@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'history' => 'pages#history'
   get 'maps' => 'pages#maps'
 
+  # Admin
+  get 'admin' => 'pages#admin', as: 'admin'
+
   # Age groups
   get 'alcateia' => 'pages#alcateia'
   get 'expedicao' => 'pages#expedicao'
