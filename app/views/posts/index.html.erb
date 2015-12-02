@@ -11,7 +11,7 @@
 			<% @posts.each do |post| %>
 				<h2><%= post.title %></h2>
 				<%= simple_format post.body %>
-				<p><small><%= post.user.email %></small></p>
+				<small><%= "#{post.user.email} a #{post.created_at.strftime('%-d/%m/%y')}" %></small>
 			<% end %>
 		</div>
 	</div>

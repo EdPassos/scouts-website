@@ -13,6 +13,9 @@
 		<% if user_signed_in? %>
 			<li class="has-dropdown"><%= link_to current_user.email, "#" %>
 				<ul class="dropdown">
+					<% if can? :create, Post %>
+						<li><%= link_to "Criar Artigo", new_post_path %></li>
+					<% end %>
 					<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
 				</ul>
 			</li>

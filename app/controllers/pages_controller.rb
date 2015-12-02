@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def index
+	  @posts = Post.all.limit(3).reverse
   end
 
   def alcateia
