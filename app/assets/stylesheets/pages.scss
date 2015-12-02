@@ -20,6 +20,10 @@ header {
 		height: em-calc(250);
 	}
 	@media #{$large-up} {
+		padding: em-calc(60) 0;
+		height: em-calc(400);
+	}
+	@media #{$xlarge-up} {
 		padding: em-calc(70) 0;
 		height: em-calc(600);
 	}
