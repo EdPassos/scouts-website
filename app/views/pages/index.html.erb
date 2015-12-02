@@ -5,8 +5,11 @@
 <div id="content" class="content">
 	<div class="row">
 		<div class="columns">
-			<h3 class="title2">Bem-vindo à página do Agrupamento de Porto Salvo,</h3>
-			<p class="introducao">Este site pretende transmitir um pouco do que significa pertencer ao mundo escutista e em particular a este Agrupamento. Através desta plataforma é possível acompanhar o percurso escutista de cada um dos nossos elementos, acedendo a fotos das atividades realizadas e informações acerca doutras que se sigam. Tem também o objetivo de promover a adesão a este grupo, de maneira a crescermos e garantirmos a sua continuidade.</p>
+			<% @posts.each do |post| %>
+				<h2><%= post.title %></h2>
+				<%= simple_format post.body %>
+				<small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
+			<% end %>
 		</div>
 	</div>
 	<!--

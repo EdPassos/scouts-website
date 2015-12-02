@@ -12,6 +12,7 @@ class Ability
 			can :read, ShoppingCartProduct
 		end
 		can :read, ShopProduct
+		can :read, Post
 	end
     #   if user.admin?
     #     can :manage, :all
