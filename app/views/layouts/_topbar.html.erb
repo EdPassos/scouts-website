@@ -12,7 +12,7 @@
     <ul class="right">
 		<% if user_signed_in? %>
 			<% if can? :manage, :all %>
-				<li><%= link_to "Administrador", admin_path %></li>
+				<li><%= link_to "Administrador", admin_users_path %></li>
 			<% end %>
 			<li class="has-dropdown"><%= link_to current_user.email, "#" %>
 				<ul class="dropdown">

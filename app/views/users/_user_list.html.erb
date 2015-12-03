@@ -1,0 +1,22 @@
+<table>
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>Roles</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= link_to user.email, edit_user_path(user) %></td>
+				<td>
+					<% user.roles.each do |role| %>
+						<%= role.name %>
+					<% end %>
+				</td>
+				<td><%= link_to 'eliminar', user, method: :delete %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

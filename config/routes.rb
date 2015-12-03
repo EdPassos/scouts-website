@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'maps' => 'pages#maps'
 
   # Admin
-  get 'admin' => 'pages#admin', as: 'admin'
+  get 'admin/users' => 'admin#users', as: 'admin_users'
+  resources :users
 
   # Age groups
   get 'alcateia' => 'pages#alcateia'
