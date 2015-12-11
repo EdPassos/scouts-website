@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   # Admin
   get 'admin/users' => 'admin#users', as: 'admin_users'
+  get 'admin/posts' => 'admin#posts', as: 'admin_posts'
+  get 'admin/posts/:id' => 'admin#post_show', as: 'admin_show_post'
   resources :users
 
   # Age groups

@@ -1,0 +1,18 @@
+<table>
+	<thead>
+		<tr>
+			<th>Título</th>
+			<th>Autor</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @posts.each do |post| %>
+			<tr>
+				<td><%= link_to post.title, admin_show_post_path(post) %></td>
+				<td><%= link_to post.user.email, post.user %></td>
+				<td><%= link_to "X", post, class: "button alert tiny", method: :delete, data: {confirm: "Tem a certeza que pretende eliminar o post: #{post.title}?"} %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
