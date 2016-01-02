@@ -7,7 +7,4 @@ class AdminController < ApplicationController
 		@posts = Post.all
 	end
 
-	def post_show
-		@post = Post.find params[:id]
-	end
 end
