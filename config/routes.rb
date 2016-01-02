@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   get 'admin/users' => 'admin#users', as: 'admin_users'
   get 'admin/posts' => 'admin#posts', as: 'admin_posts'
   get 'admin/posts/:id' => 'admin#post_show', as: 'admin_show_post'
+
+  # User
   resources :users
+  get 'users/:id/roles' => 'users#roles', as: 'user_roles'
+  patch 'users/:id/roles' => 'users#add_role'
+  delete 'users/:id/roles' => 'users#remove_role'
 
   # Age groups
   get 'alcateia' => 'pages#alcateia'

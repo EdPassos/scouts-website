@@ -1,0 +1,61 @@
+<div class="content">
+	<div class="row">
+		<div class="columns medium-8 large-10">
+			<h1><%= title "Permissões de #{@user.email}" %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+      <h3>Permissões assinaladas</h3>
+      <% if @user.roles.size > 0 %>
+        <ul>
+          <% @user.roles.each do |role| %>
+            <li>
+              <%= form_for @user, url: {action: "remove_role"}, method: :delete do |f| %>
+                <%= f.hidden_field :roles, value: role.name %>
+                <%= f.submit "X" %>
+              <% end %>
+              <%= role.name %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Nenhuma permissão especial assinalada</p>
+      <% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+      <%= form_for @user, url: {action: "add_role"} do |f| %>
+        <div class="row collapse">
+          <div class="columns small-3 large-2">
+            <%= f.label :roles, class: "prefix" %>
+          </div>
+          <div class="columns small-9 large-8">
+            <%= f.collection_select :roles, Role.all, :name, :name %>
+          </div>
+          <div class="columns small-3 large-2">
+            <%= f.submit "Adicionar", class: "button postfix" %>
+          </div>
+        </div>
+
+        <% if @user.errors.any? %>
+          <div class="row collapse">
+            <div class="columns small-12 large-10 large-offset-2">
+              <div data-alert class="alert-box alert radius">
+                <h2><%= pluralize(@user.errors.count, "erro") %> a gravar o utilizador:</h2>
+
+                <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+                <a href="#" class="close">&times;</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
