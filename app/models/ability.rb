@@ -10,6 +10,7 @@ class Ability
 	else
 		if user.id != nil
 			can :read, ShoppingCartProduct
+			can :manage, user
 		end
 		can :read, ShopProduct
 		can :read, Post

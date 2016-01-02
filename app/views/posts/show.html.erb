@@ -8,6 +8,12 @@
 		<div class="columns">
 			<%= simple_format @post.body %>
 			<small><%= "Criado a #{@post.created_at.strftime('%-d/%m/%y')}" %></small>
+      <% if can? :edit, @post %>
+        <hr>
+        <h3>Editar</h3>
+        <%= render 'posts/form' %>
+        <%= link_to "Eliminar", @post, class: "button tiny", method: :delete, data: {confirm: "Tem a certeza que pretende eliminar este Post?"} %>
+      <% end %>
 		</div>
 	</div>
 </div>

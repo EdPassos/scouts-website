@@ -3,6 +3,10 @@ class PagesController < ApplicationController
 	  @posts = Post.all.limit(3).reverse
   end
 
+  def admin
+	  @users = User.all
+  end
+
   def alcateia
   end
 
