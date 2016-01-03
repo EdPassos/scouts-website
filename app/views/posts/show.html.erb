@@ -6,7 +6,7 @@
 	</div>
 	<div class="row">
 		<div class="columns">
-			<%= simple_format @post.body %>
+			<%= simple_format @post_body %>
 			<small><%= "Criado a #{@post.created_at.strftime('%-d/%m/%y')}" %></small>
       <% if can? :edit, @post %>
         <hr>
