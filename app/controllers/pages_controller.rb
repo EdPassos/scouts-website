@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   def index
-    renderer = Redcarpet::Render::HTML.new(render_options = {})
-    @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, strikethrough: true)
 	  @posts = Post.order("id desc").limit(3)
   end
 
