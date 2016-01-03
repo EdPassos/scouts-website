@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def index
-	  @posts = Post.all.limit(3).reverse
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, strikethrough: true)
+	  @posts = Post.order("id desc").limit(3)
   end
 
   def admin

@@ -1,7 +1,26 @@
-<%= form_for @post do |f| %>
-	<%= f.label :title, "Título" %>
-	<%= f.text_field :title %>
-	<%= f.label :body, "Texto" %>
-	<%= f.text_area :body, rows: 15 %>
-	<%= f.submit class: "button" %>
-<% end %>
+<div class="row">
+  <div class="columns medium-8 large-9">
+    <%= form_for @post do |f| %>
+      <%= f.label :title, "Título" %>
+      <%= f.text_field :title %>
+      <%= f.label :body, "Texto" %>
+      <%= f.text_area :body, rows: 15 %>
+      <%= f.submit class: "button" %>
+    <% end %>
+  </div>
+  <div class="columns medium-4 large-3">
+    <h3>### H3 </h3>
+    <h4>#### H4 </h4>
+    <h5>##### H5 </h5>
+    <h6>###### H6</h6>
+    _<em>itálico</em>_<br>
+    __<strong>bold</strong>__<br>
+    ~~<del>riscado</del>~~<br>
+    [Text](Link "Description")<br>
+    ![alt text](Image Link "Description")<br>
+    `<code>Atenção</code>`<br>
+    <blockquote>> Citação</blockquote><br>
+    Linha horizontal: ---
+    <hr>
+  </div>
+</div>
