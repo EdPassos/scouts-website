@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       description: 'Acompanhar o percurso de cada um dos escuteiros de Porto Salvo',
       type:     'website',
       url:      root_url,
-      image:    view_context.image_url('banner.png'),
+      image:    view_context.image_url('og-image.png'),
     }
   end
 end
