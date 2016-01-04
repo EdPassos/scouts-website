@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   def metatags
     set_meta_tags og: {
       title:    :title,
+      description: 'Acompanhar o percurso de cada um dos escuteiros de Porto Salvo',
       type:     'website',
       url:      root_url,
       image:    view_context.image_url('banner.png'),
