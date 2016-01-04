@@ -4,4 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include CanCan::ControllerAdditions
+
+  before_action :metatags
+
+  def metatags
+    set_meta_tags og: {
+      title:    :title,
+      type:     'website',
+      url:      root_url,
+      image:    view_context.image_url('banner.png'),
+    }
+  end
 end
