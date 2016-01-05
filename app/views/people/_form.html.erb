@@ -1,0 +1,60 @@
+<%= form_for @person do |f| %>
+	<div class="row collapse">
+		<div class="columns small-3 large-2">
+			<%= f.label :first_name, class: "prefix" %>
+		</div>
+		<div class="columns small-9 large-10">
+			<%= f.text_field :first_name %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="columns small-3 large-2">
+			<%= f.label :middle_names, class: "prefix" %>
+		</div>
+		<div class="columns small-9 large-10">
+      <%= f.text_field :middle_names, autocomplete: "off" %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="columns small-3 large-2">
+			<%= f.label :last_name, class: "prefix" %>
+		</div>
+		<div class="columns small-9 large-10">
+      <%= f.text_field :last_name, autocomplete: "off" %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="columns small-3 large-2">
+			<%= f.label :birthday, class: "prefix" %>
+		</div>
+		<div class="columns small-9 large-10">
+      <%= f.date_field :birthday, autocomplete: "off" %>
+		</div>
+	</div>
+
+	<div class="row collapse">
+		<div class="columns small-9 large-10 small-offset-3 large-offset-2">
+			<%= f.submit "Gravar", class: "button expand" %>
+		</div>
+	</div>
+
+	<% if @person.errors.any? %>
+		<div class="row collapse">
+			<div class="columns small-12 large-10 large-offset-2">
+				<div data-alert class="alert-box alert radius">
+					<h2><%= pluralize(@person.errors.count, "erro") %> a gravar o utilizador:</h2>
+
+					<ul>
+						<% @person.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+					<a href="#" class="close">&times;</a>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>

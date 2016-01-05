@@ -3,6 +3,10 @@ class AdminController < ApplicationController
 		@users = User.all
 	end
 
+	def people
+		@people = Person.all
+	end
+
 	def posts
 		@posts = Post.all
 	end
