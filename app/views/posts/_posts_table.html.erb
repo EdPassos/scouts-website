@@ -11,7 +11,7 @@
 			<tr>
 				<td><%= link_to post.title, post %></td>
 				<td><%= link_to post.user.email, post.user %></td>
-				<td><%= link_to "X", post, class: "button alert tiny", method: :delete, data: {confirm: "Tem a certeza que pretende eliminar o post: #{post.title}?"} %></td>
+				<td><%= link_to "Eliminar", post, method: :delete, data: {confirm: "Tem a certeza que pretende eliminar o post: #{post.title}?"} %></td>
 			</tr>
 		<% end %>
 	</tbody>

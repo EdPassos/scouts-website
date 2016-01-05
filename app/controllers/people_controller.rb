@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:edit, :update]
+  before_action :set_person, only: [:edit, :update,:destroy]
 
   def new
     @person = Person.new
@@ -25,9 +25,14 @@ class PeopleController < ApplicationController
     end
   end
 
+  def destroy
+    @person.destroy
+    redirect_to :back, notice: "Dados de #{@person.first_name} #{@person.last_name} eliminados"
+  end
+
   private
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :middle_names, :birthday)
+    params.require(:person).permit(:first_name, :last_name, :middle_names, :birthday, :user_id)
   end
 
   def set_person

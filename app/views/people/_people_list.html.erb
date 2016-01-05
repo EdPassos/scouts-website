@@ -11,7 +11,7 @@
 			<tr>
         <td><%= link_to "#{person.first_name} #{person.last_name}", edit_person_path(person) %></td>
         <td><%= link_to person.middle_names, edit_person_path(person) %></td>
-				<td><%= link_to 'eliminar', person, method: :delete %></td>
+        <td><%= link_to "Eliminar", person, method: :delete, data: {confirm: "Tem a certeza que pretende eliminar os dados de #{person.first_name} #{person.last_name}?"} %></td>
 			</tr>
 		<% end %>
 	</tbody>
