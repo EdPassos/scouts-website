@@ -4,7 +4,7 @@
 @import 'foundation_and_overrides';
 
 header {
-	background-color: $clouds;
+	background-color: $silver;
 	@media #{$small-only} {
 		@media #{$portrait} {
 			padding: em-calc(30) 0;
