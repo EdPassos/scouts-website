@@ -1,5 +1,16 @@
 <%= form_for @person do |f| %>
 	<div class="row collapse">
+		<div class="columns small-3 large-2 text-center">
+			<%= image_tag(@person.photo.url(:thumb)) %>
+		</div>
+	</div>
+	<div class="row collapse">
+    <div class="columns">
+			<%= f.file_field :photo, as: :file %>
+		</div>
+	</div>
+
+	<div class="row collapse">
 		<div class="columns small-3 large-2">
 			<%= f.label :first_name, class: "prefix" %>
 		</div>

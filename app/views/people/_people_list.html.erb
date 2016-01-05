@@ -1,6 +1,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>Foto</th>
 			<th>Nome</th>
       <th>Nomes do meio</th>
 			<th>Ações</th>
@@ -9,6 +10,7 @@
 	<tbody>
 		<% @people.each do |person| %>
 			<tr>
+        <td class="text-center"><%= image_tag person.photo.url(:thumb) %></td>
         <td><%= link_to "#{person.first_name} #{person.last_name}", edit_person_path(person) %></td>
         <td><%= link_to person.middle_names, edit_person_path(person) %></td>
         <td><%= link_to "Eliminar", person, method: :delete, data: {confirm: "Tem a certeza que pretende eliminar os dados de #{person.first_name} #{person.last_name}?"} %></td>
