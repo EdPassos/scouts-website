@@ -1,3 +1,13 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'foundation_and_overrides';
+
+.panel-img {
+  @extend .panel;
+  padding: 0;
+  margin: 0;
+  border-bottom: 0px;
+  position: relative;
+  top: 1px; // Covers the panel top border
+}

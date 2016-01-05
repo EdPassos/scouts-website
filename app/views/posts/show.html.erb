@@ -1,19 +1,21 @@
 <div class='content'>
-	<div class="row">
-		<div class="columns">
-			<h1><%= title @post.title %></h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="columns">
-      <%= safe_markdown(@post.body) %>
-			<small><%= "Criado a #{@post.created_at.strftime('%-d/%m/%y')}" %></small>
-      <% if can? :edit, @post %>
+  <div class="row">
+    <div class="columns">
+      <%= image_tag "banner.png", class: "panel-img" %>
+      <div class="panel">
+        <h1><%= link_to title(@post.title), @post %></h1>
+        <small><%= "Criado a #{@post.created_at.strftime('%-d/%m/%y')}" %></small>
         <hr>
-        <h3>Editar</h3>
-        <%= render 'posts/form' %>
-        <%= link_to "Eliminar", @post, class: "button tiny", method: :delete, data: {confirm: "Tem a certeza que pretende eliminar este Post?"} %>
-      <% end %>
-		</div>
-	</div>
+        <%= safe_markdown(@post.body) %>
+      </div>
+        <% if can? :edit, @post %>
+          <div class="panel">
+            <h3>Editar</h3>
+            <%= render 'posts/form' %>
+            <%= link_to "Eliminar", @post, class: "button tiny", method: :delete, data: {confirm: "Tem a certeza que pretende eliminar este Post?"} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

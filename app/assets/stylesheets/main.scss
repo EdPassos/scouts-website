@@ -8,7 +8,7 @@
 		padding: rem-calc(50) rem-calc(75) !important;
 	}
 	@media #{$small-only} {
-		padding: rem-calc(20) rem-calc(25) !important;
+		padding: rem-calc(20) 0 !important;
 	}
 
 }

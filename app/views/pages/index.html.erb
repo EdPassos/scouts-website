@@ -6,9 +6,12 @@
 	<div class="row">
 		<div class="columns">
 			<% @posts.each do |post| %>
-				<h2><%= link_to post.title, post %></h2>
-				<%= safe_markdown(post.body) %>
-				<small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
+        <div class="panel radius">
+          <h2><%= link_to post.title, post %></h2>
+          <small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
+          <hr>
+          <%= safe_markdown(post.body) %>
+        </div>
 			<% end %>
 		</div>
 	</div>
