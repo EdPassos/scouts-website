@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201202641) do
+ActiveRecord::Schema.define(version: 20160105193124) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -22,14 +22,18 @@ ActiveRecord::Schema.define(version: 20151201202641) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "first_name",   limit: 255
-    t.string   "last_name",    limit: 255
-    t.string   "middle_names", limit: 255
+    t.string   "first_name",         limit: 255
+    t.string   "last_name",          limit: 255
+    t.string   "middle_names",       limit: 255
     t.date     "birthday"
-    t.integer  "caretaker_id", limit: 4
-    t.integer  "user_id",      limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "caretaker_id",       limit: 4
+    t.integer  "user_id",            limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 4
+    t.datetime "photo_updated_at"
   end
 
   add_index "people", ["user_id"], name: "index_people_on_user_id", using: :btree

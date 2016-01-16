@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 	rolify
 
+  # Personal details
+  has_one :person
+
 	# Posts
 	has_many :posts
 

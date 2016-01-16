@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # Admin
   get 'admin/users' => 'admin#users', as: 'admin_users'
+  get 'admin/people' => 'admin#people', as: 'admin_people'
   get 'admin/posts' => 'admin#posts', as: 'admin_posts'
 
   # User
@@ -16,6 +17,9 @@ Rails.application.routes.draw do
   get 'users/:id/roles' => 'users#roles', as: 'user_roles'
   patch 'users/:id/roles' => 'users#add_role'
   delete 'users/:id/roles' => 'users#remove_role'
+
+  # People
+  resources :people
 
   # Age groups
   get 'alcateia' => 'pages#alcateia'

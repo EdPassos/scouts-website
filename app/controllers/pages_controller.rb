@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  layout 'homepage'
+
   @description = 'ola'
 
   def index
