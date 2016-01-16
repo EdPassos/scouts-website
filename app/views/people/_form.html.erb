@@ -1,80 +1,82 @@
 <%= form_for @person do |f| %>
-	<div class="row collapse">
-		<div class="columns small-3 large-2 text-center">
-			<%= image_tag(@person.photo.url(:thumb)) %>
-		</div>
-	</div>
-	<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns small-5 large-2 text-center">
+      <%= image_tag(@person.photo.url(:thumb)) %>
+    </div>
+  </div>
+  <div class="row collapse">
     <div class="columns">
-			<%= f.file_field :photo, as: :file %>
-		</div>
-	</div>
+      <%= f.file_field :photo, as: :file %>
+    </div>
+  </div>
 
-	<div class="row collapse">
-		<div class="columns small-3 large-2">
-			<%= f.label :first_name, class: "prefix" %>
-		</div>
-		<div class="columns small-9 large-10">
-			<%= f.text_field :first_name %>
-		</div>
-	</div>
+  <div class="row collapse">
+    <div class="columns small-5 large-2">
+      <%= f.label :first_name, "Primeiro nome", class: "prefix" %>
+    </div>
+    <div class="columns small-7 large-10">
+      <%= f.text_field :first_name %>
+    </div>
+  </div>
 
-	<div class="row collapse">
-		<div class="columns small-3 large-2">
-			<%= f.label :middle_names, class: "prefix" %>
-		</div>
-		<div class="columns small-9 large-10">
+  <div class="row collapse">
+    <div class="columns small-5 large-2">
+      <%= f.label :middle_names, "Outros nomes", class: "prefix" %>
+    </div>
+    <div class="columns small-7 large-10">
       <%= f.text_field :middle_names, autocomplete: "off" %>
-		</div>
-	</div>
+    </div>
+  </div>
 
-	<div class="row collapse">
-		<div class="columns small-3 large-2">
-			<%= f.label :last_name, class: "prefix" %>
-		</div>
-		<div class="columns small-9 large-10">
+  <div class="row collapse">
+    <div class="columns small-5 large-2">
+      <%= f.label :last_name, "Último nome", class: "prefix" %>
+    </div>
+    <div class="columns small-7 large-10">
       <%= f.text_field :last_name, autocomplete: "off" %>
-		</div>
-	</div>
+    </div>
+  </div>
 
-	<div class="row collapse">
-		<div class="columns small-3 large-2">
-			<%= f.label :birthday, class: "prefix" %>
-		</div>
-		<div class="columns small-9 large-10">
+  <div class="row collapse">
+    <div class="columns small-5 large-2">
+      <%= f.label :birthday, "Data de nascimento", class: "prefix" %>
+    </div>
+    <div class="columns small-7 large-10">
       <%= f.date_field :birthday, autocomplete: "off" %>
-		</div>
-	</div>
+    </div>
+  </div>
 
-	<div class="row collapse">
-		<div class="columns small-3 large-2">
-			<%= f.label :user_id, class: "prefix" %>
-		</div>
-		<div class="columns small-9 large-10">
-      <%= f.collection_select :user_id, User.all, :id, :email, {include_blank: "Nenhum"} %>
-		</div>
-	</div>
+  <% if params[:controller] == 'admin' %>
+    <div class="row collapse">
+      <div class="columns small-5 large-2">
+        <%= f.label :user_id, class: "prefix" %>
+      </div>
+      <div class="columns small-7 large-10">
+        <%= f.collection_select :user_id, User.all, :id, :email, {include_blank: "Nenhum"} %>
+      </div>
+    </div>
+  <% end %>
 
-	<div class="row collapse">
-		<div class="columns small-9 large-10 small-offset-3 large-offset-2">
-			<%= f.submit "Gravar", class: "button expand" %>
-		</div>
-	</div>
+  <div class="row collapse">
+    <div class="columns small-7 large-10 small-offset-5 large-offset-2">
+      <%= f.submit "Gravar", class: "button expand" %>
+    </div>
+  </div>
 
-	<% if @person.errors.any? %>
-		<div class="row collapse">
-			<div class="columns small-12 large-10 large-offset-2">
-				<div data-alert class="alert-box alert radius">
-					<h2><%= pluralize(@person.errors.count, "erro") %> a gravar o utilizador:</h2>
+  <% if @person.errors.any? %>
+    <div class="row collapse">
+      <div class="columns small-12 large-10 large-offset-2">
+        <div data-alert class="alert-box alert radius">
+          <h2><%= pluralize(@person.errors.count, "erro") %> a gravar o utilizador:</h2>
 
-					<ul>
-						<% @person.errors.full_messages.each do |msg| %>
-							<li><%= msg %></li>
-						<% end %>
-					</ul>
-					<a href="#" class="close">&times;</a>
-				</div>
-			</div>
-		</div>
-	<% end %>
+          <ul>
+            <% @person.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+          <a href="#" class="close">&times;</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>

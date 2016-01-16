@@ -7,6 +7,9 @@ class PeopleController < ApplicationController
 
   def create
     person = Person.new person_params
+    if params[:person][:user_id] == nil
+      person.user = current_user
+    end
     if person.save
       redirect_to :back, notice: "Dados de #{person.first_name} #{person.last_name} guardados"
     else

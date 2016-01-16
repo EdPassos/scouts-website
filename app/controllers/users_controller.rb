@@ -1,22 +1,27 @@
 class UsersController < ApplicationController
-	load_and_authorize_resource
+  load_and_authorize_resource
 
-	before_action :set_user, only: [:update, :edit, :roles, :add_role]
+  before_action :set_user, only: [:update, :edit, :roles, :add_role]
 
-	def index
-		@users = User.all
-	end
+  def index
+    @users = User.all
+  end
 
-	def edit
-	end
+  def show
+    @person = current_user.person
+    @person ||= Person.new(user: current_user)
+  end
 
-	def update
-		if @user.update(user_params)
-			redirect_to edit_user_path(@user)
-		else
-			render "edit"
-		end
-	end
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to edit_user_path(@user)
+    else
+      render "edit"
+    end
+  end
 
   def roles
     @roles = @user.roles
@@ -36,12 +41,12 @@ class UsersController < ApplicationController
     redirect_to :back
   end
 
-	private
-	def user_params
-		params.require(:user).permit(:email, :password, :password_confirmation)
-	end
+  private
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 
-	def set_user
-		@user = User.find params[:id]
-	end
+  def set_user
+    @user = User.find params[:id]
+  end
 end
