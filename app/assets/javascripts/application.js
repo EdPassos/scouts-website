@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+//= require handlebars.runtime
 //= require turbolinks
 
 $(function(){ $(document).foundation(); });

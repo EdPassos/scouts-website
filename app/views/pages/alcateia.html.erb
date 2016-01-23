@@ -4,4 +4,23 @@
 			<h1>Alcateia 118</h1>
 		</div>
 	</div>
+  <div class="row">
+    <div class="columns">
+      <div id='container'>
+        <%= render partial: 'image', locals: { photo: image_path('agrportosalvo.jpg') } %>
+      </div>
+    </div>
+  </div>
 </div>
+<script>
+  $('#container').waterfall({
+    itemCls: 'item',
+    colWidth: 222,  
+    gutterWidth: 15,
+    gutterHeight: 15,
+    checkImagesLoaded: false,
+    path: function(page) {
+      return 'system/data/data1.json';
+    }
+  });
+</script>
