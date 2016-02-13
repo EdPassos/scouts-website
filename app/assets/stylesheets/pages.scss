@@ -3,6 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'foundation_and_overrides';
 
+#notice {
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  right: 0;
+  left: 0;
+
+  .alert-box {
+    max-width: rem-calc(400);
+    margin: auto;
+    height: 4rem;
+    z-index: 400;
+  }
+}
+
 header {
 	background-color: $clouds;
 	@media #{$small-only} {
