@@ -10,5 +10,42 @@
 	@media #{$small-only} {
 		padding: rem-calc(20) rem-calc(25) !important;
 	}
+}
 
+form {
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  .day, .month, .year,
+  .hour, .minute,
+  input[type="text"] {
+    background-color: $white;
+    box-shadow: none;
+    padding: 10px;
+    border: none;
+    border-bottom: solid 2px $silver;
+
+    &:focus, &.focus {
+      border-bottom: solid 2px $primary_color;
+      background-color: $white;
+    }
+  }
+  input[type="submit"] {
+    @extend .button;
+  }
+  .day {
+    width: 10%;
+  }
+  .month {
+    width: 20%;
+  }
+  .year {
+    width: 15%;
+  }
+  .hour {
+    width: 15%;
+  }
+  .minute {
+    width: 15%;
+  }
 }

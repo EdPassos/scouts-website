@@ -46,7 +46,7 @@ group :development, :test do
 end
 
 # Design Framework
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.5.3.2'
 
 # Authentication
 gem 'devise'

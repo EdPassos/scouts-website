@@ -14,6 +14,9 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require foundation
+//= require light_gallery/lightgallery
+//= require light_gallery/lg-zoom
+//= require light_gallery/lg-fullscreen
 //= require_tree .
 //= require turbolinks
 

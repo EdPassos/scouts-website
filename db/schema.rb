@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105193124) do
+ActiveRecord::Schema.define(version: 20160219160646) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -37,6 +37,28 @@ ActiveRecord::Schema.define(version: 20160105193124) do
   end
 
   add_index "people", ["user_id"], name: "index_people_on_user_id", using: :btree
+
+  create_table "photo_albums", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.text     "description",       limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
+    t.datetime "file_updated_at"
+    t.integer  "photo_album_id",    limit: 4
+  end
+
+  add_index "photos", ["photo_album_id"], name: "index_photos_on_photo_album_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -131,6 +153,7 @@ ActiveRecord::Schema.define(version: 20160105193124) do
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   add_foreign_key "people", "users"
+  add_foreign_key "photos", "photo_albums"
   add_foreign_key "posts", "users"
   add_foreign_key "shop_orders", "shop_order_statuses"
   add_foreign_key "shop_orders", "users"
