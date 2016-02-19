@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @photo_album.name %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @photo_album.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @photo_album.end %>
+</p>
+
+<%= link_to 'Edit', edit_photo_album_path(@photo_album) %> |
+<%= link_to 'Back', photo_albums_path %>
