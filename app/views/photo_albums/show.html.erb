@@ -21,5 +21,10 @@
   $(document).ready(function() {
     $("#lightgallery").lightGallery();
   });
+  $(window).load(function () {
+    $('#lightgallery').removeWhitespace().collagePlus({
+      'targetHeight': 100
+    });
+  });
 </script>
 

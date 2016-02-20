@@ -17,6 +17,8 @@
 //= require light_gallery/lightgallery
 //= require light_gallery/lg-zoom
 //= require light_gallery/lg-fullscreen
+//= require jquery.collagePlus.min
+//= require collage_plus/jquery.removeWhitespace.min
 //= require_tree .
 //= require turbolinks
 
