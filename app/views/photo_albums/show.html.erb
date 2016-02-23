@@ -12,7 +12,7 @@
   <%= @photo_album.end %>
 </p>
 
-<div id="lightgallery">
+<div id="lightgallery" class="photo-album">
   <% @photo_album.photos.each do |photo| %>
     <%= link_to image_tag(photo.file.url(:thumb)), photo.file.url %>
   <% end %>
@@ -20,11 +20,6 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $("#lightgallery").lightGallery();
-  });
-  $(window).load(function () {
-    $('#lightgallery').removeWhitespace().collagePlus({
-      'targetHeight': 100
-    });
   });
 </script>
 

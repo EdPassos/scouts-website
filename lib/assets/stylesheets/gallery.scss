@@ -1,0 +1,29 @@
+@import 'foundation_and_overrides';
+@import 'material';
+
+.photo-album {
+  font-size: 0;
+  a {
+    margin: 0;
+    overflow: hidden;
+  }
+  img {
+    @extend .card-1;
+    &:hover {
+      @extend .card-hover;
+    }
+    margin: 1%;
+    width: 23%;
+    @media #{$small-only} {
+      width: 48%;
+    }
+    @media #{$medium-only} {
+      width: 31.33%;
+    }
+    @media #{$large-only} {
+      width: 23%;
+    }
+    height: 200px;
+    object-fit: cover;
+  }
+}

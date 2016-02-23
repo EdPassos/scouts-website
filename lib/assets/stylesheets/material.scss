@@ -1,0 +1,68 @@
+@import 'foundation_and_overrides';
+@import 'util';
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px 0;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.card.secondary {
+  background-color: scale-color($primary-color, $lightness: +85%);
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  -moz-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.card-hover {
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+}
+
+.card-active {
+  background: $primary-color;
+  color: $white;
+}
+
+// circles
+.small-circle {
+  @extend .parent-vertical-align;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px; 
+  background: $primary-color;
+  z-index: 400;
+  position: absolute;
+  right: 5px;
+  top: -5px;
+  text-align: center;
+  span {
+    @extend .vertical-align;
+    display: block;
+    color: $white;
+  }
+  /* width and height can be anything, as long as they're equal */
+}

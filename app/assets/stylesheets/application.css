@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require_self
+ *= require gallery
  *= require foundation_and_overrides
  *= require_tree .
  *= require light_gallery/lightgallery
- *= require collage_plus/transitions
 
  */
