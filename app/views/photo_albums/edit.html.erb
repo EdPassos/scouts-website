@@ -1,4 +1,9 @@
-<h1><%= title "Editar #{@photo_album.name}" %></h1>
+<h1>
+  <span>
+    <%= link_to '<i class="fa fa-camera"></i>'.html_safe, @photo_album %>
+  </span>
+  <%= title "Editar #{@photo_album.name}" %>
+</h1>
 
 <%= form_for @photo_album, action: :new_photo,
   url: {action: 'newphoto'},
@@ -23,3 +28,12 @@
   };
   $(document).on("ready page:load", Dropzone.discover)
 </script>
+
+<% if @photo_album.photos.length > 0 %>
+  <h2>Eliminar fotografias</h2>
+  <div class="photo-album">
+    <% @photo_album.photos.each do |photo| %>
+      <%= link_to image_tag(photo.file.url(:medium)), photo, method: :delete %>
+    <% end %>
+  </div>
+<% end %>
