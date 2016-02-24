@@ -1,4 +1,6 @@
 class PhotoAlbumsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_photo_album, only: [:show, :edit, :update, :destroy, :newphoto]
 
   # GET /photo_albums

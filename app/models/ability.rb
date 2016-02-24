@@ -14,6 +14,7 @@ class Ability
       end
       can :read, ShopProduct
       can :read, Post
+      can :read, PhotoAlbum
     end
     #   if user.admin?
     #     can :manage, :all
