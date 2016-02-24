@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :photos
-  resources :photo_albums
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  # Photos
+  patch '/photo_albums/:id/newphoto' => 'photo_albums#newphoto'
+  resources :photos
+  resources :photo_albums
+
   devise_for :users
   get 'pages/index'
   get 'contactos' => 'pages#contacts'

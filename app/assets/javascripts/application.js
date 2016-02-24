@@ -17,7 +17,11 @@
 //= require light_gallery/lightgallery
 //= require light_gallery/lg-zoom
 //= require light_gallery/lg-fullscreen
+//= require dropzone
 //= require_tree .
 //= require turbolinks
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+  Dropzone.autoDiscover = false // disable the built-in autodiscovery
+});

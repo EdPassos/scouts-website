@@ -1,20 +1,9 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @photo_album.name %>
-</p>
-<p>
-  <strong>Start:</strong>
-  <%= @photo_album.start %>
-</p>
-<p>
-  <strong>End:</strong>
-  <%= @photo_album.end %>
-</p>
+<h1><%= title @photo_album.name %><small> <%= link_to 'Editar', edit_photo_album_path(@photo_album) %></small></h1>
+<%= @photo_album.start.to_s :short %> - <%= @photo_album.end.to_s :short %>
 
 <div id="lightgallery" class="photo-album">
   <% @photo_album.photos.each do |photo| %>
-    <%= link_to image_tag(photo.file.url(:thumb)), photo.file.url %>
+    <%= link_to image_tag(photo.file.url(:medium)), photo.file.url %>
   <% end %>
 </div>
 <script type="text/javascript">

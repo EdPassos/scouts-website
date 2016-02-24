@@ -1,5 +1,5 @@
 class PhotoAlbumsController < ApplicationController
-  before_action :set_photo_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo_album, only: [:show, :edit, :update, :destroy, :newphoto]
 
   # GET /photo_albums
   # GET /photo_albums.json
@@ -59,6 +59,11 @@ class PhotoAlbumsController < ApplicationController
       format.html { redirect_to photo_albums_url, notice: 'Photo album was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def newphoto
+    @photo_album.photos.new(file: params[:file])
+    @photo_album.save
   end
 
   private
