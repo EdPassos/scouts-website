@@ -1,35 +1,64 @@
 <%= form_for(@photo_album) do |f| %>
-  <% if @photo_album.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@photo_album.errors.count, "error") %> prohibited this photo_album from being saved:</h2>
+  <div class='card card-3'>
+    <div class='card-content'>
+      <% if @photo_album.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@photo_album.errors.count, "error") %> prohibited this photo_album from being saved:</h2>
 
-      <ul>
-      <% @photo_album.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @photo_album.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start, {
-      order: [:day, :month, :year],
-      with_css_classes: true
-    } %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end, {
-      order: [:day, :month, :year],
-      with_css_classes: true
-    } %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+      <div class="row">
+        <div class='columns medium-6'>
+          <div class="field">
+            <%= f.text_field :name, placeholder: 'Título', class: 'input-title' %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns">
+          <h3>Datas</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class='columns medium-6'>
+          <div class="field">
+            <%= f.datetime_select :start, {
+              order: [:day, :month, :year],
+              with_css_classes: true
+            } %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class='columns medium-6'>
+          <div class="field">
+            <%= f.datetime_select :end, {
+              order: [:day, :month, :year],
+              with_css_classes: true
+            } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <% if @photo_album.new_record? %>
+        <%= f.button 'GRAVAR', class: 'first last' %>
+      <% else %>
+        <div class="row collapse">
+          <div class="columns small-6">
+            <%= f.button '<i class="fa fa-floppy-o fa-2x"></i>'.html_safe, class: 'first' %>
+          </div>
+          <div class="columns small-6">
+            <%= link_to '<i class="fa fa-trash-o fa-2x"></i>'.html_safe, @photo_album, method: :delete, data: { confirm: 'De certeza?' }, class: 'button last alert' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 <% end %>

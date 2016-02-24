@@ -2,15 +2,43 @@
 @import 'util';
 
 .card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 5px 0;
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
-}
+  background: $white;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.3rem;
 
-.card.secondary {
-  background-color: scale-color($primary-color, $lightness: +85%);
+  .card-content {
+    padding: 1em 1em 0 1em;
+  }
+
+
+  button, .button {
+    &, &.alert {
+      background: transparent;
+    }
+
+    margin: 0;
+    color: $primary-color;
+    width: 100%;
+
+    &.alert {
+    color: $alert-color;
+    }
+
+    &.first {
+      border-bottom-left-radius: 0.3rem;
+    }
+    &.last {
+      border-bottom-right-radius: 0.3rem;
+    }
+  }
+
+  .actions {
+  }
+
+  &.secondary {
+    background-color: scale-color($primary-color, $lightness: +85%);
+  }
 }
 
 .card-1 {

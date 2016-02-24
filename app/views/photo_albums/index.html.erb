@@ -1,8 +1,8 @@
 <h1>
+  <span>
+    <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe, new_photo_album_path %>
+  </span>
   <%= title 'Fotografias' %>
-  <small>
-    <%= link_to 'Novo album', new_photo_album_path %>
-  </small>
 </h1>
 <ul>
   <% @photo_albums.each do |photo_album| %>

@@ -1,15 +1,17 @@
 @import 'foundation_and_overrides';
 
 #page {
-	background-color: $white;
+  background-color: $snow;
 }
 .content {
-	@media #{$medium-up} {
-		padding: rem-calc(50) rem-calc(75) !important;
-	}
-	@media #{$small-only} {
-		padding: rem-calc(20) rem-calc(25) !important;
-	}
+  @media #{$medium-up} {
+    padding: rem-calc(50) rem-calc(75);
+    padding-top: rem-calc(30);
+  }
+  @media #{$small-only} {
+    padding: rem-calc(20) rem-calc(10);
+    padding-top: rem-calc(13);
+  }
 }
 
 form {
@@ -32,6 +34,10 @@ form {
   }
   input[type="submit"] {
     @extend .button;
+  }
+  input.input-title {
+    font-size: 2.5rem;
+    height: 3.2rem;
   }
   .day {
     width: 10%;

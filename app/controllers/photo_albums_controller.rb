@@ -63,7 +63,9 @@ class PhotoAlbumsController < ApplicationController
 
   def newphoto
     @photo_album.photos.new(file: params[:file])
-    @photo_album.save
+    unless @photo_album.save
+       render json: @photo_album.errors, status: :unprocessable_entity
+    end
   end
 
   private

@@ -19,54 +19,54 @@
 }
 
 header {
-	background-color: $clouds;
-	@media #{$small-only} {
-		@media #{$portrait} {
-			padding: em-calc(30) 0;
-			height: em-calc(300);
-		}
-		@media #{$landscape} {
-			padding: 0 0;
-			height: em-calc(150);
-		}
-	}
-	@media #{$medium-only} {
-		padding: em-calc(40) 0;
-		height: em-calc(250);
-	}
-	@media #{$large-up} {
-		padding: em-calc(60) 0;
-		height: em-calc(400);
-	}
-	@media #{$xlarge-up} {
-		padding: em-calc(70) 0;
-		height: em-calc(600);
-	}
+  background-color: $clouds;
+  @media #{$small-only} {
+    @media #{$portrait} {
+      padding: em-calc(30) 0;
+      height: em-calc(300);
+    }
+    @media #{$landscape} {
+      padding: 0 0;
+      height: em-calc(150);
+    }
+  }
+  @media #{$medium-only} {
+    padding: em-calc(40) 0;
+    height: em-calc(250);
+  }
+  @media #{$large-up} {
+    padding: em-calc(60) 0;
+    height: em-calc(400);
+  }
+  @media #{$xlarge-up} {
+    padding: em-calc(70) 0;
+    height: em-calc(600);
+  }
 
-	#header-img {
-		height: 100%;
-		background-image: image-url("banner.png");
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: center center;
-	}
+  #header-img {
+    height: 100%;
+    background-image: image-url("banner.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
 }
 
 #map { height: 500px; }
 
 .lobitos {
-	//background-color: $sun_flower;
-	background-color: $sun_flower_transparent; 
+  //background-color: $sun_flower;
+  background-color: $sun_flower_transparent; 
 }
 .exploradores {
-	//background-color: $nepheritis;
-	background-color: $nepheritis_transparent;
+  //background-color: $nepheritis;
+  background-color: $nepheritis_transparent;
 }
 .pioneiros {
-	//background-color: $peter_river;
-	background-color: $peter_river_transparent;
+  //background-color: $peter_river;
+  background-color: $peter_river_transparent;
 }
 .caminheiros {
-	//background-color: $alizarin;
-	background-color: $alizarin_transparent;
+  //background-color: $alizarin;
+  background-color: $alizarin_transparent;
 }
