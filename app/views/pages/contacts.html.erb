@@ -1,31 +1,31 @@
 <div class="content">
-	<div class="row">
-		<div class="columns">
-			<h1><%= title "Contactos" %></h1>
-			<div class="row" data-equalizer>
-				<div class="columns medium-6">
-					<div class="panel" data-equalizer-watch>
-						<h2>Localização</h2>
-						<p>
-							<strong>Sede dos Escuteiros de Porto Salvo</strong><br>
-							R. 7 de Junho - Bairro Autoconstrução<br>
-							2780-918 Porto Salvo
-						</p>
-					</div>
-				</div>
-				<div class="columns medium-6">
-					<div class="panel" data-equalizer-watch>
-						<h2>Horário</h2>
-						<p>
-							<strong>Reuniões na sede</strong><br>
-							Sábados das 15h às 17h30<br>
-							<small>Para mais informações consultar o <%= link_to "Calendário", calendar_path %></small>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div id="map"></div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="columns">
+      <h1><%= title "Contactos" %></h1>
+      <div class="row" data-equalizer>
+        <div class="columns medium-6">
+          <div class="panel" data-equalizer-watch>
+            <h2>Localização</h2>
+            <p>
+              <strong>Sede dos Escuteiros de Porto Salvo</strong><br>
+              R. 7 de Junho - Bairro Autoconstrução<br>
+              2780-918 Porto Salvo
+            </p>
+          </div>
+        </div>
+        <div class="columns medium-6">
+          <div class="panel" data-equalizer-watch>
+            <h2>Horário</h2>
+            <p>
+              <strong>Reuniões na sede</strong><br>
+              Sábados das 15h às 17h30<br>
+              <small>Para mais informações consultar o <%= link_to "Calendário", calendar_path %></small>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
+  </div>
 </div>
 <%= render 'map' %>
