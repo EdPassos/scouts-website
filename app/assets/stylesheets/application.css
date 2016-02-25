@@ -13,6 +13,7 @@
  *= require_self
  *= require gallery
  *= require dropzone
+ *= require font-awesome
  *= require foundation_and_overrides
  *= require_tree .
  *= require light_gallery/lightgallery

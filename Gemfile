@@ -69,3 +69,7 @@ gem 'redcarpet'
 
 # Env Variables
 gem 'figaro'
+
+# Font awesome
+gem "font-awesome-rails"
+
