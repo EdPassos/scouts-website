@@ -6,6 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+admin = User.new email: "admin@admin.com", password: "adminpassword"
+if admin.save
+  puts "Admin created"
+else
+  puts "Admin creation failed!"
+  admin = User.find_by email: "admin@admin.com"
+end
+admin.add_role :admin
+
 ShopOrderStatus.delete_all
 ShopOrderStatus.create! id: 1, name:"Espera Pagamento", description: "Espera de envio de comprovativo de pagamento"
 ShopOrderStatus.create! id: 2, name:"Espera Verificação", description: "Comprovativo será verificado"
