@@ -8,16 +8,14 @@
     display: inline-block;
     margin: 0;
     overflow: hidden;
-    margin: 1%;
-    width: 23%;
+    margin: 0%;
+    border: 2px solid transparent;
+    width: 25%;
     @media #{$small-only} {
-      width: 48%;
+      width: 50%;
     }
     @media #{$medium-only} {
-      width: 31.33%;
-    }
-    @media #{$large-only} {
-      width: 23%;
+      width: 33.33%;
     }
 
     height: 200px;
