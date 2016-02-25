@@ -13,11 +13,11 @@ set :server_name, "agr1126.cne-escutismo.pt"
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '5.39.93.8', user: 'scouts', roles: %w{app db web}, my_property: true
+server '5.39.93.8', user: 'rails', roles: %w{app db web}, my_property: true
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-set :deploy_to, "/home/#{fetch(:deploy_user)}/website"
+set :deploy_to, "/home/#{fetch(:deploy_user)}/#{fetch(:application)}"
 
 set :rails_env, :production
 
