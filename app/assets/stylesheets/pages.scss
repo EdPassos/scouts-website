@@ -18,7 +18,7 @@
   }
 }
 
-header {
+header#homepage-header {
   background-color: $clouds;
   @media #{$small-only} {
     @media #{$portrait} {

@@ -1,16 +1,16 @@
-<header>
-	<div id="header-img" class="columns">
-	</div>
+<header id="homepage-header">
+  <div id="header-img" class="columns">
+  </div>
 </header>
 <div id="content" class="content">
-	<div class="row">
-		<div class="columns">
-			<% @posts.each do |post| %>
-				<h2><%= post.title %></h2>
-				<%= safe_markdown(post.body) %>
-				<small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
-			<% end %>
-		</div>
-	</div>
+  <div class="row">
+    <div class="columns">
+      <% @posts.each do |post| %>
+        <h2><%= post.title %></h2>
+        <%= safe_markdown(post.body) %>
+        <small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
+      <% end %>
+    </div>
+  </div>
 </div>
 

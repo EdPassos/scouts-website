@@ -118,12 +118,12 @@ $font-family-sans-serif: "Cabin", sans-serif;
 // $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: $wisteria;
-$secondary-color: $wet_asphalt;
+$primary-color: $lime;
+$secondary-color: $purple-a400;
 $alert-color: $alizarin;
 $success-color: $emerald;
 $warning-color: $orange;
-$info-color: $peter_river;
+$info-color: $lime-300;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -131,7 +131,7 @@ $info-color: $peter_river;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: $wisteria;
+$body-bg: $lime-300;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -1407,7 +1407,7 @@ $global-radius: 5px;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
+$topbar-bg-color: $lime-700;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
