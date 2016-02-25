@@ -1,9 +1,5 @@
-<h1>
-  <span>
-    <%= link_to '<i class="fa fa-camera"></i>'.html_safe, @photo_album %>
-  </span>
-  <%= title "Editar #{@photo_album.name}" %>
-</h1>
+<% title "Editar #{@photo_album.name}" %>
+<%= render partial: 'pages/page_action', locals: { link: photo_album_path(@photo_album), icon: 'camera' } %>
 
 <%= form_for @photo_album, action: :new_photo,
   url: {action: 'newphoto'},
@@ -19,6 +15,7 @@
   Dropzone.options.newphoto = {
     paramName: "file", // The name that will be used to transfer the file
     maxFilesize: 10, // MB
+    parallelUpload: 1,
     accept: function(file, done) {
       if (file.name == "justinbieber.jpg") {
       done("Naha, you don't.");

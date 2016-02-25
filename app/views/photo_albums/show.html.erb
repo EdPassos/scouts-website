@@ -1,17 +1,13 @@
-<h1>
-  <% if can? :manage, @photo_album %>
-    <span>
-      <%= link_to '<i class="fa fa-pencil-square"></i>'.html_safe, edit_photo_album_path(@photo_album) %>
-    </span>
+<% title @photo_album.name %>
+<% if can? :manage, @photo_album %>
+  <%= render partial: 'pages/page_action', locals: { link: edit_photo_album_path(@photo_album), icon: 'pencil' } %>
+<% end %>
+<% content_for :subtitle do %>
+  <%= l @photo_album.start.to_date, format: :short_explicit %>
+  <% if (@photo_album.end - @photo_album.start > 1.day) or not @photo_album.start.day.eql?(@photo_album.end.day) %>
+    - <%= l @photo_album.end.to_date, format: :short_explicit %>
   <% end %>
-  <%= title @photo_album.name %>
-  <small>
-    <%= l @photo_album.start.to_date, format: :short_explicit %>
-    <% if (@photo_album.end - @photo_album.start > 1.day) or not @photo_album.start.day.eql?(@photo_album.end.day) %>
-      - <%= l @photo_album.end.to_date, format: :short_explicit %>
-    <% end %>
-  </small>
-</h1>
+<% end %>
 <div id="lightgallery" class="photo-album">
   <% @photo_album.photos.each do |photo| %>
     <%= link_to image_tag(photo.file.url(:medium)), photo.file.url %>
