@@ -66,3 +66,6 @@ gem 'meta-tags', github: 'kpumuk/meta-tags'
 
 # Markdown
 gem 'redcarpet'
+
+# Env Variables
+gem 'figaro'
