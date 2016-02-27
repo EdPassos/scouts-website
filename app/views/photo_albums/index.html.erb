@@ -1,7 +1,13 @@
 <% title 'Fotografias' %>
+
 <% if can? :create, PhotoAlbum %>
   <%= render partial: 'pages/page_action', locals: { link: new_photo_album_path, icon: 'plus' } %>
 <% end %>
+
+<% content_for :back_button do %>
+  <%= link_to fa_icon('long-arrow-left', class: 'fa-fw'), root_path %>
+<% end %>
+
 <ul>
   <% @photo_albums.each do |photo_album| %>
     <li><%= link_to photo_album.name, photo_album %></li>

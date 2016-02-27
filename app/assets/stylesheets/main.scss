@@ -1,8 +1,13 @@
-@import 'foundation_and_overrides';
-
 header#header {
   padding: 1rem 0;
   background-color: $primary-color;
+
+  h1, a {
+    color: $white;
+  }
+  h2 {
+    color: $snow;
+  }
 }
 
 
