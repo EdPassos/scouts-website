@@ -4,8 +4,8 @@
   <%= render partial: 'pages/page_action', locals: { link: new_photo_album_path, icon: 'plus' } %>
 <% end %>
 
-<% content_for :back_button do %>
-  <%= link_to fa_icon('long-arrow-left', class: 'fa-fw'), root_path %>
+<% content_for :back_link do %>
+  <%= root_path %>
 <% end %>
 
 <ul>

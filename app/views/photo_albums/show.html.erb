@@ -4,8 +4,8 @@
   <%= render partial: 'pages/page_action', locals: { link: edit_photo_album_path(@photo_album), icon: 'pencil' } %>
 <% end %>
 
-<% content_for :back_button do %>
-  <%= link_to fa_icon('long-arrow-left', class: 'fa-fw'), PhotoAlbum %>
+<% content_for :back_link do %>
+  <%= photo_albums_path %>
 <% end %>
 
 <% content_for :subtitle do %>
