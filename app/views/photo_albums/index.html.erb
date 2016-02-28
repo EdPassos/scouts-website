@@ -11,7 +11,15 @@
 <ul class="album-list">
   <% @photo_albums.each do |photo_album| %>
     <li>
-      <%= link_to image_tag(photo_album.cover.file.url(:medium)), photo_album %>
+      <%= link_to  photo_album do %>
+        <%= image_tag(photo_album.cover.file.url(:medium)) %>
+        <div class="album-title">
+          <%= photo_album.name %>
+        </div>
+        <div class="album-dates">
+          <%= photo_album.date %>
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>

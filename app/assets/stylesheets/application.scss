@@ -10,15 +10,18 @@
 // Base design framework, custom styles can derive from this
 @import 'foundation_and_overrides';
 
+// External libraries
+@import 'dropzone';
+@import 'font-awesome';
+@import 'light_gallery/lightgallery';
+
 // Custom written utilities
 @import 'util'; // requires foundation
+@import 'material';
+@import 'gallery';
 
+// App style and overrides
 @import 'main';
 @import 'pages';
 @import 'footer';
 @import 'header';
-
-@import 'gallery';
-@import 'dropzone';
-@import 'font-awesome';
-@import 'light_gallery/lightgallery';

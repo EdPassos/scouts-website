@@ -11,4 +11,12 @@ class PhotoAlbum < ActiveRecord::Base
       Photo.new
     end
   end
+
+  def date
+    date_str = I18n.l self.start.to_date, format: :short_explicit
+    if (self.end - self.start > 1.day) or not self.start.day.eql?(self.end.day)
+      date_str += "- #{I18n.l self.end.to_date, format: :short_explicit}"
+    end
+    date_str
+  end
 end
