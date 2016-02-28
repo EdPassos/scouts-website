@@ -1,15 +1,19 @@
 @import 'foundation_and_overrides';
 @import 'material';
 
+.album-list, .photo-album {
+  font-size: 0; // Whitespace fix
+}
+
+.album-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 .photo-album {
-  font-size: 0;
   a {
-    position: relative;
-    display: inline-block;
-    margin: 0;
-    overflow: hidden;
-    margin: 0%;
-    border: 2px solid transparent;
+    height: 200px;
     width: 25%;
     @media #{$small-only} {
       width: 50%;
@@ -17,8 +21,32 @@
     @media #{$medium-only} {
       width: 33.33%;
     }
+  }
+}
 
-    height: 200px;
+.album-list {
+  li {
+    display: inline;
+  }
+  a {
+    height: 350px;
+    @media #{$small-only} {
+      width: 100%;
+    }
+    @media #{$medium-up} {
+      width: 50%;
+    }
+  }
+}
+
+.photo-album, .album-list {
+  a {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    overflow: hidden;
+    margin: 0%;
+    border: 2px solid transparent;
 
     &::after {
       content: "";

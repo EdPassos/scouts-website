@@ -1,5 +1,8 @@
 <% title "Editar #{@photo_album.name}" %>
-<%= render partial: 'pages/page_action', locals: { link: photo_album_path(@photo_album), icon: 'camera' } %>
+
+<% content_for :back_link do %>
+  <%= photo_album_path @photo_album %>
+<% end %>
 
 <%= form_for @photo_album, action: :new_photo,
   url: {action: 'newphoto'},
@@ -30,7 +33,7 @@
   <h2>Eliminar fotografias</h2>
   <div class="photo-album">
     <% @photo_album.photos.each do |photo| %>
-      <%= link_to image_tag(photo.file.url(:medium)), photo, method: :delete %>
+      <%= link_to image_tag(photo.file.url(:medium)), photo, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
 <% end %>
