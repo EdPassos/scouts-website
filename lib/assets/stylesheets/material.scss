@@ -1,6 +1,3 @@
-@import 'foundation_and_overrides';
-@import 'util';
-
 .card {
   background: $white;
   margin-top: 0.75rem;
@@ -8,9 +5,8 @@
   border-radius: 0.3rem;
 
   .card-content {
-    padding: 1em 1em 0 1em;
+    padding: 1em;
   }
-
 
   button, .button {
     &, &.alert {

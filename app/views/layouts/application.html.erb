@@ -43,7 +43,16 @@
           <h2><%= yield :subtitle %></h2>
         </div>
       </div>
+
+      <% if @header_image %>
+        <style>
+          header#header {
+            background-image: url( <%= @header_image %> );
+          }
+        </style>
+      <% end %>
     </header>
+
     <div class="content">
       <div class="row">
         <div class="columns">
