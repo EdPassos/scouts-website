@@ -116,13 +116,14 @@ $white       : #FFFFFF;
 // $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: $lime-a700;
-//$primary-color: $lime-a700;
-$secondary-color: $brown;
+$primary-color-string: 'light-green';
+$secondary-color-string: 'blue-grey';
+$primary-color: material-color($primary-color-string, 'a700');
+$secondary-color: material-color($secondary-color-string);
 $alert-color: $alizarin;
 $success-color: $emerald;
 $warning-color: $orange;
-$info-color: $brown-300;
+$info-color: material-color($secondary-color-string, '300');
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -131,7 +132,7 @@ $info-color: $brown-300;
 
 // We use these to control various global styles
 $body-bg: $info-color;
-$body-font-color: $brown-900;
+$body-font-color: material-color($secondary-color-string, '900');
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -219,7 +220,7 @@ $global-radius: 5px;
 $header-font-family: "Cabin Sketch", "Cabin", Roboto, sans-serif;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
-$header-font-color: $brown-900;
+$header-font-color: $body-font-color;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -282,7 +283,7 @@ $header-font-color: $brown-900;
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
 // $hr-border-style: solid;
-// $hr-border-color: $gainsboro;
+$hr-border-color: material-color($primary-color-string, 'a400');
 // $hr-margin: rem-calc(20);
 
 // We use these to style lists
@@ -655,7 +656,7 @@ $input-font-color: $secondary-color;
 // $input-font-size: rem-calc(14);
 // $input-bg-color: $white;
 $input-focus-bg-color: $white;
-$input-border-color: $brown-100;
+$input-border-color: material-color($secondary-color-string, '100');
 $input-focus-border-color: $primary-color;
 // $input-border-style: solid;
 $input-border-width: 0 0 2px 0;
@@ -1406,7 +1407,7 @@ $input-prefix-font-color: $secondary-color;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: $brown-700;
+$topbar-bg-color: material-color($secondary-color-string, '700');
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1426,7 +1427,7 @@ $topbar-bg: $topbar-bg-color;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: scale-color($topbar-bg-color, $lightness: -25%);
+$topbar-link-bg-hover: material-color($secondary-color-string, '900');
 // $topbar-link-bg-color-hover: $charcoal;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);

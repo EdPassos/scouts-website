@@ -20,6 +20,7 @@ header#header {
   }
 
   h1, a {
+    color: material-color($primary-color-string, 'a400');
     color: $white;
   }
   h2 {
