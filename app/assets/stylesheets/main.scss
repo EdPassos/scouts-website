@@ -1,7 +1,7 @@
 header#header {
   position: relative;
   padding: 1rem 0;
-  background-color: $primary-color;
+  background-color: $secondary-color;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,7 +9,7 @@ header#header {
   // before element
   // sits before header contents
   &::before {
-    background-color: $primary-color;
+    background-color: $secondary-color;
     opacity: 0.70;
     position: absolute;
     content: "";
@@ -47,7 +47,7 @@ header#header {
     position: absolute;
     top: - ( $content-padding + 2rem );
     right: 2rem;
-    color: $secondary-color;
+    color: $primary-color;
     z-index: 10;
 
     .fa-stack-2x {
@@ -70,29 +70,18 @@ header#header {
 }
 
 form {
-  input[type="email"],
-  input[type="password"],
-  input[type="date"],
+  @include placeholder-color($brown-100);
   .day, .month, .year,
-  .hour, .minute,
-  input[type="text"] {
-    background-color: $white;
-    box-shadow: none;
-    padding: 10px;
-    border: none;
-    border-bottom: solid 2px $silver;
-
-    &:focus, &.focus {
-      border-bottom: solid 2px $primary_color;
-      background-color: $white;
-    }
+  .hour, .minute, {
+    padding-top: 0;
+    padding-bottom: 0;
   }
   input[type="submit"] {
     @extend .button;
   }
   input.input-title {
     font-size: 2.5rem;
-    height: 3.2rem;
+    height: 3.5rem;
   }
   .day {
     width: 10%;
