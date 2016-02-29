@@ -73,3 +73,6 @@ gem 'figaro'
 # Font awesome
 gem "font-awesome-rails"
 
+# Material Colors
+gem 'sass-material-colors'
+
