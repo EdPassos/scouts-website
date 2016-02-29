@@ -1,36 +1,34 @@
 <% title "Contactos" %>
 
-<div class="content">
-  <div class="row">
-    <div class="columns">
-      <div class="row" data-equalizer>
-        <div class="columns medium-6" data-equalizer-watch>
-          <div class="card card-1">
-            <div class="card-content">
-              <h2>Localização</h2>
-              <p>
-                <strong>Sede dos Escuteiros de Porto Salvo</strong><br>
-                R. 7 de Junho - Bairro Autoconstrução<br>
-                2780-918 Porto Salvo
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="columns medium-6" data-equalizer-watch>
-          <div class="card card-1">
-            <div class="card-content">
-              <h2>Horário</h2>
-              <p>
-                <strong>Reuniões na sede</strong><br>
-                Sábados das 15h às 17h30<br>
-                <small>Para mais informações consultar o <%= link_to "Calendário", calendar_path %></small>
-              </p>
-            </div>
-          </div>
-        </div>
+<% content_for :back_link do %>
+  <%= root_path %>
+<% end %>
+
+<div class="row" data-equalizer>
+  <div class="columns medium-6" data-equalizer-watch>
+    <div class="card card-1">
+      <div class="card-content">
+        <h2>Localização</h2>
+        <p>
+          <strong>Sede dos Escuteiros de Porto Salvo</strong><br>
+          R. 7 de Junho - Bairro Autoconstrução<br>
+          2780-918 Porto Salvo
+        </p>
       </div>
-      <div id="map" class='card card-2'></div>
+    </div>
+  </div>
+  <div class="columns medium-6" data-equalizer-watch>
+    <div class="card card-1">
+      <div class="card-content">
+        <h2>Horário</h2>
+        <p>
+          <strong>Reuniões na sede</strong><br>
+          Sábados das 15h às 17h30<br>
+          <small>Para mais informações consultar o <%= link_to "Calendário", calendar_path %></small>
+        </p>
+      </div>
     </div>
   </div>
 </div>
+<div id="map" class='card card-2'></div>
 <%= render 'map' %>
