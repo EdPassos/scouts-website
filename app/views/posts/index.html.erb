@@ -1,5 +1,9 @@
 <% title "Blog" %>
 
+<% if can? :create, PhotoAlbum %>
+  <%= render partial: 'pages/page_action', locals: { link: new_post_path, icon: 'plus' } %>
+<% end %>
+
 <% content_for :back_link do %>
   <%= root_path %>
 <% end %>

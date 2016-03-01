@@ -1,8 +1,12 @@
-<div class='content'>
-	<div class="row">
-		<div class="columns">
-			<h1><%= title "Novo Artigo" %></h1>
-			<%= render 'form' %>
-		</div>
-	</div>
+<% title "Novo Artigo" %>
+
+<% content_for :back_link do %>
+  <%= posts_path %>
+<% end %>
+
+<div class="row">
+  <div class="columns">
+    <h1></h1>
+    <%= render 'form' %>
+  </div>
 </div>

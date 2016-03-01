@@ -1,4 +1,13 @@
 <% title "Editar Artigo" %>
+
+<% content_for :subtitle do %>
+  <%= @post.title %>
+<% end %>
+
+<% content_for :back_link do %>
+  <%= post_path @post %>
+<% end %>
+
 <div class="columns">
   <%= render 'form' %>
 </div>

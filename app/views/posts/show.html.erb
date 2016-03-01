@@ -1,5 +1,17 @@
 <% title @post.title %>
 
+<% content_for :subtitle do %>
+  Por <%= @post.author.name %>
+<% end %>
+
+<% content_for :back_link do %>
+  <%= posts_path %>
+<% end %>
+
+<% if can? :update, @post %>
+  <%= render partial: 'pages/page_action', locals: { link: edit_post_path(@post), icon: 'pencil' } %>
+<% end %>
+
 <div class="row">
   <div class="columns">
     <div class="card card-3">
@@ -9,10 +21,7 @@
         <small><%= "Criado a #{@post.created_at.strftime('%-d/%m/%y')}" %></small>
       </div>
     </div>
-    <% if can? :edit, @post %>
-      <hr>
-      <h3>Editar</h3>
-      <%= render 'posts/form' %>
+    <% if can? :destroy, @post %>
       <%= link_to "Eliminar", @post, class: "button tiny", method: :delete, data: {confirm: "Tem a certeza que pretende eliminar este Post?"} %>
     <% end %>
   </div>
