@@ -2,8 +2,12 @@
 
 <div class="row">
   <div class="columns">
-    <%= safe_markdown(@post.body) %>
-    <small><%= "Criado a #{@post.created_at.strftime('%-d/%m/%y')}" %></small>
+    <div class="card card-3">
+      <div class="card-content">
+        <%= safe_markdown(@post.body) %>
+        <small><%= "Criado a #{@post.created_at.strftime('%-d/%m/%y')}" %></small>
+      </div>
+    </div>
     <% if can? :edit, @post %>
       <hr>
       <h3>Editar</h3>

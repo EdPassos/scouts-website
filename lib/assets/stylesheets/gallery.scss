@@ -1,4 +1,6 @@
 .album-list, .photo-album {
+  background-color: $white;
+  border: 2px solid $white;
   font-size: 0; // Whitespace fix
   a {
     position: relative;
@@ -6,7 +8,7 @@
     margin: 0;
     overflow: hidden;
     margin: 0%;
-    border: 2px solid transparent;
+    border: 2px solid $white;
   }
   img {
     background-color: $white;
