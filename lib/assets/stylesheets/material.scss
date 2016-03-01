@@ -1,8 +1,25 @@
 .card {
+  $card-radius: 0.3rem;
   background: $white;
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-  border-radius: 0.3rem;
+  border-radius: $card-radius;
+
+  .header {
+    width: 100%;
+    border-radius: $card-radius $card-radius 0 0;
+    object-fit: cover;
+
+    &.small {
+      height: 6rem;
+    }
+    &.medium {
+      height: 12rem;
+    }
+    &.large {
+      height: 24rem;
+    }
+  }
 
   .card-content {
     padding: 1em;
@@ -76,7 +93,7 @@
   @extend .parent-vertical-align;
   border-radius: 50%;
   width: 50px;
-  height: 50px; 
+  height: 50px;
   background: $primary-color;
   z-index: 400;
   position: absolute;

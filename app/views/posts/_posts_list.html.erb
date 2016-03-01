@@ -1,5 +1,6 @@
 <% @posts.each do |post| %>
   <div class="card card-3">
+    <%= link_to image_tag(post.image.url(:medium), class: 'header large'), post if post.image.exists? %>
     <div class="card-content">
       <h2><%= link_to post.title, post %> <small><%= l post.created_at.to_date, format: :short %></small></h2>
       <p><%= truncate strip_tags(safe_markdown post.body), length: 250 %></p>

@@ -41,10 +41,10 @@ header#header {
   $content-padding: 1.25rem;
 
   @media #{$medium-up} {
-    padding: $content-padding rem-calc(75);
+    padding: $content-padding rem-calc(50);
   }
   @media #{$small-only} {
-    padding: $content-padding rem-calc(10);
+    padding: $content-padding 0;
   }
 
   #page-action {
