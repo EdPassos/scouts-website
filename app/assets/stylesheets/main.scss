@@ -30,8 +30,11 @@ header#header {
 
 
 #page {
+  position: relative;
   background-color: $snow;
-  margin-bottom: 0.5rem;
+  $color-2: material-color($primary-color-string, '400');
+  $color-1: material-color($primary-color-string, '100');
+  @include simple-linear-gradient($color-1, $color-2, 165deg);
 }
 
 .content {

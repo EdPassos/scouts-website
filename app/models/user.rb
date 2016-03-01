@@ -16,6 +16,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def name
+    if self.person.blank?
+      name = self.email
+    else
+      name = self.person.name
+    end
+    name
+  end
+
   def self.create_admin
 	  user = User.new
 	  user.id = 1

@@ -9,4 +9,8 @@ class Person < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def name(format = :first_last)
+    first_last_name
+  end
+
 end
