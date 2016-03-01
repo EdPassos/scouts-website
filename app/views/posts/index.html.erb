@@ -1,14 +1,11 @@
-<div class='content'>
-	<div class="row">
-		<div class="columns medium-6 small-6">
-			<h1><%= title "Artigos" %></h1>
-		</div>
-		<div class="columns medium-6 small-6 text-right">
-		</div>
-	</div>
-	<div class="row">
-		<div class="columns">
-			<%= render 'posts_list' %>
-		</div>
-	</div>
+<% title "Blog" %>
+
+<% content_for :back_link do %>
+  <%= root_path %>
+<% end %>
+
+<div class="row">
+  <div class="columns">
+    <%= render 'posts_list' %>
+  </div>
 </div>
