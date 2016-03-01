@@ -5,6 +5,7 @@
       <%= f.text_field :title %>
       <%= f.label :body, "Texto" %>
       <%= f.text_area :body, rows: 15 %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {prompt: 'Categorias'} %><br>
       <%= f.submit class: "button" %>
     <% end %>
   </div>
