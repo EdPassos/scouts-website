@@ -22,13 +22,13 @@
       </div>
       <div class="row">
         <div class="columns">
-          <h3>Datas</h3>
+          <%= f.label :dates, "Datas" %>
         </div>
       </div>
       <div class="row">
         <div class='columns medium-6'>
-          <div class="field">
-            <%= f.datetime_select :start, {
+          <div class="field date-select">
+            <%= f.date_select :start, {
               order: [:day, :month, :year],
               with_css_classes: true
             } %>
@@ -37,8 +37,8 @@
       </div>
       <div class="row">
         <div class='columns medium-6'>
-          <div class="field">
-            <%= f.datetime_select :end, {
+          <div class="field date-select">
+            <%= f.date_select :end, {
               order: [:day, :month, :year],
               with_css_classes: true
             } %>

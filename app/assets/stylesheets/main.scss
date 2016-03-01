@@ -1,7 +1,9 @@
+$grad-deg: 165deg;
 header#header {
   position: relative;
   padding: 1rem 0;
   background-color: $secondary-color;
+  @include material-linear-gradient($secondary-color-string,'600', '400', $grad-deg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,6 +12,7 @@ header#header {
   // sits before header contents
   &::before {
     background-color: $secondary-color;
+  @include material-linear-gradient($secondary-color-string,'600', '400', $grad-deg);
     opacity: 0.70;
     position: absolute;
     content: "";
@@ -32,9 +35,7 @@ header#header {
 #page {
   position: relative;
   background-color: $snow;
-  $color-2: material-color($primary-color-string, '400');
-  $color-1: material-color($primary-color-string, '100');
-  @include simple-linear-gradient($color-1, $color-2, 165deg);
+  @include material-linear-gradient($primary-color-string,'100', '400', $grad-deg);
 }
 
 .content {
@@ -87,19 +88,20 @@ form {
     font-size: 2.5rem;
     height: 3.5rem;
   }
+  .date-select {
+    font-size: 0;
+  }
+  .day, .month, .year {
+    padding: 0;
+    font-size: 1rem;
+  }
   .day {
-    width: 10%;
+    width: 15%;
   }
   .month {
-    width: 20%;
+    width: 50%;
   }
   .year {
-    width: 15%;
-  }
-  .hour {
-    width: 15%;
-  }
-  .minute {
-    width: 15%;
+    width: 35%;
   }
 }

@@ -26,16 +26,22 @@
   }
 
   button, .button {
-    &, &.alert {
-      background: transparent;
-    }
-
+    background: transparent;
     margin: 0;
     color: $primary-color;
     width: 100%;
 
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
+
     &.alert {
-    color: $alert-color;
+      color: $alert-color;
+      &:hover {
+        background: $alert-color;
+        color: $white;
+      }
     }
 
     &.first {

@@ -10,7 +10,7 @@
     <div class="card-action">
       <div class="row collapse">
         <div class="columns small-6">
-          <%= link_to "PARTILHAR", "", class: 'button', id: "fb#{post.id}" %>
+          <%= link_to "PARTILHAR", "", class: 'button first', id: "fb#{post.id}" %>
           <script>
             $("#fb<%= post.id %>").on("click",function(){
               var fbpopup = window.open("https://www.facebook.com/sharer/sharer.php?u=<%= post_url post %>", "pop", "width=600, height=400, scrollbars=no");
@@ -18,8 +18,9 @@
             });
           </script>
         </div>
+
         <div class="columns small-6">
-          <%= link_to "VER MAIS", post, class: 'button' %>
+          <%= link_to "VER MAIS", post, class: 'button last' %>
         </div>
       </div>
     </div>

@@ -50,3 +50,9 @@
   background: -moz-linear-gradient($angle, $color1, $color2);
   background: linear-gradient($angle, $color1, $color2);
 }
+
+@mixin material-linear-gradient($color-string, $tone1, $tone2, $angle) {
+  $color1: material-color($color-string, $tone1);
+  $color2: material-color($color-string, $tone2);
+  @include simple-linear-gradient($color1, $color2, $angle);
+}
