@@ -1,6 +1,6 @@
 footer {
   background-color: $body-bg;
-  $color-1: material-color($secondary-color-string, '400');
+  $color-1: material-color($secondary-color-string, '500');
   $color-2: $body-bg;
   @include simple-linear-gradient($color-1, $color-2, 180deg);
 }
