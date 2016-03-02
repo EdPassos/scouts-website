@@ -5,6 +5,10 @@
   margin-bottom: 0.75rem;
   border-radius: $card-radius;
 
+  &.info {
+    background-color: $info-color;
+  }
+
   .header {
     width: 100%;
     border-radius: $card-radius $card-radius 0 0;

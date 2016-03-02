@@ -3,8 +3,7 @@ class PagesController < ApplicationController
   @description = 'ola'
 
   def index
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, strikethrough: true)
-    @posts = Post.order("id desc").limit(3)
+    @posts = Post.where(draft: false).order("id desc").limit(3)
     render layout: 'homepage'
   end
 
