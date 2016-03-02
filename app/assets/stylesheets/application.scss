@@ -4,6 +4,7 @@
  */
 
 // These are important for the rest of the app
+@import 'bourbon';
 @import 'sass-material-colors';
 @import 'colors';
 @import 'fonts';
@@ -24,5 +25,6 @@
 // App style and overrides
 @import 'main';
 @import 'pages';
+@import 'topbar';
 @import 'header';
 @import 'footer';

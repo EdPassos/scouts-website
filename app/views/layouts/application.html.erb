@@ -40,7 +40,9 @@
             <%= link_to fa_icon('arrow-left', class: 'fa-fw'), yield(:back_link) if content_for?(:back_link) %>
             <%= title %>
           </h1>
-          <h2><%= yield :subtitle %></h2>
+          <% if content_for? :subtitle %>
+            <h2><%= yield :subtitle %></h2>
+          <% end %>
         </div>
       </div>
 

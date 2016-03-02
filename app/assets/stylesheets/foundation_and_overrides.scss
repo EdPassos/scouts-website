@@ -1411,7 +1411,7 @@ $topbar-bg-color: material-color($secondary-color-string, '700');
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: rem-calc(45);
+$topbar-height: 3.5rem;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1429,8 +1429,8 @@ $topbar-bg: $topbar-bg-color;
 $topbar-link-bg: $topbar-bg;
 $topbar-link-bg-hover: material-color($secondary-color-string, '900');
 // $topbar-link-bg-color-hover: $charcoal;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-active: $topbar-bg;
+$topbar-link-bg-active-hover: material-color($secondary-color-string, '900');
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: ($topbar-height / 3);

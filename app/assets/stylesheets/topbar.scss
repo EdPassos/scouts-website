@@ -1,0 +1,15 @@
+.top-bar {
+  li {
+    height: $topbar-height;
+    
+    &:hover {
+    }
+
+    &.active {
+      a {
+        font-weight: bold;
+        color: $primary-color !important;
+      }
+    }
+  }
+}
