@@ -1,0 +1,19 @@
+.previous_page, .next_page {
+  @extend button;
+  @extend .warning;
+  @extend .card-2;
+  @extend .card-hover;
+  @extend .radius;
+  margin: 0;
+
+  &.disabled {
+    opacity: 0;
+  }
+  &:hover {
+    @extend button:hover;
+  }
+}
+
+.next_page {
+  float: right;
+}

@@ -6,15 +6,23 @@
 <div id="content" class="content">
   <div class="row">
     <div class="columns">
+      <div class="row">
       <% @posts.each do |post| %>
-        <div class="card card-2">
-          <div class="card-content">
-            <h2><%= post.title %></h2>
-            <%= truncate strip_tags( safe_markdown(post.body) ), length: 100 %>
-            <small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
+        <% if post.eql? @posts.first %>
+          <div class="columns">
+        <% else %>
+          <div class="columns medium-6">
+        <% end %>
+            <div class="card card-2">
+              <div class="card-content">
+                <h2><%= link_to post.title, post %></h2>
+                <p><%= truncate strip_tags( safe_markdown(post.body) ), length: 100 %></p>
+                <small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
+              </div>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
