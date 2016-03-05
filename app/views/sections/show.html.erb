@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% title @section.name %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @section.name %>
-</p>
+<% content_for :back_link do %>
+  <%= sections_path %>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @section.description %>
-</p>
+<% if can? :update, @section %>
+  <%= render partial: 'pages/page_action', locals: { link: edit_section_path(@section), icon: 'pencil' } %>
+<% end %>
+
+<div class='card card-3'>
+  <div class='card-content'>
+    <%= safe_markdown @section.description %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>
