@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302032408) do
+ActiveRecord::Schema.define(version: 20160305014554) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 20160302032408) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "section_id"
   end
 
+  add_index "people", ["section_id"], name: "index_people_on_section_id"
   add_index "people", ["user_id"], name: "index_people_on_user_id"
 
   create_table "photo_albums", force: :cascade do |t|
@@ -100,6 +102,18 @@ ActiveRecord::Schema.define(version: 20160302032408) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.boolean  "public"
+  end
 
   create_table "shop_order_statuses", force: :cascade do |t|
     t.string   "name"
