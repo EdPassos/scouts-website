@@ -60,6 +60,14 @@
             <%= f.collection_select :user_id, User.all, :id, :email, {include_blank: "Nenhum"} %>
           </div>
         </div>
+        <div class="row collapse">
+          <div class="columns small-5 large-2">
+            <%= f.label :section, "Secção", class: "prefix" %>
+          </div>
+          <div class="columns small-7 large-10">
+            <%= f.collection_select :section_id, Section.all, :id, :name, {include_blank: "Nenhuma"} %>
+          </div>
+        </div>
       <% end %>
     </div>
 
