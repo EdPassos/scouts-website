@@ -1,4 +1,8 @@
-<h1>Editing Section</h1>
+<% title @section.name %>
+
+<% content_for :back_link do %>
+  <%= section_path @section %>
+<% end %>
 
 <%= render 'form' %>
 
