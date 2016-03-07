@@ -1,11 +1,11 @@
 class TeamsController < ApplicationController
-  before_action :set_section
+  before_action :set_section, only: [:index, :new, :create]
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = @section.teams
   end
 
   # GET /teams/1
@@ -29,8 +29,8 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to [@section, @team], notice: 'Team was successfully created.' }
-        format.json { render :show, status: :created, location: [@section, @team] }
+        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
         format.json { render json: @team.errors, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      format.html { redirect_to section_teams_url(@team.section), notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,7 +65,7 @@ class TeamsController < ApplicationController
   def section_teams
     @teams = Team.where(section: params[:section_id])
 
-    respond_with @teams do |format|
+    respond_to do |format|
       format.json {
         render :json => @teams.to_json(only: [:id, :name])
       }

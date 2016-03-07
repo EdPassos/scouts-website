@@ -5,5 +5,5 @@
   <%= @team.name %>
 </p>
 
-<%= link_to 'Edit', edit_section_team_path(@section, @team) %> |
-<%= link_to 'Back', section_teams_path %>
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', section_teams_path(@team.section) %>
