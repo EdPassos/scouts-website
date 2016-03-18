@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
 
   def index
-    @posts = Post.where(draft: false)
+    @posts = Post.where(draft: false).order(id: :desc)
   end
 
   def show
