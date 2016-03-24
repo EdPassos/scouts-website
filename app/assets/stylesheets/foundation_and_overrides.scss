@@ -123,7 +123,7 @@ $secondary-color: material-color($secondary-color-string);
 $alert-color: $alizarin;
 $success-color: $emerald;
 $warning-color: $orange;
-$info-color: material-color($secondary-color-string, '300');
+$info-color: material-color($secondary-color-string, '50');
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -131,7 +131,7 @@ $info-color: material-color($secondary-color-string, '300');
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: $info-color;
+$body-bg: material-color($secondary-color-string, '300');
 $body-font-color: material-color($secondary-color-string, '900');
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;

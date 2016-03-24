@@ -9,7 +9,7 @@
       <% @posts.each do |post| %>
         <div class="card card-2">
           <div class="card-content">
-            <h2><%= post.title %></h2>
+            <h2><%= link_to post.title, post %></h2>
             <%= truncate strip_tags( safe_markdown(post.body) ), length: 100 %>
             <small><%= "#{post.created_at.strftime('%-d/%m/%y')}" %></small>
           </div>

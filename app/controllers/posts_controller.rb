@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.where(draft: false).order(id: :desc)
   end
 
   def show
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :title, :body, { category_ids: [] } )
+    params.require(:post).permit(:draft, :image, :title, :body, { category_ids: [] } )
   end
 
   def set_post
