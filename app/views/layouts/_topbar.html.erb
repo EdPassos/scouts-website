@@ -47,14 +47,23 @@
         <li><%= link_to "Clã", cla_path %></li>
       </ul>
     </li>
-    <li><%= link_to "Fotografias", photo_albums_path %></li>
-    <li><%= link_to "Blog", posts_path %></li>
+    <%= content_tag "li",
+      link_to("Fotografias", photo_albums_path),
+      class: button_class(['photo_albums'])
+    %>
+    <%= content_tag "li",
+      link_to("Blog", posts_path),
+      class: button_class(['posts'])
+    %>
   <!--
     <li><%= link_to "Formações", "#" %></li>
     <li><%= link_to "Docs", "#" %></li>
   -->
     <li><%= link_to "Loja", shop_path %></li>
-    <li><%= link_to "Contactos", contactos_path %></li>
+    <%= content_tag "li",
+      link_to("Contactos", contactos_path),
+      class: button_class(['pages'], ['contacts'])
+    %>
     </ul>
   </section>
 </nav>

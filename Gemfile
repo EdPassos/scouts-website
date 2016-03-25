@@ -75,4 +75,5 @@ gem "font-awesome-rails"
 
 # Material Colors
 gem 'sass-material-colors'
+gem 'will_paginate'
 

@@ -1,0 +1,39 @@
+.pagination {
+  font-size: 2rem;
+
+  em, a {
+    padding: 0.6rem 1rem;
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: $global-radius;
+    margin: 0;
+  }
+
+  h2 a {
+    color: $primary-color;
+  }
+
+  .current {
+    background-color: white;
+    color: $secondary-color;
+    font-style: normal;
+  }
+
+  .previous_page, .next_page {
+    @extend .fa;
+    @extend .fa-lg;
+
+    &.disabled {
+      display: none;
+    }
+  }
+
+  .previous_page {
+    @extend .fa-angle-left;
+  }
+  .next_page {
+    @extend .fa-angle-right;
+  }
+}
