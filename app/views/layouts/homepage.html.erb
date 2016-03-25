@@ -10,27 +10,28 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
+    <% if Rails.env.production? %>
+      <%= render 'layouts/ganalytics' %>
+    <% end %>
   </head>
 
   <body>
 
-  <%= render 'layouts/topbar' %>
-  <div id="page">
-    <% if notice or alert %>
-      <div class="row">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
-    <%= yield %>
-  </div>
-  <footer>
-    <div style="clear: both;">&nbsp;</div>
-    <%= render 'layouts/footer' %>
-  </footer>
-  <% if Rails.env.production? %>
-    <%= render 'layouts/ganalytics' %>
-  <% end %>
+    <%= render 'layouts/topbar' %>
+    <div id="page">
+      <% if notice or alert %>
+        <div class="row">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <footer>
+      <div style="clear: both;">&nbsp;</div>
+      <%= render 'layouts/footer' %>
+    </footer>
 
   </body>
 </html>
