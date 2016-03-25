@@ -18,35 +18,22 @@
 
   <body>
 
-  <%= render 'layouts/topbar' %>
-  <div id="page" class="card-1">
+    <%= render 'layouts/topbar' %>
+    <div id="page" class="card-1">
 
-    <% if notice or alert %>
-      <div id="notice">
-        <% if notice %>
-          <div data-alert class="alert-box success radius card-5">
-            <p class="notice"><%= notice %></p>
-            <a href="#" class="close">&times;</a>
-          </div>
-        <% end %>
-        <% if alert %>
-          <div data-alert class="alert-box alert radius card-5">
-            <p class="alert"><%= alert %></p>
-            <a href="#" class="close">&times;</a>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
-    <header id="header" class='card-1'>
-      <div class="row">
-        <div class="columns">
-          <h1>
-            <%= link_to fa_icon('arrow-left', class: 'fa-fw'), yield(:back_link) if content_for?(:back_link) %>
-            <%= title %>
-          </h1>
-          <% if content_for? :subtitle %>
-            <h2><%= yield :subtitle %></h2>
+      <% if notice or alert %>
+        <div id="notice">
+          <% if notice %>
+            <div data-alert class="alert-box success radius card-5">
+              <p class="notice"><%= notice %></p>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
+          <% if alert %>
+            <div data-alert class="alert-box alert radius card-5">
+              <p class="alert"><%= alert %></p>
+              <a href="#" class="close">&times;</a>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -58,7 +45,9 @@
               <%= link_to fa_icon('arrow-left', class: 'fa-fw'), yield(:back_link) if content_for?(:back_link) %>
               <%= title %>
             </h1>
-            <h2><%= yield :subtitle %></h2>
+            <% if content_for? :subtitle %>
+              <h2><%= yield :subtitle %></h2>
+            <% end %>
           </div>
         </div>
 
@@ -85,3 +74,4 @@
     </footer>
   </body>
 </html>
+
