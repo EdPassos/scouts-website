@@ -16,3 +16,4 @@
 
 # Paperclip attachments
 /public/system
+/config/application.yml
