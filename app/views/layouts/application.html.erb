@@ -10,6 +10,10 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
+    <% if Rails.env.production? %>
+      <%= render 'layouts/ganalytics' %>
+    <% end %>
   </head>
 
   <body>
@@ -64,10 +68,6 @@
   <footer>
     <%= render 'layouts/footer' %>
   </footer>
-
-  <% if Rails.env.production? %>
-    <%= render 'layouts/ganalytics' %>
-  <% end %>
 
   </body>
 </html>
