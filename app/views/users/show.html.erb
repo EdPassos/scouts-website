@@ -1,3 +1,16 @@
 <% title( current_user.person ? current_user.person.first_last_name : current_user.email) %>
 
 <%= render 'people/form' %>
+
+<div class="card card-3">
+  <div class="card-content">
+    <h1>Posts</h1>
+    <ul>
+    <% @user.posts.each do |post| %>
+      <li>
+        <%= link_to "#{l post.created_at} - #{post.title}", post %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
