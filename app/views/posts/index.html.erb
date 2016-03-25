@@ -8,10 +8,13 @@
   <%= root_path %>
 <% end %>
 
+<% content_for :subtitle do %>
+  <%= will_paginate @posts, previous_label: '', next_label: '' %>
+<% end %>
+
 <div class="row">
   <div class="columns">
-    <%= will_paginate @posts, page_links: false %>
     <%= render 'posts_list' %>
-    <%= will_paginate @posts, page_links: false %>
+    <%= will_paginate @posts, page_links: false, previous_label: '', next_label: '' %>
   </div>
 </div>
