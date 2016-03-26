@@ -59,7 +59,10 @@
       link_to("Blog", posts_path),
       class: button_class(['posts'])
     %>
-    <li><%= link_to "Atividades", Adventure %></li>
+    <%= content_tag "li",
+      link_to("Atividades", Adventure),
+      class: button_class(['adventures'])
+    %>
   <!--
     <li><%= link_to "Docs", "#" %></li>
   -->

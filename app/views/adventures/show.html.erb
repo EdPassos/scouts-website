@@ -1,31 +1,31 @@
 <% title "Atividade" %>
 <div class="card card-3">
   <div class="card-content">
-    <p>
-      <strong>Name:</strong>
+    <h1>
       <%= @adventure.name %>
-    </p>
+    </h1>
+    <h3>
+      De <%= l @adventure.start, format: :short %>
+      a <%= l @adventure.end, format: :short %>,
+      <%= @adventure.start.year %>
+    </h3>
 
     <p>
-      <strong>Start:</strong>
-      <%= @adventure.start %>
+      <strong>Fotografias:</strong>
+      <%= link_to @adventure.photo_album.name, @adventure.photo_album %>
+      <br>
+
+      <strong>Artigo:</strong>
+      <%= link_to @adventure.post.title, @adventure.post %>
+      <br>
+
+      <strong>Noites:</strong>
+      <%= @adventure.nights %>
     </p>
 
-    <p>
-      <strong>End:</strong>
-      <%= @adventure.end %>
-    </p>
-
-    <p>
-      <strong>Photo album:</strong>
-      <%= @adventure.photo_album %>
-    </p>
-
-    <p>
-      <strong>Post:</strong>
-      <%= @adventure.post %>
-    </p>
-
+    <h4>
+      Participantes
+    </h4>
     <ul>
       <% @adventure.people.each do |person| %>
         <li><%= link_to person.name, person %></li>

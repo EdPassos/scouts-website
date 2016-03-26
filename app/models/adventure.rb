@@ -4,4 +4,8 @@ class Adventure < ActiveRecord::Base
 
   belongs_to :photo_album
   belongs_to :post
+
+  def nights
+    days = (self.end - start).to_i
+  end
 end
