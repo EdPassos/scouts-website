@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302032408) do
+ActiveRecord::Schema.define(version: 20160325232727) do
+
+  create_table "adventures", force: :cascade do |t|
+    t.string   "name"
+    t.date     "start"
+    t.date     "end"
+    t.integer  "photo_album_id"
+    t.integer  "post_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "adventures", ["photo_album_id"], name: "index_adventures_on_photo_album_id"
+  add_index "adventures", ["post_id"], name: "index_adventures_on_post_id"
+
+  create_table "adventures_people", id: false, force: :cascade do |t|
+    t.integer "adventure_id"
+    t.integer "person_id"
+  end
+
+  add_index "adventures_people", ["adventure_id"], name: "index_adventures_people_on_adventure_id"
+  add_index "adventures_people", ["person_id"], name: "index_adventures_people_on_person_id"
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -49,8 +70,12 @@ ActiveRecord::Schema.define(version: 20160302032408) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "section_id"
+    t.integer  "team_id"
   end
 
+  add_index "people", ["section_id"], name: "index_people_on_section_id"
+  add_index "people", ["team_id"], name: "index_people_on_team_id"
   add_index "people", ["user_id"], name: "index_people_on_user_id"
 
   create_table "photo_albums", force: :cascade do |t|
@@ -101,6 +126,18 @@ ActiveRecord::Schema.define(version: 20160302032408) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
+  create_table "sections", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.boolean  "public"
+  end
+
   create_table "shop_order_statuses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -146,6 +183,15 @@ ActiveRecord::Schema.define(version: 20160302032408) do
   add_index "shopping_cart_products", ["shop_order_id"], name: "index_shopping_cart_products_on_shop_order_id"
   add_index "shopping_cart_products", ["shop_product_id"], name: "index_shopping_cart_products_on_shop_product_id"
   add_index "shopping_cart_products", ["user_id"], name: "index_shopping_cart_products_on_user_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "section_id"
+  end
+
+  add_index "teams", ["section_id"], name: "index_teams_on_section_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

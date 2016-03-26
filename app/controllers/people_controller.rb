@@ -1,5 +1,8 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:edit, :update,:destroy]
+  before_action :set_person, only: [:show, :edit, :update,:destroy]
+
+  def show
+  end
 
   def new
     @person = Person.new

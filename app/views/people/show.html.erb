@@ -1,0 +1,22 @@
+<% title @person.name %>
+<div class="card card-3">
+  <div class="header">
+    <%= image_tag @person.photo.url(:medium), class: 'header' if @person.photo.exists? %>
+  </div>
+  <div class="card-content">
+    <h1>Informação Pessoal</h1>
+    <p>
+      <strong>Nome Completo:</strong> <%= "#{@person.first_name} #{@person.middle_names} #{@person.last_name}" %><br>
+      <strong>Data de Nascimento:</strong> <%= "#{l @person.birthday} (#{@person.age} anos de idade)" %><br>
+      <% if @person.caretaker %>
+        <strong>Encarregado de Educação:</strong> <%= @person.caretaker.name %><br>
+      <% end %>
+      <% if @person.section %>
+        <strong>Secção:</strong> <%= @person.section.name %><br>
+      <% end %>
+      <% if @person.team %>
+        <strong>Patrulha</strong> <%= @person.team.name %><br>
+      <% end %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<%= form_for(@adventure) do |f| %>
+  <% if @adventure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@adventure.errors.count, "error") %> prohibited this adventure from being saved:</h2>
+
+      <ul>
+      <% @adventure.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :start %><br>
+    <%= f.date_select :start, {
+      order: [:day, :month, :year],
+      with_css_classes: true
+    } %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br>
+    <%= f.date_select :end, {
+      order: [:day, :month, :year],
+      with_css_classes: true
+    } %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_album_id %><br>
+    <%= f.text_field :photo_album_id %>
+  </div>
+  <div class="field">
+    <%= f.label :post_id %><br>
+    <%= f.text_field :post_id %>
+    <%= f.collection_check_boxes :person_ids, Person.all, :id, :name, {prompt: 'Participantes'} %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<% title "Atividade" %>
+<div class="card card-3">
+  <div class="card-content">
+    <p>
+      <strong>Name:</strong>
+      <%= @adventure.name %>
+    </p>
+
+    <p>
+      <strong>Start:</strong>
+      <%= @adventure.start %>
+    </p>
+
+    <p>
+      <strong>End:</strong>
+      <%= @adventure.end %>
+    </p>
+
+    <p>
+      <strong>Photo album:</strong>
+      <%= @adventure.photo_album %>
+    </p>
+
+    <p>
+      <strong>Post:</strong>
+      <%= @adventure.post %>
+    </p>
+
+    <ul>
+      <% @adventure.people.each do |person| %>
+        <li><%= link_to person.name, person %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= link_to 'Edit', edit_adventure_path(@adventure) %> |
+  <%= link_to 'Back', adventures_path %>
+</div>
+

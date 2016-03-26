@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+  has_and_belongs_to_many :adventures
   belongs_to :caretaker
   belongs_to :user
 
@@ -11,6 +12,15 @@ class Person < ActiveRecord::Base
 
   def name(format = :first_last)
     first_last_name
+  end
+
+  def age
+    today = Date.today
+    age = today.year - birthday.year
+    if birthday.years_since(age) > today
+      age -= 1
+    end
+    age
   end
 
 end
