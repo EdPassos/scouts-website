@@ -3,6 +3,9 @@ class PhotoAlbum < ActiveRecord::Base
 
   accepts_nested_attributes_for :photos
 
+  # Validations
+  validates :name, presence: true
+
   def cover
     photo = self.photos.first
     if photo

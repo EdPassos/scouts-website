@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   resources :adventures
+
+  post 'load_teams' => 'teams#section_teams', as: :load_teams
+  resources :teams, :except => [:index, :new, :create]
+  resources :sections do
+    resources :teams, :only => [:index, :new, :create]
+  end
+
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

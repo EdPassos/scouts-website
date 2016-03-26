@@ -12,7 +12,7 @@
         <strong>Encarregado de Educação:</strong> <%= @person.caretaker.name %><br>
       <% end %>
       <% if @person.section %>
-        <strong>Secção:</strong> <%= @person.section.name %><br>
+        <strong>Secção:</strong> <%= link_to @person.section.name, @person.section %><br>
       <% end %>
       <% if @person.team %>
         <strong>Patrulha</strong> <%= @person.team.name %><br>

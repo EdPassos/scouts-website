@@ -1,0 +1,35 @@
+<% title @section.name %>
+
+<% content_for :back_link do %>
+  <%= sections_path %>
+<% end %>
+
+<% if can? :update, @section %>
+  <%= render partial: 'pages/page_action', locals: { link: edit_section_path(@section), icon: 'pencil' } %>
+<% end %>
+
+<div class='card card-3'>
+  <div class='card-content'>
+    <%= safe_markdown @section.description %>
+  </div>
+</div>
+
+<h1>Patrulhas</h1>
+<div class="row">
+  <% @section.teams.each do |team| %>
+    <div class="columns medium-4 end">
+      <div class='card card-3'>
+        <div class='card-content'>
+          <h2><%= team.name %></h2>
+          <ul>
+            <% team.people.each do |person| %>
+              <li><%= link_to person.name, person %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Nova Equipa', new_section_team_path(@section) %>

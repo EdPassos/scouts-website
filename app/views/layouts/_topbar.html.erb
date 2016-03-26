@@ -29,6 +29,7 @@
           <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
         </ul>
       </li>
+      <li><%= link_to fa_icon("cog", class: 'fa-lg'), "" %></li>
     <% else %>
       <li><%= link_to "Entrar", new_user_session_path %></li>
     <% end %>
@@ -39,8 +40,11 @@
   <!--
     <li><%= link_to "História", history_url %></li>
   -->
-    <li class="has-dropdown"><%= link_to "Secções", "#" %>
+    <li class="has-dropdown"><%= link_to "Secções", sections_path %>
       <ul class="dropdown">
+        <% Section.all.where(public: true).each do |section| %>
+          <li><%= link_to section.name, section %></li>
+        <% end %>
         <li><%= link_to "Alcateia", alcateia_path %></li>
         <li><%= link_to "Expedição", expedicao_path %></li>
         <li><%= link_to "Comunidade", comunidade_path %></li>
