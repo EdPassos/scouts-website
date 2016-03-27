@@ -13,7 +13,7 @@ class Ability
         can :manage, user
       end
       can :read, ShopProduct
-      can :read, Post
+      can :read, Post, draft: false
       can :read, PhotoAlbum
     end
     #   if user.admin?
