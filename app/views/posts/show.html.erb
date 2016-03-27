@@ -1,3 +1,12 @@
+<% 
+  set_meta_tags og: {
+    title:    @post.title,
+    description: truncate(strip_tags(safe_markdown @post.body), length: 250),
+    type:     'article',
+    url:      post_url(@post),
+    image:    asset_url(@post.image.url),
+  }
+%>
 <% title @post.title %>
 
 <% content_for :subtitle do %>
