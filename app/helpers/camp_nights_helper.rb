@@ -1,0 +1,2 @@
+module CampNightsHelper
+end

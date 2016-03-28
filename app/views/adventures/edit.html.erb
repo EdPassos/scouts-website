@@ -1,6 +1,11 @@
-<h1>Editing Adventure</h1>
+<% title "Atividade" %>
+
+<% content_for :subtitle do %>
+  Nova Atividade
+<% end %>
+
+<% content_for :back_link do %>
+  <%= adventures_path %>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @adventure %> |
-<%= link_to 'Back', adventures_path %>

@@ -1,5 +1,7 @@
 class Person < ActiveRecord::Base
   has_and_belongs_to_many :adventures
+  has_many :camp_nights
+
   belongs_to :caretaker
   belongs_to :user
   belongs_to :section

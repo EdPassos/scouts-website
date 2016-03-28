@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :camp_nights
   resources :adventures
 
   post 'load_teams' => 'teams#section_teams', as: :load_teams

@@ -47,7 +47,9 @@
         <div class="columns date-select small-7 large-10">
           <%= f.date_select :birthday, {
             order: [:day, :month, :year],
-            with_css_classes: true
+            with_css_classes: true,
+            start_year: 100.years.ago.year,
+            end_year: 0.years.ago.year
           } %>
         </div>
       </div>

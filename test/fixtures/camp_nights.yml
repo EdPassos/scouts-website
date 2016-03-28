@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  adventure_id: 
+  person_id: 
+  nights: 1
+
+two:
+  adventure_id: 
+  person_id: 
+  nights: 1

@@ -1,33 +1,27 @@
 <% title 'Atividades' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Photo album</th>
-      <th>Post</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% content_for :back_link do %>
+  <%= root_path %>
+<% end %>
 
-  <tbody>
-    <% @adventures.each do |adventure| %>
-      <tr>
-        <td><%= adventure.name %></td>
-        <td><%= adventure.start %></td>
-        <td><%= adventure.end %></td>
-        <td><%= link_to 'photos', adventure.photo_album %></td>
-        <td><%= link_to 'post', adventure.post %></td>
-        <td><%= link_to 'Show', adventure %></td>
-        <td><%= link_to 'Edit', edit_adventure_path(adventure) %></td>
-        <td><%= link_to 'Destroy', adventure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if can? :update, @post %>
+  <%= render partial: 'pages/page_action', locals: { link: new_adventure_path, icon: 'plus' } %>
+<% end %>
 
-<br>
 
-<%= link_to 'New Adventure', new_adventure_path %>
+<div class="row">
+  <% @adventures.each do |adventure| %>
+    <div class="columns large-6 end">
+      <div class="card card-2">
+        <div class="card-content">
+          <h2><%= link_to adventure.name, adventure %></h2>
+          <p>
+            De <strong><%= l adventure.start, format: :short %></strong>
+            a <strong><%= l adventure.end, format: :short %></strong>, 
+            <%= adventure.start.year %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
