@@ -28,6 +28,11 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(adventure_params)
 
+    nights = @adventure.nights
+    @adventure.people.each do |person|
+      @adventure.camp_nights.new(person: person, nights: nights)
+    end
+
     respond_to do |format|
       if @adventure.save
         format.html { redirect_to @adventure, notice: 'Adventure was successfully created.' }
@@ -42,8 +47,30 @@ class AdventuresController < ApplicationController
   # PATCH/PUT /adventures/1
   # PATCH/PUT /adventures/1.json
   def update
+    old_nights = @adventure.nights
+
+    @adventure.assign_attributes(adventure_params)
+
+    nights = @adventure.nights
+    @adventure.people.each do |person|
+      camp_nights = @adventure.camp_nights.find_by(person: person)
+      if camp_nights == nil
+        @adventure.camp_nights.new(person: person, nights: nights)
+      else
+        if camp_nights.nights == old_nights
+          camp_nights.nights = nights
+        end
+      end
+    end
+
+    @adventure.camp_nights.each do |camp_night|
+      unless @adventure.people.exists? camp_night.person
+        camp_night.destroy
+      end
+    end
+
     respond_to do |format|
-      if @adventure.update(adventure_params)
+      if @adventure.save
         format.html { redirect_to @adventure, notice: 'Adventure was successfully updated.' }
         format.json { render :show, status: :ok, location: @adventure }
       else

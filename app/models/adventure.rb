@@ -3,6 +3,7 @@ class Adventure < ActiveRecord::Base
   accepts_nested_attributes_for :people
 
   has_many :camp_nights
+  accepts_nested_attributes_for :camp_nights
 
   belongs_to :photo_album
   belongs_to :post

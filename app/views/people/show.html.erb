@@ -17,13 +17,19 @@
       <% if @person.team %>
         <strong>Patrulha:</strong> <%= link_to @person.team.name, @person.team %>
       <% end %>
-      <h2>Atividades</h2>
+      <h2>Noites de Campo</h2>
       <ul>
-        <% @person.adventures.each do |adventure| %>
+        <% camp_nights = 0 %>
+        <% @person.camp_nights.each do |camp_night| %>
+          <% camp_nights += camp_night.nights %>
           <li>
-            <%= link_to "#{l adventure.start} - #{adventure.name}", adventure %>
+            <%= link_to "#{l camp_night.adventure.start} - #{camp_night.adventure.name}", camp_night.adventure %>
+            (<%= camp_night.nights %>)
           </li>
         <% end %>
+        <li>
+          <strong>Total:</strong> <%= camp_nights %>
+        </li>
       </ul>
     </p>
   </div>
