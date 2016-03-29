@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Camp Nights</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Adventure</th>
+      <th>Person</th>
+      <th>Nights</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @camp_nights.each do |camp_night| %>
+      <tr>
+        <td><%= camp_night.adventure %></td>
+        <td><%= camp_night.person %></td>
+        <td><%= camp_night.nights %></td>
+        <td><%= link_to 'Show', camp_night %></td>
+        <td><%= link_to 'Edit', edit_camp_night_path(camp_night) %></td>
+        <td><%= link_to 'Destroy', camp_night, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Camp night', new_camp_night_path %>

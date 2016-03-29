@@ -1,0 +1,27 @@
+<% title 'Atividades' %>
+
+<% content_for :back_link do %>
+  <%= root_path %>
+<% end %>
+
+<% if can? :update, @post %>
+  <%= render partial: 'pages/page_action', locals: { link: new_adventure_path, icon: 'plus' } %>
+<% end %>
+
+
+<div class="row">
+  <% @adventures.each do |adventure| %>
+    <div class="columns large-6 end">
+      <div class="card card-2">
+        <div class="card-content">
+          <h2><%= link_to adventure.name, adventure %></h2>
+          <p>
+            De <strong><%= l adventure.start, format: :short %></strong>
+            a <strong><%= l adventure.end, format: :short %></strong>,
+            <%= adventure.start.year %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

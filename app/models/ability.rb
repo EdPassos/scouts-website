@@ -8,12 +8,15 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     else
-      if user.id != nil
+      unless user.new_record?
         can :read, ShoppingCartProduct
-        can :manage, user
+        can :create, Person
+        can :manage, user.person
       end
+      can :read, Adventure
+      can :manage, user
       can :read, ShopProduct
-      can :read, Post
+      can :read, Post, draft: false
       can :read, PhotoAlbum
     end
     #   if user.admin?

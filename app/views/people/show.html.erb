@@ -1,0 +1,36 @@
+<% title @person.name %>
+<div class="card card-3">
+  <div class="header">
+    <%= image_tag @person.photo.url(:medium), class: 'header large' if @person.photo.exists? %>
+  </div>
+  <div class="card-content">
+    <h1>Informação Pessoal</h1>
+    <p>
+      <strong>Nome Completo:</strong> <%= "#{@person.first_name} #{@person.middle_names} #{@person.last_name}" %><br>
+      <strong>Data de Nascimento:</strong> <%= "#{l @person.birthday} (#{@person.age} anos de idade)" %><br>
+      <% if @person.caretaker %>
+        <strong>Encarregado de Educação:</strong> <%= @person.caretaker.name %><br>
+      <% end %>
+      <% if @person.section %>
+        <strong>Secção:</strong> <%= link_to @person.section.name, @person.section %><br>
+      <% end %>
+      <% if @person.team %>
+        <strong>Patrulha:</strong> <%= link_to @person.team.name, @person.team %>
+      <% end %>
+      <h2>Noites de Campo</h2>
+      <ul>
+        <% camp_nights = 0 %>
+        <% @person.camp_nights.each do |camp_night| %>
+          <% camp_nights += camp_night.nights %>
+          <li>
+            <%= link_to "#{l camp_night.adventure.start} - #{camp_night.adventure.name}", camp_night.adventure %>
+            (<%= camp_night.nights %>)
+          </li>
+        <% end %>
+        <li>
+          <strong>Total:</strong> <%= camp_nights %>
+        </li>
+      </ul>
+    </p>
+  </div>
+</div>

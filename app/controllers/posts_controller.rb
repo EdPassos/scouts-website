@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
 
   def index
-    @posts = Post.where(draft: false).paginate(:page => params[:page], :per_page => 5).order(id: :desc)
+    @posts = Post.where(draft: false).paginate(:page => params[:page], :per_page => 5).order(published_at: :desc)
   end
 
   def show
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    @post.published_at = @post.created_at
     if @post.save
       redirect_to @post, notice: "Artigo '#{@post.title}' publicado"
     else

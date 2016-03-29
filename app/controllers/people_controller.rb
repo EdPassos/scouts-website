@@ -1,5 +1,10 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:edit, :update,:destroy]
+  load_and_authorize_resource
+
+  before_action :set_person, only: [:show, :edit, :update,:destroy]
+
+  def show
+  end
 
   def new
     @person = Person.new
@@ -35,7 +40,7 @@ class PeopleController < ApplicationController
 
   private
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :middle_names, :birthday, :user_id, :photo)
+    params.require(:person).permit(:first_name, :last_name, :middle_names, :birthday, :user_id, :photo, :section_id, :team_id)
   end
 
   def set_person
