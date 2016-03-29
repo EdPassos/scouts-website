@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328184915) do
+ActiveRecord::Schema.define(version: 20160329114330) do
 
   create_table "adventures", force: :cascade do |t|
     t.string   "name"
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160328184915) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "draft"
+    t.datetime "published_at"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

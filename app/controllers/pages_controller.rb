@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   @description = 'ola'
 
   def index
-    @posts = Post.where(draft: false).order("id desc").limit(3)
+    @posts = Post.where(draft: false).order(published_at: :desc).limit(3)
     render layout: 'homepage'
   end
 

@@ -17,4 +17,20 @@ class Post < ActiveRecord::Base
     markdown.render(self.body)
   end
 
+  def publish(args)
+    self.published_at = DateTime.now
+    self.draft = false
+    args[:draft] = false
+    self.update args
+  end
+
+  # Overrides
+  def update(args)
+    if self.draft and not(args[:draft] == false)
+      publish args
+    else
+      super args
+    end
+  end
+
 end
