@@ -20,13 +20,13 @@ class Post < ActiveRecord::Base
   def publish(args)
     self.published_at = DateTime.now
     self.draft = false
-    args[:draft] = false
+    args[:draft] = "0"
     self.update args
   end
 
   # Overrides
   def update(args)
-    if self.draft and not(args[:draft] == false)
+    if self.draft and args[:draft] == "0"
       publish args
     else
       super args
