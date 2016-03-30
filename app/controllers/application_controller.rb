@@ -15,5 +15,6 @@ class ApplicationController < ActionController::Base
       url:      root_url,
       image:    view_context.image_url('og-image.png'),
     }
+    set_meta_tags description: "Acompanhar o percurso de cada um dos escuteiros de Porto Salvo "
   end
 end
