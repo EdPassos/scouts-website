@@ -25,6 +25,24 @@
     }
   }
 
+  .header-side {
+    width: 15%;
+    border-radius: $card-radius 0 0 $card-radius;
+    object-fit: cover;
+    height: inherit;
+
+    &.small {
+      height: 6rem;
+    }
+    &.medium {
+      height: 12rem;
+    }
+    &.large {
+      height: 24rem;
+    }
+  }
+
+
   .card-content {
     padding: 1em;
   }
