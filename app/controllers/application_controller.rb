@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_action :metatags
 
+  rescue_from CanCan::AccessDenied, with: :render_not_found
+
   def metatags
     set_meta_tags og: {
       title:    :title,
@@ -16,5 +18,10 @@ class ApplicationController < ActionController::Base
       image:    view_context.image_url('og-image.png'),
     }
     set_meta_tags description: "Acompanhar o percurso de cada um dos escuteiros de Porto Salvo "
+  end
+
+  private
+  def render_not_found
+    render 'errors/not_allowed'
   end
 end
