@@ -1,2 +1,14 @@
-<h1>Errors#internal_server_error</h1>
-<p>Find me in app/views/errors/internal_server_error.html.erb</p>
+<% title 'Ops! Erro no sistema' %>
+<div class="card card-3">
+  <div class="card-content">
+    <p>
+      Isto é embaraçoso, algo inesperado aconteceu.
+    </p>
+    <p>
+      Talvez queira contactar o administrador de sistema a informar sobre esta situação.
+    </p>
+    <p>
+      <%= mail_to 'webmaster.1126@escutismo.pt' %>
+    </p>
+  </div>
+</div>
