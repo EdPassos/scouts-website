@@ -1,0 +1,28 @@
+<% title "Livro: #{@book.title}" %>
+
+<% if can? :edit, PhotoAlbum %>
+  <%= render partial: 'pages/page_action', locals: { link: edit_book_path(@book), icon: 'pencil' } %>
+<% end %>
+
+<% content_for :back_link do %>
+  <%= books_path %>
+<% end %>
+
+<div class="card card-3">
+  <div class="card-content">
+    <p>
+      <strong>Title:</strong>
+      <%= @book.title %>
+    </p>
+
+    <p>
+      <strong>Author:</strong>
+      <%= @book.author %>
+    </p>
+
+    <p>
+      <strong>Borrowed to:</strong>
+      <%= @book.borrowed_to %>
+    </p>
+  </div>
+</div>

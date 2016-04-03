@@ -1,0 +1,30 @@
+<div class="card card-3 info">
+  <%= form_for(@book) do |f| %>
+    <div class="card-content">
+      <% if @book.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+          <ul>
+          <% @book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.text_field :title, placeholder: 'Título' %>
+      </div>
+      <div class="field">
+        <%= f.text_field :author, placeholder: 'Autor' %>
+      </div>
+      <div class="field">
+        <%= f.text_field :borrowed_to_id, placeholder: 'Emprestado' %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit (@book.new_record? ? 'Inserir Livro' : 'Editar Livro') %>
+    </div>
+  <% end %>
+</div>
