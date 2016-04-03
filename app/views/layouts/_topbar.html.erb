@@ -11,25 +11,19 @@
     <!-- Right Nav Section -->
     <ul class="right">
     <% if user_signed_in? %>
-      <% if can? :manage, :all %>
-        <li class="has-dropdown">
-          <%= link_to "Administrador", admin_users_path %>
-          <ul class="dropdown">
-            <li><%= link_to 'Utilizadores', admin_users_path %></li>
-            <li><%= link_to 'Pessoas', admin_people_path %></li>
-            <li><%= link_to 'Posts', admin_posts_path %></li>
-          </ul>
-        </li>
-      <% end %>
-      <li class="has-dropdown"><%= link_to current_user.email, current_user %>
+      <li class="has-dropdown">
+        <%= link_to fa_icon("cog", class: 'fa-lg'), "" %>
         <ul class="dropdown">
-          <% if can? :create, Post %>
-            <li><%= link_to "Criar Artigo", new_post_path %></li>
+          <li><%= link_to current_user.email, current_user %></li>
+          <% if can? :manage, :all %>
+              <li><%= link_to 'Utilizadores', admin_users_path %></li>
+              <li><%= link_to 'Pessoas', admin_people_path %></li>
+              <li><%= link_to 'Posts', admin_posts_path %></li>
+              <li><%= link_to 'Livros', books_path %></li>
           <% end %>
           <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
         </ul>
       </li>
-      <li><%= link_to fa_icon("cog", class: 'fa-lg'), "" %></li>
     <% else %>
       <li><%= link_to "Entrar", new_user_session_path %></li>
     <% end %>
