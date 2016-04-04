@@ -13,15 +13,11 @@
         </div>
       <% end %>
 
-      <div class="field">
-        <%= f.text_field :title, placeholder: 'Título' %>
-      </div>
-      <div class="field">
-        <%= f.text_field :author, placeholder: 'Autor' %>
-      </div>
-      <div class="field">
-        <%= f.text_field :borrowed_to_id, placeholder: 'Emprestado' %>
-      </div>
+      <%= f.text_field :title, autofocus: true, placeholder: 'Título' %>
+      <%= f.text_field :author, placeholder: 'Autor' %>
+      <%= f.text_field :borrowed_to_id, placeholder: 'Emprestado' %>
+      <%= f.file_field :cover, as: :file %>
+
     </div>
     <div class="actions">
       <%= f.submit (@book.new_record? ? 'Inserir Livro' : 'Editar Livro') %>
