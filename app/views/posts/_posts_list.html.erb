@@ -10,7 +10,7 @@
     <div class="card-action">
       <div class="row collapse">
         <div class="columns small-6">
-          <%= link_to fa_icon('share-alt'), "", title: 'Partilhar', class: 'button first', id: "fb#{post.id}" %>
+          <%= link_to fa_icon('share'), "", title: 'Partilhar', class: 'button first', id: "fb#{post.id}" %>
           <script>
             $("#fb<%= post.id %>").on("click",function(){
               var fbpopup = window.open("https://www.facebook.com/sharer/sharer.php?u=<%= post_url post %>", "pop", "width=600, height=400, scrollbars=no");

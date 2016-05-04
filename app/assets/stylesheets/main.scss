@@ -11,10 +11,10 @@ $grad-deg: 165deg;
   $content-padding: 1.25rem;
 
   @media #{$medium-up} {
-    padding: $content-padding rem-calc(50);
+    padding: 0 3rem $content-padding 3rem;
   }
   @media #{$small-only} {
-    padding: $content-padding 0;
+    padding: 0 0 $content-padding 0;
   }
 
   #page-action {
