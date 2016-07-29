@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+
+  get 'errors/internal_server_error'
+
   resources :books
   resources :camp_nights
   resources :adventures
@@ -65,6 +69,8 @@ Rails.application.routes.draw do
   get 'calendar/:year/:month' => 'pages#calendar'
   resources :events
 
+  match "404/", :to => "errors#not_found", :via => :all
+  match "500/", :to => "errors#internal_server_error", :via => :all
   # You can have the root of your site routed with "root"
   root 'pages#index'
 

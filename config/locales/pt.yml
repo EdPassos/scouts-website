@@ -1,5 +1,11 @@
 ---
 pt:
+  devise:
+    sessions:
+      user:
+        signed_out: 'Sessão terminada'
+        signed_in: 'Sessão iniciada'
+        signed_up: 'Registo completo com sucesso'
   activerecord:
     errors:
       messages:
