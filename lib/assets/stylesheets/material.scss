@@ -25,6 +25,19 @@
     }
   }
 
+  .profile-photo {
+    position: relative;
+    object-fit: cover;
+    height: 10rem;
+    width: 10rem;
+    border-radius: $card-radius;
+    border: 2px solid white;
+    top: -5rem;
+    left: 2rem;
+    margin-bottom: -5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+
   .header-side {
     width: 15%;
     border-radius: $card-radius 0 0 $card-radius;

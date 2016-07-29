@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329114330) do
+ActiveRecord::Schema.define(version: 20160404113535) do
 
   create_table "adventures", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(version: 20160329114330) do
 
   add_index "adventures_people", ["adventure_id"], name: "index_adventures_people_on_adventure_id"
   add_index "adventures_people", ["person_id"], name: "index_adventures_people_on_person_id"
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
+    t.string   "author"
+    t.integer  "borrowed_to_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+  end
+
+  add_index "books", ["borrowed_to_id"], name: "index_books_on_borrowed_to_id"
 
   create_table "camp_nights", force: :cascade do |t|
     t.integer  "adventure_id"

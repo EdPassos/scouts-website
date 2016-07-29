@@ -1,8 +1,7 @@
 <% title @person.name %>
 <div class="card card-3">
-  <div class="header">
-    <%= image_tag @person.photo.url(:medium), class: 'header large' if @person.photo.exists? %>
-  </div>
+  <%= image_tag "/banner_caminheiros.jpg", class: 'header medium' %>
+  <%= image_tag @person.photo.url(:medium), class: 'profile-photo' if @person.photo.exists? %>
   <div class="card-content">
     <h1>Informação Pessoal</h1>
     <p>
