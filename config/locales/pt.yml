@@ -1,6 +1,10 @@
 ---
 pt:
   devise:
+    failure:
+      user:
+        not_found_in_database: 'Login inválido'
+        invalid: 'Dados de login inválidos'
     sessions:
       user:
         signed_out: 'Sessão terminada'
