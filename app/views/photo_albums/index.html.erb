@@ -12,7 +12,7 @@
   <% @photo_albums.each do |photo_album| %>
     <li>
       <%= link_to  photo_album do %>
-        <%= image_tag(photo_album.cover.file.url(:medium)) %>
+        <%= image_tag(photo_album.cover.file.url(:large)) %>
         <div class="album-title">
           <%= photo_album.name %>
         </div>
