@@ -34,17 +34,15 @@
   <!--
     <li><%= link_to "História", history_url %></li>
   -->
-    <li class="has-dropdown"><%= link_to "Secções", sections_path %>
-      <ul class="dropdown">
-        <% Section.all.where(public: true).each do |section| %>
-          <li><%= link_to section.name, section %></li>
-        <% end %>
-        <li><%= link_to "Alcateia", alcateia_path %></li>
-        <li><%= link_to "Expedição", expedicao_path %></li>
-        <li><%= link_to "Comunidade", comunidade_path %></li>
-        <li><%= link_to "Clã", cla_path %></li>
-      </ul>
-    </li>
+    <% if user_signed_in? and current_user.has_role? :admin %>
+      <li class="has-dropdown"><%= link_to "Secções", sections_path %>
+        <ul class="dropdown">
+          <% Section.all.where(public: true).each do |section| %>
+            <li><%= link_to section.name, section %></li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
     <%= content_tag "li",
       link_to("Fotografias", photo_albums_path),
       class: button_class(['photo_albums'])
