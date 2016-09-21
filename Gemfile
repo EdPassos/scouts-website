@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 # Design Framework
-gem 'foundation-rails', '~> 5.5.3.2'
+gem 'foundation-rails'
 
 # Authentication
 gem 'devise'
@@ -76,4 +76,5 @@ gem "font-awesome-rails"
 # Material Colors
 gem 'sass-material-colors'
 gem 'will_paginate'
+gem 'active_link_to'
 

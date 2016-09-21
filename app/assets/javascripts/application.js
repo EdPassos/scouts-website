@@ -25,3 +25,5 @@ $(function(){
   $(document).foundation();
   Dropzone.autoDiscover = false // disable the built-in autodiscovery
 });
+
+$(function(){ $(document).foundation(); });

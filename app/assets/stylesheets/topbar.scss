@@ -1,14 +1,21 @@
 .top-bar {
   li {
-    height: $topbar-height;
     
     &:hover {
+      background-color: $main-color-dark;
     }
 
     &.active {
       a {
         font-weight: bold;
-        color: $primary-color !important;
+      }
+    }
+
+    a {
+      color: $main-color-text;
+
+      &.active {
+        background-color: $accent-color;
       }
     }
   }

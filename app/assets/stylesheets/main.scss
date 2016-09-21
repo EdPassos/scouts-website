@@ -3,17 +3,17 @@ $grad-deg: 165deg;
 
 #page {
   position: relative;
-  background-color: $snow;
-  @include material-linear-gradient($primary-color-string,'100', '400', $grad-deg);
+  background-color: $white;
+  @include simple-linear-gradient($primary-text-color, $secondary-text-color, $grad-deg);
 }
 
 .content {
   $content-padding: 1.25rem;
 
-  @media #{$medium-up} {
+  @include breakpoint(medium up) {
     padding: $content-padding rem-calc(50);
   }
-  @media #{$small-only} {
+  @include breakpoint(small only) {
     padding: $content-padding 0;
   }
 
@@ -44,7 +44,7 @@ $grad-deg: 165deg;
 }
 
 form {
-  @include placeholder-color($brown-100);
+  @include placeholder-color(brown);
   .day, .month, .year,
   .hour, .minute, {
     padding-top: 0;
