@@ -12,10 +12,10 @@
     }
 
     a {
-      color: $main-color-text;
+      color: $white;
 
       &.active {
-        background-color: $accent-color;
+        background-color: $highlight-color;
       }
     }
   }

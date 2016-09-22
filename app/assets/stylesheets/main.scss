@@ -4,7 +4,7 @@ $grad-deg: 165deg;
 #page {
   position: relative;
   background-color: $white;
-  @include simple-linear-gradient($primary-text-color, $secondary-text-color, $grad-deg);
+  @include simple-linear-gradient($white, $silver, $grad-deg);
 }
 
 .content {
