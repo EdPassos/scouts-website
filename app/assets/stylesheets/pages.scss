@@ -1,3 +1,10 @@
+#page {
+  padding-top: 3.5rem;
+  position: relative;
+  background-color: $white;
+  @include simple-linear-gradient($white, $silver, $grad-deg);
+}
+
 #notice {
   position: absolute;
   width: 100%;

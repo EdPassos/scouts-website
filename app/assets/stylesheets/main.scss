@@ -1,12 +1,6 @@
 $grad-deg: 165deg;
 
 
-#page {
-  position: relative;
-  background-color: $white;
-  @include simple-linear-gradient($white, $silver, $grad-deg);
-}
-
 .content {
   $content-padding: 1.25rem;
 
