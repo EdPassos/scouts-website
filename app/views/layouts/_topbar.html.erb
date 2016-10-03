@@ -1,5 +1,9 @@
 <div id="topbar">
   <%= link_to image_tag('logo-horizontal.png', class: 'logo'), root_path %>
-  <%= link_to 'Test', root_path %>
+  <ul class="topbar-menu">
+    <li><%= active_link_to("Fotografias", photo_albums_path) %></li>
+    <li><%= active_link_to("Blog", posts_path) %></li>
+    <li><%= active_link_to("Contactos", contactos_path) %></li>
+  </ul>
 </div>
 

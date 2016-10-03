@@ -1,5 +1,5 @@
 #page {
-  padding-top: 3.5rem;
+  padding-top: $topbar-height;
   position: relative;
   background-color: $white;
   @include simple-linear-gradient($white, $silver, $grad-deg);

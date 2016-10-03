@@ -14,4 +14,8 @@ $(document).ready(function () {
       topbar.removeClass('scrolled');
     }
   });
+
+  topbar.on('transitionend', function(e) {
+    console.log(e.originalEvent.propertyName);
+  });
 });
