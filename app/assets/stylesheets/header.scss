@@ -1,17 +1,15 @@
 header#header {
   position: relative;
-  padding: 1rem 0;
-  background-color: $main-color-light;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   h1 {
-    color: $white;
+    color: $main-color-dark;
   }
 
   h2 {
-    color: $white;
+    color: $main-color-dark;
   }
 
 }

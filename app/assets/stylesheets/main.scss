@@ -5,13 +5,6 @@ $topbar-height: 4rem;
 .content {
   $content-padding: 1.25rem;
 
-  @include breakpoint(medium up) {
-    padding: $content-padding rem-calc(50);
-  }
-  @include breakpoint(small only) {
-    padding: $content-padding 0;
-  }
-
   #page-action {
     position: absolute;
     top: - ( $content-padding + 2rem );

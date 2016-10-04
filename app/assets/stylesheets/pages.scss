@@ -1,8 +1,17 @@
 #page {
-  padding-top: $topbar-height;
   position: relative;
   background-color: $white;
   @include simple-linear-gradient($white, $silver, $grad-deg);
+
+  $content-padding: 1.25rem;
+  @include breakpoint(medium up) {
+    padding: $content-padding rem-calc(50);
+    padding-top: $topbar-height;
+  }
+  @include breakpoint(small only) {
+    padding: $content-padding 0;
+    padding-top: $topbar-height;
+  }
 }
 
 #notice {
@@ -21,33 +30,33 @@
 }
 
 header#homepage-header {
-  background-color: $white;
+  background-color: $main-color-light;
   @include breakpoint(small only) {
     @include breakpoint(portrait) {
-      padding: em-calc(30) 0;
-      height: em-calc(300);
+      padding: rem-calc(30) 0;
+      height: rem-calc(300);
     }
     @include breakpoint(landscape) {
       padding: 0 0;
-      height: em-calc(150);
+      height: rem-calc(150);
     }
   }
   @include breakpoint(medium only) {
-    padding: em-calc(40) 0;
-    height: em-calc(250);
+    padding: rem-calc(40) 0;
+    height: rem-calc(250);
   }
-  @include breakpoint(large up) {
-    padding: em-calc(60) 0;
-    height: em-calc(400);
+  @include breakpoint(large) {
+    padding: rem-calc(60) 0;
+    height: rem-calc(400);
   }
-  @include breakpoint(xlarge up) {
-    padding: em-calc(70) 0;
-    height: em-calc(600);
+  @include breakpoint(xlarge) {
+    padding: rem-calc(70) 0;
+    height: rem-calc(600);
   }
 
   #header-img {
     height: 100%;
-    background-image: image-url("banner.png");
+    background-image: image-url("banner2.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;

@@ -18,8 +18,13 @@
 
   <body>
 
-  <%= render 'layouts/topbar' %>
+  <header id="homepage-header">
+    <div id="header-img" class="columns">
+    </div>
+  </header>
+
   <div id="page" class='card-1'>
+    <%= render 'layouts/topbar' %>
 
     <% if notice or alert %>
       <div id="notice">
