@@ -4,6 +4,7 @@ $topbar-height: 4rem;
 
 .content {
   $content-padding: 1.25rem;
+  position: relative;
 
   #page-action {
     position: absolute;
