@@ -28,9 +28,10 @@ Rails.application.routes.draw do
   get 'maps' => 'pages#maps'
 
   # Admin
+  get 'admin' => 'admin#index', as: :admin
   get 'admin/users' => 'admin#users', as: 'admin_users'
   get 'admin/people' => 'admin#people', as: 'admin_people'
-  get 'admin/posts' => 'admin#posts', as: 'admin_posts'
+  get 'admin/posts' => 'posts#index', as: 'admin_posts'
 
   # User
   resources :users
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
 
   # Posts
   resources :posts
+  get 'blog' => 'posts#blog', as: :blog
 
   # Shop
   resources :shop_products, :except => [:index]

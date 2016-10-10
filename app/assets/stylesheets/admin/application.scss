@@ -1,0 +1,32 @@
+/*
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ */
+
+// These are important for the rest of the app
+@import 'sass-material-colors';
+@import 'colors';
+@import 'fonts';
+
+// Base design framework, custom styles can derive from this
+@import 'admin/foundation_and_overrides';
+
+// External libraries
+@import 'dropzone';
+@import 'font-awesome';
+@import 'light_gallery/lightgallery';
+
+// Custom written utilities
+@import 'util'; // requires foundation
+@import 'material'; // requires util
+@import 'gallery';
+
+// App style and overrides
+@import 'main';
+@import 'admin/sidebar';
+@import 'will-paginate';
+@import 'topbar';
+@import 'header';
+@import 'footer';
+@import 'posts';
+@import 'admin/pages';

@@ -1,0 +1,11 @@
+<div id="sidebar">
+  <svg role="img" title="logo">
+    <use xlink:href="<%= image_path 'logo.svg' %>#logo"/>
+  </svg>
+
+  <div class="stacked button-group">
+    <%= link_to "Ver Site", root_path, class: 'button', data: {turbolinks: false} %>
+    <%= active_link_to "Utilizadores", users_path, class: 'button' %>
+    <%= active_link_to "Artigos", admin_posts_path, class: 'button' %>
+  </div>
+</div>

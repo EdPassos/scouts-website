@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   console.log('hello');
 
   var topbar = $('#topbar');

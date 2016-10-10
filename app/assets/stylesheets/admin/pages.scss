@@ -1,0 +1,78 @@
+#page {
+  position: relative;
+  margin-left: 300px;
+
+  $content-padding: 1.25rem;
+  @include breakpoint(medium up) {
+    padding: $content-padding rem-calc(50);
+    padding-top: $topbar-height;
+  }
+  @include breakpoint(small only) {
+    padding: $content-padding 0;
+    padding-top: $topbar-height;
+  }
+}
+
+#notice {
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  right: 0;
+  left: 0;
+
+  .alert-box {
+    max-width: rem-calc(400);
+    margin: auto;
+    height: 4rem;
+    z-index: 400;
+  }
+}
+
+header#homepage-header {
+  background-color: $main-color-light;
+  @include breakpoint(small only) {
+    @include breakpoint(portrait) {
+      padding: rem-calc(30) 0;
+      height: rem-calc(300);
+    }
+    @include breakpoint(landscape) {
+      padding: 0 0;
+      height: rem-calc(150);
+    }
+  }
+  @include breakpoint(medium only) {
+    padding: rem-calc(40) 0;
+    height: rem-calc(250);
+  }
+  @include breakpoint(large) {
+    padding: rem-calc(60) 0;
+    height: rem-calc(400);
+  }
+  @include breakpoint(xlarge) {
+    padding: rem-calc(70) 0;
+    height: rem-calc(600);
+  }
+
+  #header-img {
+    height: 100%;
+    background-image: image-url("banner2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}
+
+#map { height: 500px; }
+
+.lobitos {
+  //background-color: $sun_flower;
+}
+.exploradores {
+  //background-color: $nepheritis;
+}
+.pioneiros {
+  //background-color: $peter_river;
+}
+.caminheiros {
+  //background-color: $alizarin;
+}
