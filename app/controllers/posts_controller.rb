@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  layout 'admin'
 
   before_action :set_post, only: [:show, :edit, :update]
 
@@ -9,7 +10,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.paginate(:page => params[:page], :per_page => 5)
-    render layout: 'admin'
   end
 
   def show
@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    render layout: 'admin'
   end
 
   def create

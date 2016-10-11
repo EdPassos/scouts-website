@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  layout 'admin'
 
   before_action :set_user, only: [:update, :edit, :roles, :add_role]
 

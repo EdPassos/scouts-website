@@ -14,7 +14,20 @@
 
 <div class="row">
   <div class="columns">
-    <%= render 'posts_list' %>
+    <table>
+      <thead>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr data-url="<%= edit_post_path post %>">
+            <td class='image'><%= image_tag post.image.url %></td>
+            <td><%= post.title %></td>
+            <td><%= post.author.name %></td>
+            <td class="text-right"><%= post.published_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <%= will_paginate @posts, page_links: false, previous_label: '', next_label: '' %>
   </div>
 </div>
