@@ -1,0 +1,11 @@
+#topbar {
+  background: $main-color-dark;
+  height: $topbar-height;
+  margin-left: $sidebar-width;
+  padding: ($topbar-height - 1.4)/2;
+  color: $main-color-light;
+
+  h1 {
+    font-size: 1rem;
+  }
+}

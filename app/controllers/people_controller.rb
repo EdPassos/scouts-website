@@ -1,7 +1,13 @@
 class PeopleController < ApplicationController
   load_and_authorize_resource
+  layout 'admin'
 
   before_action :set_person, only: [:show, :edit, :update,:destroy]
+
+  def index
+    @people = Person.all
+    render layout: 'admin'
+  end
 
   def show
   end

@@ -1,0 +1,20 @@
+<% title 'Pessoas' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= link_to person.name, edit_person_path(person) %></td>
+        <td></td>
+        <td><%= link_to fa_icon('trash'), person, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -22,10 +22,10 @@
 @import 'gallery';
 
 // App style and overrides
-@import 'main';
+@import 'admin/config';
 @import 'admin/sidebar';
+@import 'admin/topbar';
 @import 'will-paginate';
-@import 'topbar';
 @import 'header';
 @import 'footer';
 @import 'posts';

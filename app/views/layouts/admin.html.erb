@@ -17,6 +17,7 @@
 
   <body>
     <%= render 'admin/sidebar' %>
+    <%= render 'admin/topbar' %>
 
     <div id="page">
 
@@ -40,22 +41,12 @@
       <header id="header">
         <div class="row">
           <div class="columns">
-            <h1>
-              <%= title %>
-            </h1>
             <% if content_for? :subtitle %>
               <h2><%= yield :subtitle %></h2>
             <% end %>
           </div>
         </div>
 
-        <% if @header_image %>
-          <style>
-            header#header {
-              background-image: url( <%= @header_image %> );
-            }
-          </style>
-        <% end %>
       </header>
 
       <div class="content">

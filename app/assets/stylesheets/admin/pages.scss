@@ -1,16 +1,10 @@
 #page {
-  position: relative;
-  margin-left: 300px;
-
-  $content-padding: 1.25rem;
-  @include breakpoint(medium up) {
-    padding: $content-padding rem-calc(50);
-    padding-top: $topbar-height;
-  }
-  @include breakpoint(small only) {
-    padding: $content-padding 0;
-    padding-top: $topbar-height;
-  }
+  position: absolute;
+  left: $sidebar-width;
+  right: 0;
+  top: $topbar-height;
+  bottom: 0;
+  overflow: auto;
 }
 
 #notice {
