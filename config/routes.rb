@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   scope 'admin' do 
     resources :users
     resources :posts do
+      collection do
+        get 'draft'
+      end
       resources :categories
     end
     resources :people

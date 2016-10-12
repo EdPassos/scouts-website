@@ -1,5 +1,11 @@
 <% title "Novo Artigo" %>
 
+<% content_for :submenu do %>
+  <%= active_link_to fa_icon('check', text: 'Artigos'), posts_path, class: 'button', active: :exclusive %>
+  <%= active_link_to fa_icon('file-text', text: 'Rascunhos'), draft_posts_path, class: 'button', active: :exclusive %>
+  <%= active_link_to fa_icon('plus', text: 'Novo'), new_post_path, class: 'button', active: :exclusive %>
+<% end %>
+
 <% content_for :back_link do %>
   <%= posts_path %>
 <% end %>

@@ -9,7 +9,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.paginate(:page => params[:page], :per_page => 5)
+    @posts = Post.where(draft: false).paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def draft
+    @posts = Post.where(draft: true).paginate(:page => params[:page], :per_page => 5)
+    render :index
   end
 
   def show
