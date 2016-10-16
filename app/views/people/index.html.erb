@@ -2,23 +2,31 @@
 
 <%= render 'submenu' %>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Nome</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @people.each do |person| %>
-      <tr data-url="<%= edit_person_path person %>">
-        <td class='image'><%= image_tag person.photo.url %></td>
-        <td><%= person.name %></td>
-        <td></td>
-        <td><%= link_to fa_icon('trash'), person, method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to fa_icon('plus', text: 'Adicionar'), new_person_path, class: 'button' %>
+<div class='round-table'>
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+      <% @people.each do |person| %>
+        <tr data-url="<%= edit_person_path person %>">
+          <td class='image'><%= image_tag person.photo.url %></td>
+          <td>
+            <div>
+              <%= person.name %>
+              <% unless person.user.blank? %>
+                <br>
+                <%= person.user.email %>
+              <% end %>
+            </div>
+          </td>
+          <td>
+            <% unless person.section.blank? %>
+              <div><%= person.section.name %></div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

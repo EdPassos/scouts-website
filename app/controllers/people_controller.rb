@@ -40,7 +40,7 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    redirect_to :back, notice: "Dados de #{@person.first_name} #{@person.last_name} eliminados"
+    redirect_to Person, notice: "Dados de #{@person.first_name} #{@person.last_name} eliminados"
   end
 
   private

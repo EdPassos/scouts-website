@@ -233,7 +233,7 @@ $breadcrumbs-item-slash: true;
 // ----------
 
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-margin: $global-margin 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $highlight-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
@@ -491,7 +491,7 @@ $switch-paddle-transition: all 0.25s ease-out;
 // 31. Table
 // ---------
 
-$table-background: $white;
+$table-background: transparent;
 $table-color-scale: 0%;
 $table-border: 1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);

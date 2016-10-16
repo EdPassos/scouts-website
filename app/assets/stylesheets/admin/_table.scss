@@ -1,5 +1,15 @@
-table {
+.round-table {
+  background: $white;
+  padding: 20px 0;
+  border-radius: 20px;
 
+  table {
+    margin: 0;
+    border-top: 1px solid $silver;
+  }
+}
+
+table {
   tbody {
     border: none;
 
@@ -33,3 +43,4 @@ table {
     }
   }
 }
+

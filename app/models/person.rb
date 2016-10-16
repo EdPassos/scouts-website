@@ -15,7 +15,7 @@ class Person < ActiveRecord::Base
   end
 
   def name(format = :first_last)
-    first_last_name
+    "#{first_name} #{middle_names} #{last_name}"
   end
 
   def age
