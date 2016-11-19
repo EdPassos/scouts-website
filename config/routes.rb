@@ -52,7 +52,8 @@ Rails.application.routes.draw do
   get 'cla' => 'pages#cla'
 
   # Blog
-  get 'blog' => 'posts#blog', as: :blog
+  get 'blog' => 'blog#index', as: :blog
+  get 'blog/:id' => 'blog#post', as: :blog_post
 
   # Shop
   resources :shop_products, :except => [:index]

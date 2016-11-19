@@ -4,11 +4,6 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: [:show, :edit, :update]
 
-  def blog
-    @posts = Post.where(draft: false).paginate(:page => params[:page], :per_page => 5).order(published_at: :desc)
-    render layout: 'application'
-  end
-
   def index
     @posts = Post.where(draft: false).paginate(:page => params[:page], :per_page => 5)
   end

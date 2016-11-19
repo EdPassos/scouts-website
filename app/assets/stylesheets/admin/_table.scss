@@ -1,7 +1,8 @@
 .round-table {
   background: $white;
-  padding: 20px 0;
-  border-radius: 20px;
+  padding: $table-radius/2;
+  border-radius: $table-radius;
+  @include shadow();
 
   table {
     margin: 0;

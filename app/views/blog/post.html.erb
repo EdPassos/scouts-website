@@ -1,0 +1,26 @@
+<% 
+  set_meta_tags og: {
+    title:    @post.title,
+    description: truncate(strip_tags(safe_markdown @post.body), length: 250),
+    type:     'article',
+    url:      post_url(@post),
+    image:    asset_url(@post.image.url),
+  }
+%>
+<% title @post.title %>
+
+<% content_for :subtitle do %>
+  Por <%= @post.author.name %>
+<% end %>
+
+<div class="row">
+  <div class="columns">
+    <div class="card card-3">
+      <%= image_tag @post.image.url(:medium), class: 'header' if @post.image.exists? %>
+      <div class="card-content">
+        <%= safe_markdown(@post.body) %>
+        <small><%= "Criado a #{@post.published_at.strftime('%-d/%m/%y')}" if not @post.draft %></small>
+      </div>
+    </div>
+  </div>
+</div>
