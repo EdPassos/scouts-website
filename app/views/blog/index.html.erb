@@ -1,0 +1,16 @@
+<% title "Blog" %>
+
+<% content_for :back_link do %>
+  <%= root_path %>
+<% end %>
+
+<% content_for :subtitle do %>
+  <%= will_paginate @posts, previous_label: '', next_label: '' %>
+<% end %>
+
+<div class="row">
+  <div class="columns">
+    <%= render 'posts_list' %>
+    <%= will_paginate @posts, page_links: false, previous_label: '', next_label: '' %>
+  </div>
+</div>

@@ -1,14 +1,80 @@
+#topbar{
+  width: 100%;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  text-align: right;
+  border-bottom: 1px solid transparent;
+  height: $topbar-height;
+  //padding: ($topbar-height - 1.5rem)/2;
+
+  transition: 0.25s ease-out;
+  transition-property: background, border;
+
+  &.scrolled {
+    background: $white;
+    border-color: $main-color-dark;
+  }
+
+  .logo {
+    position: absolute;
+    max-height: 100%;
+    left: 0;
+    top: 0;
+    padding: 0.5rem 1rem;
+  }
+
+  .topbar-menu {
+    list-style-type: none;
+    height: 100%;
+    margin: 0;
+    float: right;
+
+    li {
+      float: left;
+
+      a {
+        padding: ($topbar-height - 1.5rem)/2;
+        height: $topbar-height;
+        display: block;
+      }
+    }
+  }
+
+  a {
+    color: $main-color-dark;
+
+    &:hover {
+      background: rgba($main-color-light, 0.2);
+    }
+
+    &:hover, &.active {
+      color: $highlight-color;
+    }
+  }
+}
+
 .top-bar {
   li {
-    height: $topbar-height;
     
     &:hover {
+      background-color: $main-color-dark;
     }
 
     &.active {
       a {
         font-weight: bold;
-        color: $primary-color !important;
+      }
+    }
+
+    a {
+      color: $white;
+
+      &.active {
+        color: $highlight-color;
       }
     }
   }

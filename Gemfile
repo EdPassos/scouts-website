@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails' 
 # Use mysql as the database for Active Record
 gem 'sqlite3', group: :development
 gem 'mysql2', '~> 0.3.20', group: :production
@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 # Design Framework
-gem 'foundation-rails', '~> 5.5.3.2'
+gem 'foundation-rails'
 
 # Authentication
 gem 'devise'
@@ -76,4 +76,5 @@ gem "font-awesome-rails"
 # Material Colors
 gem 'sass-material-colors'
 gem 'will_paginate'
+gem 'active_link_to'
 

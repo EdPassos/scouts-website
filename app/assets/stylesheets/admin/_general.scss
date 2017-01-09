@@ -1,0 +1,29 @@
+.button-group {
+  .button {
+    background: transparent;
+
+    &:hover {
+      background: rgba($black, 0.3);
+    }
+  }
+
+  &#action-menu {
+    margin: 0;
+    background: rgba($black, 0.3);
+  }
+
+  &.menu {
+    background: $main-color-light;
+
+    a.active {
+      color: $highlight-color;
+      font-weight: bold;
+    }
+  }
+
+  &.expanded {
+   .button {
+      width: 100%;
+    }
+  }
+}

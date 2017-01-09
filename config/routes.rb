@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     resources :teams, :only => [:index, :new, :create]
   end
 
-  resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   # Photos
@@ -28,18 +27,23 @@ Rails.application.routes.draw do
   get 'maps' => 'pages#maps'
 
   # Admin
-  get 'admin/users' => 'admin#users', as: 'admin_users'
-  get 'admin/people' => 'admin#people', as: 'admin_people'
-  get 'admin/posts' => 'admin#posts', as: 'admin_posts'
+  get 'admin' => 'admin#index', as: :admin
+
+  scope 'admin' do 
+    resources :users
+    resources :posts do
+      collection do
+        get 'draft'
+      end
+      resources :categories
+    end
+    resources :people
+  end
 
   # User
-  resources :users
   get 'users/:id/roles' => 'users#roles', as: 'user_roles'
   patch 'users/:id/roles' => 'users#add_role'
   delete 'users/:id/roles' => 'users#remove_role'
-
-  # People
-  resources :people
 
   # Age groups
   get 'alcateia' => 'pages#alcateia'
@@ -47,8 +51,9 @@ Rails.application.routes.draw do
   get 'comunidade' => 'pages#comunidade'
   get 'cla' => 'pages#cla'
 
-  # Posts
-  resources :posts
+  # Blog
+  get 'blog' => 'blog#index', as: :blog
+  get 'blog/:id' => 'blog#post', as: :blog_post
 
   # Shop
   resources :shop_products, :except => [:index]

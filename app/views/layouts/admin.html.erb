@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% keywords 'escutismo, Corpo Nacional de Escutas, CNE, FEP, Porto Salvo' %>
+    <%= display_meta_tags site: 'Escuteiros de Porto Salvo' %>
+
+    <%= stylesheet_link_tag    "admin/application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <% if Rails.env.production? %>
+      <%= render 'layouts/ganalytics' %>
+    <% end %>
+  </head>
+
+  <body>
+
+    <% if notice or alert %>
+      <div id="notice">
+        <% if notice %>
+          <div data-alert class="alert-box success radius card-5">
+            <p class="notice"><%= notice %></p>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div data-alert class="alert-box alert radius card-5">
+            <p class="alert"><%= alert %></p>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= render 'admin/sidebar' %>
+    <%= render 'admin/topbar' %>
+
+    <div id="page">
+      <% if content_for? :submenu %>
+        <div class="menu expanded button-group">
+          <%= yield :submenu %>
+        </div>
+      <% end %>
+
+      <header id="header">
+        <div class="row">
+          <div class="columns">
+            <% if content_for? :subtitle %>
+              <h2><%= yield :subtitle %></h2>
+            <% end %>
+          </div>
+        </div>
+
+      </header>
+
+      <div class="content">
+        <div class="row">
+          <div class="columns">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+

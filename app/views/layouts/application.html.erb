@@ -7,7 +7,6 @@
     <%= display_meta_tags site: 'Escuteiros de Porto Salvo' %>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
@@ -18,8 +17,8 @@
 
   <body>
 
-    <%= render 'layouts/topbar' %>
     <div id="page" class="card-1">
+      <%= render 'layouts/topbar' %>
 
       <% if notice or alert %>
         <div id="notice">
@@ -38,11 +37,10 @@
         </div>
       <% end %>
 
-      <header id="header" class='card-1'>
+      <header id="header">
         <div class="row">
           <div class="columns">
             <h1>
-              <%= link_to fa_icon('arrow-left', class: 'fa-fw'), yield(:back_link) if content_for?(:back_link) %>
               <%= title %>
             </h1>
             <% if content_for? :subtitle %>

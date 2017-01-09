@@ -1,7 +1,12 @@
 class PeopleController < ApplicationController
   load_and_authorize_resource
+  layout 'admin'
 
   before_action :set_person, only: [:show, :edit, :update,:destroy]
+
+  def index
+    @people = Person.all
+  end
 
   def show
   end
@@ -35,7 +40,7 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    redirect_to :back, notice: "Dados de #{@person.first_name} #{@person.last_name} eliminados"
+    redirect_to Person, notice: "Dados de #{@person.first_name} #{@person.last_name} eliminados"
   end
 
   private

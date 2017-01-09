@@ -78,8 +78,6 @@
       <% end %>
     </div>
 
-    <%= f.button fa_icon('save', class: 'fa-2x'), class: "button first last" %>
-
     <% if @person.errors.any? %>
       <div class="row collapse">
         <div class="columns small-12 large-10 large-offset-2">
@@ -96,5 +94,10 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div id='action-menu' class='button-group expanded'>
+    <%= link_to(fa_icon('trash 2x'), @person, method: :delete, data: { confirm: 'Are you sure?'}, class: 'button') unless @person.new_record? %>
+    <%= f.button fa_icon('save 2x'), class: 'button', active: :exclusive %>
   </div>
 <% end %>

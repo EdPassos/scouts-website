@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  layout 'admin'
 
   before_action :set_post, only: [:show, :edit, :update]
 
   def index
-    @posts = Post.where(draft: false).paginate(:page => params[:page], :per_page => 5).order(published_at: :desc)
+    @posts = Post.where(draft: false).paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def draft
+    @posts = Post.where(draft: true).paginate(:page => params[:page], :per_page => 5)
+    render :index
   end
 
   def show

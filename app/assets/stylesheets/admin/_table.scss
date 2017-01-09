@@ -1,0 +1,47 @@
+.round-table {
+  background: $white;
+  padding: $table-radius/2;
+  border-radius: $table-radius;
+  @include shadow();
+
+  table {
+    margin: 0;
+    border-top: 1px solid $silver;
+  }
+}
+
+table {
+  tbody {
+    border: none;
+
+    tr[data-url] {
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($main-color-dark, 0.05);
+
+        img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid $silver;
+  }
+
+  td.image {
+    padding: 0;
+    width: 150px;
+    height: 100px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+    }
+  }
+}
+

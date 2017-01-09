@@ -1,8 +1,8 @@
 <% title 'Secções' %>
 
-<% if can? :create, Section %>
-  <%= render partial: 'pages/page_action', locals: { link: new_section_path, icon: 'plus' } %>
-<% end %>
+<%= render 'people/submenu' %>
+
+<%= link_to fa_icon('plus', text: 'Adicionar'), new_section_path, class: 'button' %>
 
 <table>
   <thead>

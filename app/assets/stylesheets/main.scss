@@ -1,21 +1,10 @@
 $grad-deg: 165deg;
+$topbar-height: 4rem;
 
-
-#page {
-  position: relative;
-  background-color: $snow;
-  @include material-linear-gradient($primary-color-string,'100', '400', $grad-deg);
-}
 
 .content {
   $content-padding: 1.25rem;
-
-  @media #{$medium-up} {
-    padding: $content-padding rem-calc(50);
-  }
-  @media #{$small-only} {
-    padding: $content-padding 0;
-  }
+  position: relative;
 
   #page-action {
     position: absolute;
@@ -44,7 +33,7 @@ $grad-deg: 165deg;
 }
 
 form {
-  @include placeholder-color($brown-100);
+  @include placeholder-color(brown);
   .day, .month, .year,
   .hour, .minute, {
     padding-top: 0;

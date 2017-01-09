@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require foundation
+//= require svg4everybody.min
 //= require light_gallery/lightgallery
 //= require light_gallery/lg-zoom
 //= require light_gallery/lg-fullscreen
@@ -21,7 +22,8 @@
 //= require_tree .
 //= require turbolinks
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(document).foundation();
-  Dropzone.autoDiscover = false // disable the built-in autodiscovery
+  Dropzone.autoDiscover = false; // disable the built-in autodiscovery
+  svg4everybody();
 });

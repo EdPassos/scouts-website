@@ -1,17 +1,6 @@
 class AdminController < ApplicationController
-  def users
-    @users = User.all
-  end
+  before_action :authenticate_user!
 
-  def people
-    @people = Person.all
-  end
-
-  def posts
-    @posts = Post.all
-  end
-
-  def categories
-    @categories = Category.all
+  def index
   end
 end
