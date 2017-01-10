@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   # Photos
   patch '/photo_albums/:id/newphoto' => 'photo_albums#newphoto'
   resources :photos
-  resources :photo_albums
 
   devise_for :users
   get 'pages/index'
@@ -30,6 +29,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index', as: :admin
 
   scope 'admin' do 
+    resources :photo_albums
     resources :users
     resources :posts do
       collection do

@@ -3,6 +3,8 @@ class PhotoAlbumsController < ApplicationController
 
   before_action :set_photo_album, only: [:show, :edit, :update, :destroy, :newphoto]
 
+  layout 'admin'
+
   # GET /photo_albums
   # GET /photo_albums.json
   def index

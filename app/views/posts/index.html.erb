@@ -22,7 +22,7 @@
       <tbody>
         <% @posts.each do |post| %>
           <tr data-url="<%= edit_post_path post %>">
-            <td class='image'><%= image_tag post.image.url %></td>
+            <td class='image'><%= image_tag post.image.url(:thumb) %></td>
             <td><div><%= post.title %></div></td>
             <td><div><%= post.author.name %></div></td>
             <td class="text-right"><div><%= post.published_at %></div></td>
