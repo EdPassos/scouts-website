@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :categories
 
-  has_attached_file :image, styles: {thumb: "150x150^", medium: "600x600>" }, default_url: "/escuteiro.jpg"
+  has_attached_file :image, styles: {thumb: "150x150^", large: "1080x1080^", medium: "600x600>" }, default_url: "/escuteiro.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def to_html(renderer)

@@ -6,7 +6,7 @@
           <% if post.eql? @posts.first %>
             <div class="columns">
               <div class="card card-2">
-                <%= link_to image_tag(post.image.url(:medium), class: 'header medium'), blog_post_path(post) if post.image.exists? %>
+                <%= link_to image_tag(post.image.url(:large), class: 'header medium'), blog_post_path(post) if post.image.exists? %>
                 <div class="card-content">
                   <h2><%= link_to post.title, blog_post_path(post) %></h2>
                   <p><%= truncate strip_tags( safe_markdown(post.body) ), length: 100 %></p>
