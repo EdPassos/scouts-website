@@ -17,6 +17,16 @@
   &.scrolled {
     background: $white;
     border-color: $main-color-dark;
+
+    &::after {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      content: '';
+      @include simple-linear-gradient($main-color-dark, transparent, 180deg);
+    }
   }
 
   .logo {
