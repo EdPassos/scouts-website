@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index', as: :admin
 
   scope 'admin' do 
-    resources :photo_albums
     resources :users
     resources :posts do
       collection do
@@ -54,6 +53,9 @@ Rails.application.routes.draw do
   # Blog
   get 'blog' => 'blog#index', as: :blog
   get 'blog/:id' => 'blog#post', as: :blog_post
+
+  # Photos
+  resources :photo_albums
 
   # Shop
   resources :shop_products, :except => [:index]
