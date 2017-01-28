@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   get 'blog/:id' => 'blog#post', as: :blog_post
 
   # Photos
-  resources :photo_albums
+  resources :photo_albums, path: 'fotografias'
 
   # Shop
   resources :shop_products, :except => [:index]
