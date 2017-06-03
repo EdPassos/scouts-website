@@ -1,11 +1,13 @@
-<div id="topbar">
-  <%= link_to image_tag('logo-horizontal.png', class: 'logo'), root_path %>
-  <ul class="topbar-menu">
-    <li><%= active_link_to("Fotografias", photo_albums_path) %></li>
-    <li><%= active_link_to("Blog", blog_path) %></li>
-    <li><%= active_link_to("Contactos", contactos_path) %></li>
-    <% if can? :manage, :all %>
-      <li><%= active_link_to(fa_icon('cog'), admin_path, data: {turbolinks: false}) %></li>
-    <% end %>
-  </ul>
+<div id="topbar" class="c">
+  <div class="content r fjsb fas fg">
+    <%= link_to image_tag('logo-horizontal.png', class: 'logo'), root_path %>
+    <div class="topbar-menu r fas">
+      <%= active_link_to("Fotografias", photo_albums_path, class: 'r fac') %>
+      <%= active_link_to("Blog", blog_path, class: 'r fac') %>
+      <%= active_link_to("Contactos", contactos_path, class: 'r fac') %>
+      <% if can? :manage, :all %>
+        <%= active_link_to(fa_icon('cog'), admin_path, data: {turbolinks: false}, class: 'r fac') %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,4 @@
 #topbar{
-  width: 100%;
   background: transparent;
   position: fixed;
   top: 0;
@@ -34,24 +33,11 @@
     max-height: 100%;
     left: 0;
     top: 0;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
   }
 
-  .topbar-menu {
-    list-style-type: none;
-    height: 100%;
-    margin: 0;
-    float: right;
-
-    li {
-      float: left;
-
-      a {
-        padding: ($topbar-height - 1.5rem)/2;
-        height: $topbar-height;
-        display: block;
-      }
-    }
+  .topbar-menu a {
+    padding: 0 ($topbar-height - 1.5rem)/2;
   }
 
   a {
