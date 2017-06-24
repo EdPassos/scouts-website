@@ -27,3 +27,5 @@ $(document).on('turbolinks:load', function(){
   Dropzone.autoDiscover = false; // disable the built-in autodiscovery
   svg4everybody();
 });
+
+$(function(){ $(document).foundation(); });

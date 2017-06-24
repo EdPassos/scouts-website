@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20160404113535) do
     t.string   "name"
     t.date     "start"
     t.date     "end"
-    t.integer  "photo_album_id"
-    t.integer  "post_id"
+    t.bigint  "photo_album_id"
+    t.bigint  "post_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["photo_album_id"], name: "index_adventures_on_photo_album_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   end
 
   create_table "adventures_people", id: false, force: :cascade do |t|
-    t.integer "adventure_id"
-    t.integer "person_id"
+    t.bigint "adventure_id"
+    t.bigint "person_id"
     t.index ["adventure_id"], name: "index_adventures_people_on_adventure_id"
     t.index ["person_id"], name: "index_adventures_people_on_person_id"
   end
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "author"
-    t.integer  "borrowed_to_id"
+    t.bigint  "borrowed_to_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "cover_file_name"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   end
 
   create_table "camp_nights", force: :cascade do |t|
-    t.integer  "adventure_id"
-    t.integer  "person_id"
+    t.bigint  "adventure_id"
+    t.bigint  "person_id"
     t.integer  "nights"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   end
 
   create_table "categories_posts", force: :cascade do |t|
-    t.integer "category_id"
-    t.integer "post_id"
+    t.bigint "category_id"
+    t.bigint "post_id"
     t.index ["category_id"], name: "index_categories_posts_on_category_id"
     t.index ["post_id"], name: "index_categories_posts_on_post_id"
   end
@@ -81,16 +81,16 @@ ActiveRecord::Schema.define(version: 20160404113535) do
     t.string   "last_name"
     t.string   "middle_names"
     t.date     "birthday"
-    t.integer  "caretaker_id"
-    t.integer  "user_id"
+    t.bigint  "caretaker_id"
+    t.bigint  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "section_id"
-    t.integer  "team_id"
+    t.bigint  "section_id"
+    t.bigint  "team_id"
     t.index ["section_id"], name: "index_people_on_section_id"
     t.index ["team_id"], name: "index_people_on_team_id"
     t.index ["user_id"], name: "index_people_on_user_id"
@@ -113,14 +113,14 @@ ActiveRecord::Schema.define(version: 20160404113535) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.integer  "photo_album_id"
+    t.bigint  "photo_album_id"
     t.index ["photo_album_id"], name: "index_photos_on_photo_album_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "user_id"
+    t.bigint  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.string   "resource_type"
-    t.integer  "resource_id"
+    t.bigint  "resource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
@@ -162,10 +162,10 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   end
 
   create_table "shop_orders", force: :cascade do |t|
-    t.integer  "shop_order_status_id"
+    t.bigint  "shop_order_status_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "user_id"
+    t.bigint  "user_id"
     t.string   "proof_file_name"
     t.string   "proof_content_type"
     t.integer  "proof_file_size"
@@ -187,12 +187,12 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   end
 
   create_table "shopping_cart_products", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "shop_product_id"
+    t.bigint  "user_id"
+    t.bigint  "shop_product_id"
     t.integer  "quantity"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "shop_order_id"
+    t.bigint  "shop_order_id"
     t.index ["shop_order_id"], name: "index_shopping_cart_products_on_shop_order_id"
     t.index ["shop_product_id"], name: "index_shopping_cart_products_on_shop_product_id"
     t.index ["user_id"], name: "index_shopping_cart_products_on_user_id"
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 20160404113535) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "section_id"
+    t.bigint  "section_id"
     t.index ["section_id"], name: "index_teams_on_section_id"
   end
 
@@ -224,8 +224,8 @@ ActiveRecord::Schema.define(version: 20160404113535) do
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
+    t.bigint "user_id"
+    t.bigint "role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
   end
 
