@@ -1,13 +1,17 @@
-<div id="sidebar">
-  <svg role="img" title="logo">
-    <use xlink:href="<%= image_path 'logo.svg' %>#logo"/>
-  </svg>
+<div class='scroll fns' id="sidebar">
+  <%= link_to admin_path do %>
+    <svg role="img" title="logo">
+      <use xlink:href="<%= image_path 'logo.svg' %>#logo"/>
+    </svg>
+  <% end %>
 
   <div class="stacked button-group">
-    <%= link_to "Ver Site", root_path, class: 'button', data: {turbolinks: false} %>
-    <%= active_link_to "Utilizadores", users_path, class: 'button' %>
+    <% link_to "Ver Site", root_path, class: 'button', data: {turbolinks: false}, target: '_blank' %>
+    <% active_link_to "Utilizadores", users_path, class: 'button' %>
     <%= active_link_to "Pessoas", people_path, class: 'button' %>
-    <%= active_link_to "Artigos", posts_path, class: 'button' %>
-    <%= active_link_to "Fotos", photo_albums_path, class: 'button' %>
+    <% active_link_to "Artigos", posts_path, class: 'button' %>
+    <% active_link_to "Fotos", photo_albums_path, class: 'button' %>
+
+    <%= link_to "Sair", destroy_user_session_path, class: 'button', method: :delete %>
   </div>
 </div>

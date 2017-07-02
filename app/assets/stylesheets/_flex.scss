@@ -1,5 +1,6 @@
 .c, .r {
   display: flex;
+  max-width: 1080px;
 }
 
 .c {
@@ -8,6 +9,10 @@
 
 .fg {
   flex-grow: 1;
+}
+
+.fjc {
+  justify-content: center;
 }
 
 .fjsb {
@@ -20,4 +25,16 @@
 
 .fac {
   align-items: center;
+}
+
+.fns {
+  flex-shrink: 0;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+.fmc {
+  margin: auto;
 }

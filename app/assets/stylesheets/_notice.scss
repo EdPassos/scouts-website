@@ -1,0 +1,25 @@
+#notice {
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
+  border-radius: 5px;
+  max-width: 100%;
+  width: 400px;
+  overflow: hidden;
+  z-index: 1000;
+  border: 2px solid black;
+
+  .alert, .success {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .alert, {
+    background: red;
+  }
+
+  .success, {
+    background: green;
+  }
+}

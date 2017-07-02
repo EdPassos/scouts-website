@@ -1,0 +1,14 @@
+<% if notice or alert %>
+  <div id="notice" class='r fac'>
+    <% if notice %>
+      <div class="success">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert">
+        <%= alert %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -20,21 +20,6 @@
   margin-right: auto;
 }
 
-#notice {
-  position: absolute;
-  width: 100%;
-  top: 4rem;
-  right: 0;
-  left: 0;
-
-  .alert-box {
-    max-width: rem-calc(400);
-    margin: auto;
-    height: 4rem;
-    z-index: 400;
-  }
-}
-
 header#homepage-header {
   background-color: $main-color-light;
   @include breakpoint(small only) {

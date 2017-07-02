@@ -17,25 +17,10 @@
 
   <body>
 
-    <div id="page" class="c card-1">
+    <div id="page" class="card-1">
       <%= render 'layouts/topbar' %>
 
-      <% if notice or alert %>
-        <div id="notice">
-          <% if notice %>
-            <div data-alert class="alert-box success radius card-5">
-              <p class="notice"><%= notice %></p>
-              <a href="#" class="close">&times;</a>
-            </div>
-          <% end %>
-          <% if alert %>
-            <div data-alert class="alert-box alert radius card-5">
-              <p class="alert"><%= alert %></p>
-              <a href="#" class="close">&times;</a>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      <%= render 'layouts/notice' %>
 
       <header id="header" class="c content">
         <h1>
@@ -54,12 +39,8 @@
         <% end %>
       </header>
 
-      <div class="content">
-        <div class="row">
-          <div class="columns">
-            <%= yield %>
-          </div>
-        </div>
+      <div class="c">
+        <%= yield %>
       </div>
     </div>
 
