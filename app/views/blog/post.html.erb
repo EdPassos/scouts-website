@@ -19,7 +19,7 @@
       <%= image_tag @post.image.url(:large), class: 'header' if @post.image.exists? %>
       <div class="card-content">
         <%= safe_markdown(@post.body) %>
-        <small><%= "Criado a #{@post.published_at.strftime('%-d/%m/%y')}" if not @post.draft %></small>
+        <small><%= "Criado a #{l (@post.published_at || @post.created_at)}" if not @post.draft %></small>
       </div>
     </div>
   </div>

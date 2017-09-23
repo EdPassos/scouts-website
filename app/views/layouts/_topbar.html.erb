@@ -1,9 +1,9 @@
-<div id="topbar" class="c">
+<div id="topbar" class="r">
   <div class="content r fjsb fas fg">
     <%= link_to image_tag('logo-horizontal.png', class: 'logo'), root_path %>
     <div class="topbar-menu r fas">
-      <%= active_link_to("Fotografias", photo_albums_path, class: 'r fac') %>
-      <%= active_link_to("Blog", blog_path, class: 'r fac') %>
+      <% active_link_to("Fotografias", photo_albums_path, class: 'r fac') %>
+      <% active_link_to("Blog", blog_path, class: 'r fac') %>
       <%= active_link_to("Contactos", contactos_path, class: 'r fac') %>
       <% if can? :manage, :all %>
         <%= active_link_to(fa_icon('cog'), admin_path, data: {turbolinks: false}, class: 'r fac') %>
