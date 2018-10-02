@@ -1,4 +1,0 @@
-
-$("body").click('#notice', function() {
-  console.log('sfasf');
-})
