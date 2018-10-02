@@ -16,7 +16,8 @@
 					<div class="day" style="<%= 'color: grey' if day.month != @month %>">
 						<span class="date"><%= day.day %></span>
 						<% @events.where(date: day.beginning_of_day..day.end_of_day).each do |event| %>
-							<%= link_to event.title, event %>
+							<%= link_to event.title, '#' %>
+							<% link_to event.title, event %>
 						<% end %>
 					</div>
 				<% end %>
