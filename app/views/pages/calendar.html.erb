@@ -2,48 +2,29 @@
 	<div class="row">
 		<div class="columns">
 			<h1><%= @year %></h1>
-			<h2><%= @month %></h2>
-			<table>
-				<thead class="hidden-for-small-only">
-					<th width="200">Segunda</th>
-					<th width="200">Terça</th>
-					<th width="200">Quarta</th>
-					<th width="200">Quinta</th>
-					<th width="200">Sexta</th>
-					<th width="200">Sábado</th>
-					<th width="200">Domingo</th>
-				</thead>
-				<thead class="hidden-for-medium-up">
-					<th width="200">Seg</th>
-					<th width="200">Ter</th>
-					<th width="200">Qua</th>
-					<th width="200">Qui</th>
-					<th width="200">Sex</th>
-					<th width="200">Sáb</th>
-					<th width="200">Dom</th>
-				</thead>
-				<tbody>
-					<% while @start < @finish %>
-						<tr>
-							<% (@start.beginning_of_week..@start.end_of_week).each do |day| %>
-								<td>
-									<% if day.month == @month %>
-										<span>
-									<% else %>
-										<span style="color: grey">
-									<% end %>
-									<%= day.day %><br>
-									<% @events.where(date: day.beginning_of_day..day.end_of_day).each do |event| %>
-										<%= link_to event.title, event %></span>
-									<% end %>
-								</td>
-							<% end %>
-						</tr>
-					<% @start = @start.next_week %>
-					<% end %>
-				</tbody>
-			</table>
-			<%= link_to 'Novo', new_event_path %>
+			<h2><%= l(@start.end_of_week, format: "%B") %></h2>
+			<div class="calendar">
+				<div class="header">Segunda</div>
+				<div class="header">Terça</div>
+				<div class="header">Quarta</div>
+				<div class="header">Quinta</div>
+				<div class="header">Sexta</div>
+				<div class="header">Sábado</div>
+				<div class="header">Domingo</div>
+
+				<% (@start..@finish).each do |day| %>
+					<div class="day" style="<%= 'color: grey' if day.month != @month %>">
+						<span class="date"><%= day.day %></span>
+						<% @events.where(date: day.beginning_of_day..day.end_of_day).each do |event| %>
+							<%= link_to event.title, event %>
+						<% end %>
+					</div>
+				<% end %>
+
+			</div>
+			<% if can? :create, Event %>
+				<%= link_to 'Novo', new_event_path %>
+			<% end %>
 		</div>
 	</div>
 </div>

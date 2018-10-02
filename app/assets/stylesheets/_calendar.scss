@@ -1,0 +1,40 @@
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 2px;
+  background-color: $main-color-light;
+  border-radius: 5px;
+  overflow: hidden;
+  filter: drop-shadow(0 2px 1px rgba(black, 0.5)) drop-shadow(0 2px 6px rgba(black, 0.2));
+
+
+  > div {
+    background-color: $white;
+  }
+
+  > .header {
+    overflow: hidden;
+    text-overflow: clip;
+    font-weight: bold;
+    padding: 4px;
+  }
+
+  > .day {
+    padding: 2px;
+    > * {
+      display: block;
+      border-width: 2px;
+      border-style: solid;
+    }
+    > .date {
+      color: $dark-gray;
+      border-color: transparent;
+    }
+    > a {
+      border-color: $highlight-color;
+      background-color: $highlight-color;
+      color: $white;
+      padding: 0 2px;
+    }
+  }
+}

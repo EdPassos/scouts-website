@@ -10,11 +10,10 @@ class Ability
     else
       unless user.new_record?
         can :read, ShoppingCartProduct
-        can :create, Person
-        can :manage, user.person
+        can :manage, Person, id: user.person.id
       end
       can :read, Adventure
-      can :manage, user
+      can :manage, User, id: user.id
       can :read, ShopProduct
       can :read, Post, draft: false
       can :read, PhotoAlbum

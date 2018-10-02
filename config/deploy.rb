@@ -50,24 +50,26 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # continue, see lib/capistrano/tasks/run_tests.cap
 set :tests, []
 
-namespace :deploy do
+set :passenger_restart_with_touch, true
 
-  after :publishing, :restart do
-    on roles(:web), in: :sequence, wait: 5 do
-      within release_path do
-        execute :rake, 'assets:clean'
-        execute :rake, 'assets:precompile'
-        execute :touch, 'tmp/restart.txt'
-      end
-    end
-  end
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      within release_path do
-      end
-    end
-  end
-
-end
+# namespace :deploy do
+#
+#   after :publishing, :restart do
+#     on roles(:web), in: :sequence, wait: 5 do
+#       within release_path do
+#         execute :rake, 'assets:clean'
+#         execute :rake, 'assets:precompile'
+#         execute :touch, 'tmp/restart.txt'
+#       end
+#     end
+#   end
+#
+#   after :restart, :clear_cache do
+#     on roles(:web), in: :groups, limit: 3, wait: 10 do
+#       # Here we can do anything such as:
+#       within release_path do
+#       end
+#     end
+#   end
+#
+# end

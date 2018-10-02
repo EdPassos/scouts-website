@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   # Admin
   get 'admin' => 'admin#index', as: :admin
 
-  scope 'admin' do 
+  scope 'admin' do
     resources :users
     resources :posts do
       collection do
@@ -72,7 +72,7 @@ Rails.application.routes.draw do
   get 'shop/:id/finalize' => 'shop_orders#finalize', as: 'finalize_order'
 
   # Calendar
-  get 'calendar/' => 'pages#calendar'
+  get 'calendario' => 'pages#calendar', as: :calendar
   get 'calendar/:year/:month' => 'pages#calendar'
   resources :events
 

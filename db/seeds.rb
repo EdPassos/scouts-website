@@ -6,18 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin = User.new email: "admin@admin.com", password: "adminpassword"
+admin = User.new email: "ed.passos@gmail.com", password: "adminpassword"
 if admin.save
   puts "Admin created"
 else
   puts "Admin creation failed!"
-  admin = User.find_by email: "admin@admin.com"
+  admin = User.find_by email: "ed.passos@gmail.com"
 end
 admin.add_role :admin
 
-ShopOrderStatus.delete_all
-ShopOrderStatus.create! id: 1, name:"Espera Pagamento", description: "Espera de envio de comprovativo de pagamento"
-ShopOrderStatus.create! id: 2, name:"Espera Verificação", description: "Comprovativo será verificado"
-ShopOrderStatus.create! id: 3, name:"Pagamento Efectuado", description: "Pagamento foi verificado. A encomenda está a ser preparada"
-ShopOrderStatus.create! id: 4, name:"Espera Levantamento", description: "A Encomenda encontra-se na secretaria do agrupamento à espera de ser levantada"
-ShopOrderStatus.create! id: 5, name:"Concluida", description: "Compra concluida e entregue"
+# ShopOrderStatus.delete_all
+# ShopOrderStatus.create! id: 1, name:"Espera Pagamento", description: "Espera de envio de comprovativo de pagamento"
+# ShopOrderStatus.create! id: 2, name:"Espera Verificação", description: "Comprovativo será verificado"
+# ShopOrderStatus.create! id: 3, name:"Pagamento Efectuado", description: "Pagamento foi verificado. A encomenda está a ser preparada"
+# ShopOrderStatus.create! id: 4, name:"Espera Levantamento", description: "A Encomenda encontra-se na secretaria do agrupamento à espera de ser levantada"
+# ShopOrderStatus.create! id: 5, name:"Concluida", description: "Compra concluida e entregue"

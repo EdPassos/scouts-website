@@ -12,6 +12,8 @@
 // Base design framework, custom styles can derive from this
 @import 'foundation_and_overrides';
 
+@import 'calendar';
+
 // External libraries
 @import 'dropzone';
 @import 'font-awesome';
